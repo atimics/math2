@@ -1,0 +1,39 @@
+name: Lean
+
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+
+env:
+  UPSTREAM_SHA: adc7f1241b42e322a6451854ab7e4b4c146bf78a
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Vendored comparators match openai/math byte for byte
+        run: |
+          git clone --filter=blob:none --no-checkout https://github.com/openai/math upstream
+          git -C upstream checkout "$UPSTREAM_SHA" -- lean/ComparatorChallenges
+          for f in Fidelity/Vendor/*.lean; do
+            diff -u "upstream/lean/ComparatorChallenges/$(basename "$f")" "$f"
+          done
+          rm -rf upstream
+
+      - uses: leanprover/lean-action@v1
+        with:
+          build: false
+          test: false
+          lint: false
+          use-mathlib-cache: true
+
+      - name: Build
+        run: lake build Corollaries Fidelity
+
+      - name: Axiom audit (no sorry, no extra axioms)
+        run: |
+          lake env lean scripts/Axioms.lean 2>&1 | tee axioms.txt
+          python3 scripts/check_axioms.py axioms.txt "$(grep -c '^#print axioms' scripts/Axioms.lean)"
