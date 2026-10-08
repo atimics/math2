@@ -20,8 +20,10 @@ consequences that combine families, then proves the strongest ones in Lean.
 implications*: "if OpenAI's statement X holds, then Y". Lean checks the step
 from X to Y. It does not check X: OpenAI's own proofs are not rebuilt here,
 the vendored comparator files contain `sorry`, and the audit confirms no
-corollary depends on them. The catalogue mixes 7 such checked implications,
-4 complete written derivations and 27 research leads, and labels each one.
+corollary depends on them. The catalogue has 12 such checked implications
+(about 80 Lean declarations), 31 complete written derivations and 5 research
+leads, and labels each one. Two independent referee agents re-checked every
+first-edition entry against the sources.
 
 > **Everything here is conditional.** OpenAI's results are claims; several
 > have no formalization, and OpenAI warns that some unformalized ones may have
@@ -55,10 +57,10 @@ of the 7/8 paper, so it would survive a flaw there.
 
 | Path | Contents |
 |---|---|
-| [`docs/COROLLARIES.md`](docs/COROLLARIES.md) | 38 entries across 289 families, plus tension checks, each tagged **L** (Lean-checked conditional implication, 7), **D** (complete written derivation, 4) or **Lead** (research lead, 27) |
+| [`docs/COROLLARIES.md`](docs/COROLLARIES.md) | 48 entries mined from all 372 families, plus tension checks, each tagged **L** (Lean-checked conditional implication, 12), **D** (complete written derivation, 31) or **Lead** (research lead, 5), with referee status |
 | `Corollaries/` | Lean library. Mathlib only, with OpenAI statements as hypotheses (`Hypotheses.lean`) |
 | `Fidelity/` | Kernel checks that those hypotheses equal OpenAI's own comparator types, plus applications to OpenAI's exact statements |
-| `Fidelity/Vendor/` | Byte-identical copies of eight `openai/math` comparator files (Apache-2.0, proofs are `sorry` upstream); CI diffs them against upstream |
+| `Fidelity/Vendor/` | Byte-identical copies of fifteen `openai/math` comparator files (Apache-2.0, proofs are `sorry` upstream); CI diffs them against upstream |
 | `Fidelity/AxiomGuard.lean`, `scripts/` | Two independent axiom audits: the Lean command `#assert_standard_axioms` fails elaboration on anything beyond `propext`, `Classical.choice` and `Quot.sound`, and `check_axioms.py` matches `#print axioms` output to the exact requested names (no duplicates, none missing, no Lean errors; self-tested in CI) |
 
 ### Lean-checked conditional implications
@@ -68,12 +70,16 @@ of the 7/8 paper, so it would survive a flaw there.
 | `real_zero_le_seven_eighths` | real zeros of nontrivial Dirichlet `L`-functions are `≤ 7/8`, for every modulus | 003 |
 | `siegel_of_sevenEighths` | OpenAI's Siegel-zero comparator, with `c = log 3 / 8` | 003 ⇒ 003′ |
 | `zeta_of_sevenEighths` | OpenAI's zeta comparator | 003 ⇒ 003″ |
-| `pi_not_liouvilleWith`, `rat_affine_pi_not_liouvilleWith`, `pi_not_liouville` | `rπ + s` is not `LiouvilleWith p` for any `p > 2`: irrationality exponent `≤ 2` (the `≥ 2` side, Dirichlet's theorem, is not formalized here) | 017 |
-| `directFiniteness_transfer` | Kaplansky's direct-finiteness counterexample survives every ring map out of OpenAI's finite field | 197 |
+| `rat_affine_pi_liouvilleWith_eq_Iic`, `rat_affine_pi_irrationalityExponent`, `mobius_pi_liouvilleWith_eq_Iic` | the Liouville exponents of `rπ + s`, and of every rational Möbius image of `π`, are exactly `(−∞, 2]`, so the irrationality exponent is exactly 2. This includes a Dirichlet lower bound (`liouvilleWith_two_of_irrational`) and `LiouvilleWith` inversion invariance, both new relative to Mathlib | 017 |
+| `directFiniteness_transfer`, `not_isStablyFiniteRing_of_kaplansky` | Kaplansky's counterexample survives every ring map out of OpenAI's finite field, and stable finiteness fails over **every** characteristic-2 field, including 𝔽₂ | 197 |
+| `not_surjunctive_of_kaplansky`, `not_surjunctive_of_finitelyPresented`, `oddKaplansky_mainClaim_iff` | each Kaplansky comparator gives a non-surjunctive group (Gottschalk fails), checked against OpenAI's own `cellular` map. The cellular conjuncts in the odd-characteristic claim are redundant | 197 |
 | `idempotent_of_directFiniteness_witness` | `ab = 1`, `ac = 0`, `c ≠ 0` ⇒ `ba` is an idempotent other than 0 and 1, so the torsion-free counterexample also breaks the idempotent conjecture in characteristic 2 | 197 ⇒ 196, 207 |
 | `zeroDivisor_group_not_leftOrderable` | OpenAI's torsion-free zero-divisor group is not left-orderable | 196 |
 | `liouville_agreement_density`, `liouville_eq_iff_parity` | `#{n ≤ X : λ(a₁n+b₁) = λ(a₂n+b₂)} = ⌊X⌋/2 + O(X/(log X)^c)`, i.e. Ω-parity agreement along affine forms has density ½ | 007 |
 | `scalar_henon_nonexistence` | scalar Hardy–Hénon Liouville theorem in the range `n − 2 < 2(n + A)/(p + 1)` | 370 |
+| `symmetric_mahler_bourgainMilman` | Bourgain–Milman with the optimal base: `vol(K)vol(K°) ≥ (2/π)ⁿκₙ²` | 087 |
+| `nagata_equal_multiplicity`, `nagata_ten_points` | equal-multiplicity Nagata; `d ≥ 3m + 1` at 10 very general points (a specialization) | 039 |
+| `twoPoint_binary_iff_ordinaryElliott`, `ostmann_main_iff_inverseGoldbach` | OpenAI formalized the same theorems twice: two Elliott comparators are equivalent, and two Ostmann comparators are identical | 007, 013 |
 
 ## Corrections to earlier claims
 
@@ -85,8 +91,8 @@ in the docs.
 
 ## Coverage and limits
 
-- Mined: 289 of 372 families. **Not yet mined:** theoretical computer science,
-  combinatorics and logic (83 families).
+- All 372 families mined. Entries from the final pass (theoretical computer
+  science, combinatorics, logic) are marked "not yet refereed".
 - An external review of commit `77ab999` found four issues: the audit matched counts rather than names, the old "W" tier overstated sketches, the animation's wording omitted conditionality, and the π statement overclaimed. All four are fixed; details are at the end of `docs/COROLLARIES.md`.
 - Lean status is whatever CI says. A corollary counts as checked only when the
   workflow is green on the commit you're reading.

@@ -88,7 +88,6 @@ import Fidelity.AxiomGuard
 #assert_standard_axioms Corollaries.liouvilleWith_mobius_iff
 #assert_standard_axioms Corollaries.inv_pi_not_liouvilleWith
 #assert_standard_axioms Corollaries.mobius_pi_not_liouvilleWith
-#assert_standard_axioms Corollaries.gives
 #assert_standard_axioms Corollaries.liouvilleWith_two_of_irrational
 #assert_standard_axioms Corollaries.liouvilleWith_of_irrational_of_le_two
 #assert_standard_axioms Corollaries.rat_affine_pi_liouvilleWith_eq_Iic
@@ -168,7 +167,6 @@ import Fidelity.AxiomGuard
 #print axioms Corollaries.liouvilleWith_mobius_iff
 #print axioms Corollaries.inv_pi_not_liouvilleWith
 #print axioms Corollaries.mobius_pi_not_liouvilleWith
-#print axioms Corollaries.gives
 #print axioms Corollaries.liouvilleWith_two_of_irrational
 #print axioms Corollaries.liouvilleWith_of_irrational_of_le_two
 #print axioms Corollaries.rat_affine_pi_liouvilleWith_eq_Iic
