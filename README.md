@@ -45,6 +45,7 @@ through family 029's Hecke theorem, is in the docs (NT-3).
 | Path | Contents |
 |---|---|
 | [`docs/COROLLARIES.md`](docs/COROLLARIES.md) | 38 corollaries and redundancies, plus tension checks, across 289 families, each tagged by evidence tier (Lean / written / written-with-unchecked-bridge) |
+| [`docs/RESEARCH_PRIORITIES.md`](docs/RESEARCH_PRIORITIES.md) | Six research-agenda consequences with written derivations, classical references, and concrete follow-up targets |
 | `Corollaries/` | Lean library. Mathlib only, with OpenAI statements as hypotheses (`Hypotheses.lean`) |
 | `Fidelity/` | Kernel checks that those hypotheses equal OpenAI's own comparator types, plus applications to OpenAI's exact statements |
 | `Fidelity/Vendor/` | Byte-identical copies of six `openai/math` comparator files (Apache-2.0); CI diffs them against upstream |
