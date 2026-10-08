@@ -1,6 +1,10 @@
 # math2 — cross-family corollaries of openai/math
 
-[![Lean](https://github.com/atimics/math2/actions/workflows/lean.yml/badge.svg)](https://github.com/atimics/math2/actions/workflows/lean.yml)
+[![The Theorem That Was Already There — a 38-second tale](media/math2-tale.gif)](media/math2-tale.mp4)
+
+*Click for the version with sound. Lean status: see the
+[Lean workflow](https://github.com/atimics/math2/actions/workflows/lean.yml) runs.
+`media/render.py` regenerates the animation.*
 
 What follows from combining the 722 AI-generated manuscripts in
 [openai/math](https://github.com/openai/math) (snapshot
