@@ -121,6 +121,13 @@ lake build Corollaries Fidelity
 lake env lean scripts/Axioms.lean
 ```
 
+## Engineering experiments
+
+[`experiments/quota/`](experiments/quota/README.md) compares dense, routing-network,
+and per-vertex hybrid degree-quota reductions with the same exact matching backend.
+It includes independent witness checks and measured results: smaller `V+E` did
+not produce faster solves in this pilot. Dense remains the default.
+
 ## License
 
 Apache-2.0. Files under `Fidelity/Vendor/` are © OpenAI, from
