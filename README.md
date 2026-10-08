@@ -60,6 +60,7 @@ of the 7/8 paper, so it would survive a flaw there.
 | `Fidelity/` | Kernel checks that those hypotheses equal OpenAI's own comparator types, plus applications to OpenAI's exact statements |
 | `Fidelity/Vendor/` | Byte-identical copies of eight `openai/math` comparator files (Apache-2.0, proofs are `sorry` upstream); CI diffs them against upstream |
 | `Fidelity/AxiomGuard.lean`, `scripts/` | Two independent axiom audits: the Lean command `#assert_standard_axioms` fails elaboration on anything beyond `propext`, `Classical.choice` and `Quot.sound`, and `check_axioms.py` matches `#print axioms` output to the exact requested names (no duplicates, none missing, no Lean errors; self-tested in CI) |
+| [`docs/ENGINEERING_SELECTION.md`](docs/ENGINEERING_SELECTION.md) | Workload and baseline screening, plus an executable small-network sampler with a conditional finite-step bias guarantee in [`experiments/curveball/`](experiments/curveball/README.md) |
 
 ### Lean-checked conditional implications
 
