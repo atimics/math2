@@ -33,7 +33,7 @@ theorem commute_map_diagonal (A : Matrix (Fin m) (Fin m) L) (s : MonoidAlgebra L
     Commute (A.map (MonoidAlgebra.singleOneRingHom : L →+* MonoidAlgebra L G))
       (Matrix.diagonal fun _ => s) := by
   show _ * _ = _ * _
-  ext i j
+  refine Matrix.ext fun i j => ?_
   rw [Matrix.mul_diagonal, Matrix.diagonal_mul, Matrix.map_apply]
   exact (MonoidAlgebra.single_commute (fun g => Commute.one_left g)
     (fun r => Commute.all (A i j) r) s).eq

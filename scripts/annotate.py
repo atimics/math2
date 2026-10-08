@@ -2,15 +2,17 @@
 import re, sys
 
 log = open(sys.argv[1], encoding="utf-8", errors="replace").read().splitlines()
-pat = re.compile(r"^(?:error: )?([\w./-]+\.lean):(\d+):(\d+): error: ?(.*)$")
+# Lake prints either "error: FILE:L:C: msg" or "FILE:L:C: error: msg".
+pat = re.compile(r"^(?:error: ([\w./-]+\.lean):(\d+):(\d+): ?(.*)|([\w./-]+\.lean):(\d+):(\d+): error: ?(.*))$")
 i, n = 0, 0
 while i < len(log):
     m = pat.match(log[i].strip())
     if m:
-        f, line, col, msg = m.groups()
+        g = m.groups()
+        f, line, col, msg = g[0:4] if g[0] else g[4:8]
         body = [msg]
         j = i + 1
-        while j < len(log) and not pat.match(log[j].strip()) and not log[j].startswith(("✔", "⚠", "✖", "info:", "Some required")):
+        while j < len(log) and not pat.match(log[j].strip()) and not log[j].startswith(("✔", "⚠", "✖", "info:", "Some required", "warning:", "trace:")):
             body.append(log[j])
             j += 1
         text = "%0A".join(x.replace("%", "%25").replace("\r", "") for x in body)[:3500]
