@@ -1,5 +1,7 @@
 # math2 — cross-family corollaries of openai/math
 
+[![Lean](https://github.com/atimics/math2/actions/workflows/lean.yml/badge.svg)](https://github.com/atimics/math2/actions/workflows/lean.yml)
+
 What follows from combining the 722 AI-generated manuscripts in
 [openai/math](https://github.com/openai/math) (snapshot
 [`adc7f12`](https://github.com/openai/math/tree/adc7f1241b42e322a6451854ab7e4b4c146bf78a)),
