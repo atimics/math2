@@ -2,7 +2,7 @@
 
 This note takes the statements in [openai/math at adc7f12][corpus] as premises.
 It asks which consequences change the problems researchers should pursue.
-Each derivation below is **W** in the [catalogue's evidence tiers](COROLLARIES.md#evidence-tiers):
+Each derivation below is **D** in the [catalogue's evidence tiers](COROLLARIES.md#evidence-tiers):
 a written implication using a corpus premise and cited classical results.
 None is newly Lean-checked here. The proposed research questions are separate
 from the deductions; they are not assertions that those questions remain open

@@ -48,6 +48,13 @@ jobs:
       - name: Axiom checker self-test
         run: python3 scripts/check_axioms.py --self-test
 
+      - name: Axiom guard rejects sorry (negative test)
+        run: |
+          if lake env lean scripts/GuardNegative.lean > guard_neg.txt 2>&1; then
+            echo "::error file=scripts/GuardNegative.lean::guard accepted a sorry"; exit 1
+          fi
+          grep -q "non-standard axioms: \[sorryAx\]" guard_neg.txt
+
       - name: Axiom audit (exact names, no sorry, no extra axioms)
         run: |
           set -o pipefail
