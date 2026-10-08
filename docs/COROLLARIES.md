@@ -63,9 +63,13 @@ Neither is stated.
 - **Statement.** Koymans–Smith (arXiv:2405.09311, Cor 1.8) assume "`r₃ = 1` ⇒ rank 1". Family 002's Selmer `p`-converse at `p = 3`, via Cassels–Tate parity, supplies that assumption.
 - **Unchecked.** Their normalisations, and `dim E′(ℚ)[3] = 1` for every `n`.
 
-### NT-9 · BSD for at least 83.75% of elliptic curves ordered by height · **W?**
-- **Statement.** If Bhargava–Shankar's 83.75% is a proportion with `dim Sel₅ ≤ 1`, family 002's hypothesis-free corank-≤1 converse upgrades it to full BSD. The best previous proportion is 66% (Bhargava–Skinner–Zhang).
-- **Hinges on.** The Bhargava–Shankar normalisation, which we could not open (the network proxy blocked it).
+<a id="nt-9"></a>
+
+### NT-9 · BSD for at least 83.75% of elliptic curves ordered by height · **W**
+- **Statement.** Assuming family 002's full BSD theorem from low Selmer corank, the full formula holds for a set of elliptic curves over ℚ of lower density at least 83.75%, ordered by Bhargava–Shankar's height.
+- **Classical input.** [Bhargava–Shankar, arXiv:1312.7859](https://arxiv.org/pdf/1312.7859), Propositions 38(b), 40(b), and the proof of Theorems 3–5 (printed pp. 27–29), give a lower density with 5-Selmer dimension at most one of at least `0.5501 × 7/8 + 0.4499 × 19/24 > 0.8375`.
+- **Bridge.** Finite-level Kummer theory gives `corank Sel₅∞ ≤ dim Sel₅`. Family 002 then supplies the full formula on this subfamily. The classical rank-density theorem alone would not suffice; its proof's Selmer bounds supply the needed stronger input.
+- **Derivation and research implications.** [Research priorities, RP-4](RESEARCH_PRIORITIES.md#rp-4-full-bsd-in-analytic-low-rank-and-a-height-density-consequence). This is a written deduction, not a new Lean formalization.
 
 ### NT-10 · Congruent numbers · **W** (known given the corpus input)
 Smith's corank results plus the corpus 2-converse give the following:
