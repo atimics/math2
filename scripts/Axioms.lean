@@ -2,6 +2,11 @@ import Corollaries
 import Fidelity.Checks
 import Fidelity.Henon
 import Fidelity.Parity
+import Fidelity.StableFiniteness
+import Fidelity.Nagata
+import Fidelity.MahlerBounds
+import Fidelity.Surjunctivity
+import Fidelity.Redundancies
 import Fidelity.AxiomGuard
 
 /-! Axiom audit, two independent layers:
@@ -29,6 +34,66 @@ import Fidelity.AxiomGuard
 #assert_standard_axioms Fidelity.liouville_eq_one_or_neg_one
 #assert_standard_axioms Fidelity.liouville_eq_iff_parity
 #assert_standard_axioms Fidelity.liouville_agreement_density
+#assert_standard_axioms Fidelity.distanceSq_eq_squaredDistance
+#assert_standard_axioms Fidelity.uniformlyNonpretentious_twoPoint_of_ordinary
+#assert_standard_axioms Fidelity.uniformlyNonpretentious_ordinary_of_twoPoint
+#assert_standard_axioms Fidelity.zeroAtZero_oneBounded
+#assert_standard_axioms Fidelity.zeroAtZero_multiplicative
+#assert_standard_axioms Fidelity.squaredDistance_zeroAtZero
+#assert_standard_axioms Fidelity.zeroAtZero_uniformlyNonpretentious
+#assert_standard_axioms Fidelity.correlationSum_zeroAtZero
+#assert_standard_axioms Fidelity.ordinaryElliott_of_twoPoint
+#assert_standard_axioms Fidelity.twoPoint_of_ordinaryElliott
+#assert_standard_axioms Fidelity.twoPoint_binary_iff_ordinaryElliott
+#assert_standard_axioms Fidelity.binary_of_affine_corrected_elliott
+#assert_standard_axioms Fidelity.ordinaryElliott_of_affine_corrected_elliott
+#assert_standard_axioms Fidelity.ostmann_main_iff_inverseGoldbach
+#assert_standard_axioms Fidelity.twoInfiniteSummandsImpossible_of_inverseGoldbach
+#assert_standard_axioms Fidelity.twoInfiniteSummandsImpossible_of_ostmannMain
+#assert_standard_axioms Fidelity.cellular_zero
+#assert_standard_axioms Fidelity.cellular_add
+#assert_standard_axioms Fidelity.cellular_single
+#assert_standard_axioms Fidelity.cellular_one
+#assert_standard_axioms Fidelity.cellular_shift
+#assert_standard_axioms Fidelity.cellular_single_mul
+#assert_standard_axioms Fidelity.cellular_mul
+#assert_standard_axioms Fidelity.cellular_delta
+#assert_standard_axioms Fidelity.eq_of_cellular_eq
+#assert_standard_axioms Fidelity.cellular_leftInverse
+#assert_standard_axioms Fidelity.cellular_injective_of_mul_eq_one
+#assert_standard_axioms Fidelity.mul_eq_one_of_surjective
+#assert_standard_axioms Fidelity.cellular_injective_not_surjective
+#assert_standard_axioms Fidelity.cellular_isCellularAutomaton
+#assert_standard_axioms Fidelity.oddKaplansky_mainClaim_iff
+#assert_standard_axioms Fidelity.not_surjunctive_of_kaplansky
+#assert_standard_axioms Fidelity.not_surjunctive_of_finitelyPresented
+#assert_standard_axioms Fidelity.not_surjunctive_of_oddKaplansky
+#assert_standard_axioms Fidelity.factorial_le_two_pow_mul_Gamma_sq
+#assert_standard_axioms Fidelity.two_pow_div_Gamma_sq_eq
+#assert_standard_axioms Fidelity.symmetric_mahler_gamma
+#assert_standard_axioms Fidelity.symmetric_mahler_bourgainMilman
+#assert_standard_axioms Fidelity.mul_sqrt_lt_of_mul_lt
+#assert_standard_axioms Fidelity.nagata_equal_multiplicity
+#assert_standard_axioms Fidelity.nagata_sqrt_floor
+#assert_standard_axioms Fidelity.nagata_ten_points
+#assert_standard_axioms Fidelity.commute_map_diagonal
+#assert_standard_axioms Fidelity.matrixLift_coeff
+#assert_standard_axioms Fidelity.matrixLift_injective
+#assert_standard_axioms Fidelity.exists_injective_ringHom_matrix
+#assert_standard_axioms Fidelity.not_isStablyFiniteRing_of_kaplansky
+#assert_standard_axioms Fidelity.not_isStablyFiniteRing_zmod_two_of_kaplansky
+#assert_standard_axioms Corollaries.liouvilleWith_inv_of_pos
+#assert_standard_axioms Corollaries.liouvilleWith_inv
+#assert_standard_axioms Corollaries.liouvilleWith_inv_iff
+#assert_standard_axioms Corollaries.liouvilleWith_mobius_iff
+#assert_standard_axioms Corollaries.inv_pi_not_liouvilleWith
+#assert_standard_axioms Corollaries.mobius_pi_not_liouvilleWith
+#assert_standard_axioms Corollaries.gives
+#assert_standard_axioms Corollaries.liouvilleWith_two_of_irrational
+#assert_standard_axioms Corollaries.liouvilleWith_of_irrational_of_le_two
+#assert_standard_axioms Corollaries.rat_affine_pi_liouvilleWith_eq_Iic
+#assert_standard_axioms Corollaries.rat_affine_pi_irrationalityExponent
+#assert_standard_axioms Corollaries.mobius_pi_liouvilleWith_eq_Iic
 
 #print axioms Corollaries.real_zero_le_seven_eighths
 #print axioms Corollaries.siegel_explicit
@@ -49,3 +114,63 @@ import Fidelity.AxiomGuard
 #print axioms Fidelity.liouville_eq_one_or_neg_one
 #print axioms Fidelity.liouville_eq_iff_parity
 #print axioms Fidelity.liouville_agreement_density
+#print axioms Fidelity.distanceSq_eq_squaredDistance
+#print axioms Fidelity.uniformlyNonpretentious_twoPoint_of_ordinary
+#print axioms Fidelity.uniformlyNonpretentious_ordinary_of_twoPoint
+#print axioms Fidelity.zeroAtZero_oneBounded
+#print axioms Fidelity.zeroAtZero_multiplicative
+#print axioms Fidelity.squaredDistance_zeroAtZero
+#print axioms Fidelity.zeroAtZero_uniformlyNonpretentious
+#print axioms Fidelity.correlationSum_zeroAtZero
+#print axioms Fidelity.ordinaryElliott_of_twoPoint
+#print axioms Fidelity.twoPoint_of_ordinaryElliott
+#print axioms Fidelity.twoPoint_binary_iff_ordinaryElliott
+#print axioms Fidelity.binary_of_affine_corrected_elliott
+#print axioms Fidelity.ordinaryElliott_of_affine_corrected_elliott
+#print axioms Fidelity.ostmann_main_iff_inverseGoldbach
+#print axioms Fidelity.twoInfiniteSummandsImpossible_of_inverseGoldbach
+#print axioms Fidelity.twoInfiniteSummandsImpossible_of_ostmannMain
+#print axioms Fidelity.cellular_zero
+#print axioms Fidelity.cellular_add
+#print axioms Fidelity.cellular_single
+#print axioms Fidelity.cellular_one
+#print axioms Fidelity.cellular_shift
+#print axioms Fidelity.cellular_single_mul
+#print axioms Fidelity.cellular_mul
+#print axioms Fidelity.cellular_delta
+#print axioms Fidelity.eq_of_cellular_eq
+#print axioms Fidelity.cellular_leftInverse
+#print axioms Fidelity.cellular_injective_of_mul_eq_one
+#print axioms Fidelity.mul_eq_one_of_surjective
+#print axioms Fidelity.cellular_injective_not_surjective
+#print axioms Fidelity.cellular_isCellularAutomaton
+#print axioms Fidelity.oddKaplansky_mainClaim_iff
+#print axioms Fidelity.not_surjunctive_of_kaplansky
+#print axioms Fidelity.not_surjunctive_of_finitelyPresented
+#print axioms Fidelity.not_surjunctive_of_oddKaplansky
+#print axioms Fidelity.factorial_le_two_pow_mul_Gamma_sq
+#print axioms Fidelity.two_pow_div_Gamma_sq_eq
+#print axioms Fidelity.symmetric_mahler_gamma
+#print axioms Fidelity.symmetric_mahler_bourgainMilman
+#print axioms Fidelity.mul_sqrt_lt_of_mul_lt
+#print axioms Fidelity.nagata_equal_multiplicity
+#print axioms Fidelity.nagata_sqrt_floor
+#print axioms Fidelity.nagata_ten_points
+#print axioms Fidelity.commute_map_diagonal
+#print axioms Fidelity.matrixLift_coeff
+#print axioms Fidelity.matrixLift_injective
+#print axioms Fidelity.exists_injective_ringHom_matrix
+#print axioms Fidelity.not_isStablyFiniteRing_of_kaplansky
+#print axioms Fidelity.not_isStablyFiniteRing_zmod_two_of_kaplansky
+#print axioms Corollaries.liouvilleWith_inv_of_pos
+#print axioms Corollaries.liouvilleWith_inv
+#print axioms Corollaries.liouvilleWith_inv_iff
+#print axioms Corollaries.liouvilleWith_mobius_iff
+#print axioms Corollaries.inv_pi_not_liouvilleWith
+#print axioms Corollaries.mobius_pi_not_liouvilleWith
+#print axioms Corollaries.gives
+#print axioms Corollaries.liouvilleWith_two_of_irrational
+#print axioms Corollaries.liouvilleWith_of_irrational_of_le_two
+#print axioms Corollaries.rat_affine_pi_liouvilleWith_eq_Iic
+#print axioms Corollaries.rat_affine_pi_irrationalityExponent
+#print axioms Corollaries.mobius_pi_liouvilleWith_eq_Iic

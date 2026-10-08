@@ -1,4 +1,9 @@
 import Fidelity.Checks
 import Fidelity.Henon
 import Fidelity.Parity
+import Fidelity.Redundancies
+import Fidelity.Surjunctivity
+import Fidelity.MahlerBounds
+import Fidelity.Nagata
+import Fidelity.StableFiniteness
 import Fidelity.AxiomGuard
