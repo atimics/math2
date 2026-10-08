@@ -2,9 +2,9 @@
 
 [![The Theorem That Was Already There — a 38-second tale](media/math2-tale.gif)](media/math2-tale.mp4)
 
-*Click for the version with sound. Lean status: see the
-[Lean workflow](https://github.com/atimics/math2/actions/workflows/lean.yml) runs.
-`media/render.py` regenerates the animation.*
+*Click for the version with sound. `media/render.py` regenerates the animation.*
+
+[![Lean](https://github.com/atimics/math2/actions/workflows/lean.yml/badge.svg)](https://github.com/atimics/math2/actions/workflows/lean.yml)
 
 What follows from combining the 722 AI-generated manuscripts in
 [openai/math](https://github.com/openai/math) (snapshot
