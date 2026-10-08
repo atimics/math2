@@ -100,6 +100,13 @@ in the docs.
   not a literature search, and several items are already known once you grant
   the corpus input (marked in the docs).
 
+### Earlier AI results and successor problems
+
+[`docs/CDC_RESEARCH_AGENDA.md`](docs/CDC_RESEARCH_AGENDA.md) tracks what the
+July Cycle Double Cover breakthrough settles and which sharper problems remain:
+five-cover compression, orientations and flows, connected-cycle counts, and
+matroid boundaries. This separate dossier does not change the catalogue counts.
+
 ## Building
 
 ```sh
