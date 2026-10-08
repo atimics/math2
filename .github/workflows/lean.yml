@@ -31,7 +31,13 @@ jobs:
           use-mathlib-cache: true
 
       - name: Build
-        run: lake build Corollaries Fidelity
+        run: |
+          set -o pipefail
+          lake build Corollaries Fidelity 2>&1 | tee build.log || {
+            # Surface every Lean error as an annotation (readable via the checks API).
+            python3 scripts/annotate.py build.log
+            exit 1
+          }
 
       - name: Axiom audit (no sorry, no extra axioms)
         run: |
