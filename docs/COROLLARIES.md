@@ -487,14 +487,15 @@ Assume OpenAI's `PiExponent.main`.
   - 107 sits below the Christandl–Le Gall–Lysikov–Zuiddam cap on `α`.
   - 138 is consistent with ETH and with the Abboud–Bringmann–Hermelin–Shabtay bound.
 
-### Lean target (low novelty)
-- Family 126's comparators imply a superpolynomial form of Rothvoss's LP extension-complexity bound, via diagonal matrices.
+### Lean confirmation (low novelty)
+- Family 126's affine-lift comparator implies a superpolynomial lower bound on LP lifts of the perfect-matching polytope: an LP lift is a diagonal PSD lift. This is weaker than Rothvoss's exponential bound. Lean: `Fidelity.hasAffineLift_of_hasLPLift`, `Fidelity.lp_lift_lower_bound`.
+- The nonnegative-rank analogue is drafted but not built: `MatchingPSD.lean` and `MatchingAffineLift.lean` declare the same names, so they cannot be vendored together.
 
 ---
 
 ## Combinatorics and logic · refereed
 
-### CL-1 · Algebraic coordinates: Euclidean-Ramsey ⇔ spherical · **D** (spherical ⇒ Ramsey direction: Lean target, see below)
+### CL-1 · Algebraic coordinates: Euclidean-Ramsey ⇔ spherical · **L** (new direction) · refereed
 - **Premises.**
   - 172, `EuclideanRamsey.lean` `classification`: assume `2 ≤ s`, `1 ≤ d`, injective `a`, and `affineSpan ℝ (range a) = ⊤`. Then `a` is Ramsey iff some `P ∈ Mat_{Option (Fin d)}(F ⊗_ℚ F)` satisfies `Σ_{α,β} (p_iα ⊗ 1) P_αβ (1 ⊗ p_iβ) = 0` for all `i`, together with `m_F(P_αβ) = δ_αβ` for spatial `α, β`. Here `F` is the coordinate field.
   - The forward direction, Ramsey ⇒ spherical, is classical (Erdős–Graham–Montgomery–Rothschild–Spencer–Straus 1973, Thm 13); 172 also states it.
@@ -509,14 +510,20 @@ Assume OpenAI's `PiExponent.main`.
   - Pálvölgyi's heptagon (arXiv:2609.23327).
 
   This fits the mechanism: the obstructions come from derivations, and a number field has none.
+- **Lean.**
+  - `Fidelity.ramsey_of_cospherical_of_algebraic` proves spherical ⇒ Ramsey for algebraic coordinates, from OpenAI's `classification` alone (kernel-checked hypothesis). Helpers: `exists_sphere_coeffs`, `fieldCriterion_of_sphere`.
+  - `ramsey_iff_cospherical_of_algebraic` is the ⇔ form. Its forward direction is taken as a hypothesis restated from `EuclideanRamseySpherical.lean`. That file cannot be vendored next to `EuclideanRamsey.lean` (both declare `OAI.EuclideanRamsey.Ramsey`), so this one hypothesis is not kernel-checked against OpenAI's file.
 - **Unstated.** Neither the corpus nor the literature the referee could search states it.
 
-### CL-2 · Consecutive off-diagonal Ramsey ratios: the sharp logarithmic exponent · **D**
+### CL-2 · Consecutive off-diagonal Ramsey ratios: the sharp logarithmic exponent · **L** · refereed
 - **Premise.** 170: `SharpLogRamsey.lean` `MainLimit s` for `s ≥ 6`, and `RamseyFive.lean` for `s = 5`. `MainLimit s` is `((s−1) log t − log r(s,t)) / log log t → s − 2`.
 - **Statement.** For `s ≥ 5`, `r(s+1,t)/r(s,t) = t/(log t)^{1+o(1)}`. With `MainBounds`, for every `ε > 0` and all large `t`:
 
   `t/(C_s (log t)^{1+ε}) ≤ r(s+1,t)/r(s,t) ≤ C_{s+1}·t/(log t)^{1−ε}`.
 - **Derivation.** Subtract `MainLimit s` from `MainLimit (s+1)`. The limits differ by `(s−1) − (s−2) = 1`.
+- **Lean.**
+  - `Fidelity.ramsey_log_ratio` (`s ≥ 6`) and `ramsey_log_ratio_five` (`s = 5`, after proving the two comparators' `ramsey` functions agree);
+  - `ramsey_ratio_tendsto_atTop`, `ramsey_ratio_five_tendsto_atTop`.
 - **Already known without the corpus.** The weaker facts that the ratio is `t^{1+o(1)}` and tends to infinity, for every `s ≥ 2`, follow from Bradač (arXiv:2605.28793) together with Ajtai–Komlós–Szemerédi. Only the `1 + o(1)` exponent on the logarithm, for `s ≥ 5`, needs 170.
 - **Not the same as** Erdős problem #1014, which is about `R(k, l+1)/R(k, l) → 1`.
 
@@ -550,9 +557,9 @@ Assume OpenAI's `PiExponent.main`.
 - 189, 165 vs known small values.
 - **Dependency note.** 004 cites corpus papers by path. Fontaine–Mazur modularity at 2 (family 010) is an essential input ("The modularity input is [Thm 1.1]…"). The family-006 Goldfeld/2-converse paper appears only in a remark, as an optional replacement. So 004 depends on 010 but not on 006.
 
-### Lean targets whose content the corpus already states
-- Green–Tao from `ErdosReciprocal` and Mathlib's `Σ 1/p = ∞`.
-- `χ(ℝ²) ∈ {6, 7}` from the two plane-colouring comparators.
+### Lean confirmations of content the corpus already states (not counted as corollaries)
+- **Green–Tao.** The primes contain arbitrarily long arithmetic progressions, with first term above any bound. This follows from OpenAI's `ErdosReciprocal` comparator and Mathlib's `Σ 1/p = ∞`. Lean: `Fidelity.green_tao`, `green_tao_above`, `green_tao_infinite`. The paper says so in prose; the comparator does not state it.
+- **The chromatic number of the plane is 6 or 7**, in both comparator formulations (ℂ and `EuclideanSpace ℝ (Fin 2)`). Lean: `Fidelity.planeChromaticNumber_eq_six_or_seven`, `complexChromaticNumber_eq_planeChromaticNumber`.
 
 ---
 
@@ -580,11 +587,11 @@ Assume OpenAI's `PiExponent.main`.
 | Analysis, geometry, physics | GE-1, GE-8, GE-11 | GE-2, GE-3, GE-4, GE-5, GE-6, GE-7, GE-9 | GE-10 |
 | Redundant comparators | RD-1, RD-2 | — | — |
 | Theoretical CS | — | TC-1, TC-2, TC-3, TC-4, TC-5 | — |
-| Combinatorics, logic | — | CL-1, CL-2, CL-3, CL-4 | CL-5 |
-| **Total** | **12** | **31** | **5** |
+| Combinatorics, logic | CL-1, CL-2 | CL-3, CL-4 | CL-5 |
+| **Total (50)** | **14** | **31** | **5** |
 
 Some entries are not new to the literature even though they are correct:
-- **D, known once the corpus input is granted:** GR-8, GE-5, GE-6.
+- **D, known once the corpus input is granted:** GR-8, GE-5, GE-6, TC-3, CL-3; TC-1's implication is already published (Dinur–Mossel–Regev).
 - **L, not new mathematics:** GE-11, GR-11.
 
 Each of these entries says so.
@@ -602,3 +609,12 @@ Each of these entries says so.
   - Two citations were corrected: GR-8 (Isono) and GR-9 (Davis–Leary).
   - Three items moved to "already in the corpus/literature": old NT-10, old AG-3 and most of AG-1.
   - About 25 entries were upgraded from Lead to D, with full derivations.
+- **Second referee pass (two agents) on the final-pass entries (TC, CL).**
+  - Nothing was found wrong.
+  - Corrections:
+    - TC-1's ECCC citation (TR18-077 is Barak–Kothari–Steurer; Khot–Minzer–Safra is TR18-006), and the note that DMR Thm A.3 already gives the implication;
+    - TC-4 is for directed graphs, with exact `μ*` and a verified improvement over `μ < 0.5275`;
+    - TC-5's bit-length accounting;
+    - CL-3 is CGLMS 2016 Cor 3.8;
+    - CL-2's weaker forms follow from Bradač + AKS;
+    - 004 depends on family 010, not on 006.

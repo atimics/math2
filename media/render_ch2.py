@@ -195,15 +195,15 @@ def scene_gottschalk(d, t):  # 8 s
 
 def scene_referees(d, t):  # 7 s
     background(d, t + 30)
-    for i in range(38):  # the stack of first-edition entries
-        x, y = 180 + (i % 13) * 46, 110 + (i // 13) * 70
-        d.rounded_rectangle([x - 18, y - 24, x + 18, y + 24], 5, fill=(255, 252, 242), outline=INK, width=2)
-        if t > 0.8 + i * 0.05:
+    for i in range(50):  # every catalogue entry
+        x, y = 128 + (i % 17) * 42, 110 + (i // 17) * 70
+        d.rounded_rectangle([x - 16, y - 24, x + 16, y + 24], 5, fill=(255, 252, 242), outline=INK, width=2)
+        if t > 0.8 + i * 0.04:
             d.text((x - 7, y - 14), "✓", font=SANS_B(20), fill=TEAL)
     sweep = lerp(120, 840, ease((t - 0.6) / 2.6))
     agent(d, sweep, 330, t, ZERO, r=22, look=1, glass=True)
     agent(d, sweep - 70, 360, t, LEAF, r=20, look=1, phase=1.3, glass=True)
-    stamps = [("0 wrong", TEAL), ("2 citations fixed", PLUM), ("~25 upgraded to D", CORAL)]
+    stamps = [("0 wrong", TEAL), ("4 citations fixed", PLUM), ("~25 upgraded to D", CORAL)]
     for i, (s, c) in enumerate(stamps):
         k = ease((t - 3.2 - i * 0.6) / 0.4)
         if k > 0:
@@ -211,13 +211,13 @@ def scene_referees(d, t):  # 7 s
             w = d.textlength(s, font=SANS_B(22)) + 30
             d.rounded_rectangle([x - w / 2, 405, x + w / 2, 450], 10, outline=c, width=4)
             text_c(d, (x, 414), s, SANS_B(22), c)
-    text_c(d, (W / 2, 470), "two independent referees re-checked every first-edition entry", SANS(17), INK)
+    text_c(d, (W / 2, 470), "independent referees re-checked every entry", SANS(17), INK)
 
 def scene_end(d, t):  # 6 s
     background(d, t + 37)
     d.rounded_rectangle([120, 70, 840, 470], 30, fill=(255, 252, 242), outline=INK, width=4)
     text_c(d, (W / 2, 96), "after the fan-out", SANS(22), PLUM)
-    items = [("12", "Lean-checked", "implications", TEAL), ("31", "complete written", "derivations", CORAL),
+    items = [("14", "Lean-checked", "implications", TEAL), ("31", "complete written", "derivations", CORAL),
              ("5", "research", "leads", GOLD)]
     for i, (n, a, b, c) in enumerate(items):
         k = ease((t - 0.4 - i * 0.3) / 0.5)

@@ -235,7 +235,7 @@ def scene_end(d, t):  # 33..38s
     text_c(d, (W / 2, 180), "check how your theorems talk to each other", SERIF_B(27), INK)
     if t > 1.6:
         text_c(d, (W / 2, 352), "upstream claims assumed · all 372 families mined", SANS(16), PLUM)
-    items = [("12", "Lean-checked implications"), ("31", "written derivations"), ("5", "research leads")]
+    items = [("14", "Lean-checked implications"), ("31", "written derivations"), ("5", "research leads")]
     for i, (n, lab) in enumerate(items):
         k = ease((t - 0.6 - i * 0.35) / 0.5)
         x = 260 + i * 220

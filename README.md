@@ -23,10 +23,10 @@ consequences that combine families, then proves the strongest ones in Lean.
 implications*: "if OpenAI's statement X holds, then Y". Lean checks the step
 from X to Y. It does not check X: OpenAI's own proofs are not rebuilt here,
 the vendored comparator files contain `sorry`, and the audit confirms no
-corollary depends on them. The catalogue has 12 such checked implications
-(about 80 Lean declarations), 31 complete written derivations and 5 research
-leads, and labels each one. Two independent referee agents re-checked every
-first-edition entry against the sources.
+corollary depends on them. The catalogue has 14 such checked implications,
+31 complete written derivations and 5 research leads, and labels each one.
+In all there are 116 audited Lean declarations. Independent referee agents
+re-checked every entry against the sources.
 
 > **Everything here is conditional.** OpenAI's results are claims; several
 > have no formalization, and OpenAI warns that some unformalized ones may have
@@ -60,11 +60,11 @@ of the 7/8 paper, so it would survive a flaw there.
 
 | Path | Contents |
 |---|---|
-| [`docs/COROLLARIES.md`](docs/COROLLARIES.md) | 48 entries mined from all 372 families, plus tension checks, each tagged **L** (Lean-checked conditional implication, 12), **D** (complete written derivation, 31) or **Lead** (research lead, 5), with referee status |
+| [`docs/COROLLARIES.md`](docs/COROLLARIES.md) | 50 entries mined from all 372 families, plus tension checks, each tagged **L** (Lean-checked conditional implication, 14), **D** (complete written derivation, 31) or **Lead** (research lead, 5); every entry refereed |
 | [`docs/RESEARCH_PRIORITIES.md`](docs/RESEARCH_PRIORITIES.md) | Six research-agenda consequences (RP-1 … RP-6) with written derivations, classical references and follow-up targets; RP-4 is the full derivation behind NT-9 |
 | `Corollaries/` | Lean library. Mathlib only, with OpenAI statements as hypotheses (`Hypotheses.lean`) |
 | `Fidelity/` | Kernel checks that those hypotheses equal OpenAI's own comparator types, plus applications to OpenAI's exact statements |
-| `Fidelity/Vendor/` | Byte-identical copies of fifteen `openai/math` comparator files (Apache-2.0, proofs are `sorry` upstream); CI diffs them against upstream |
+| `Fidelity/Vendor/` | Byte-identical copies of twenty-two `openai/math` comparator files (Apache-2.0, proofs are `sorry` upstream); CI diffs them against upstream |
 | `Fidelity/AxiomGuard.lean`, `scripts/` | Two independent axiom audits: the Lean command `#assert_standard_axioms` fails elaboration on anything beyond `propext`, `Classical.choice` and `Quot.sound`, and `check_axioms.py` matches `#print axioms` output to the exact requested names (no duplicates, none missing, no Lean errors; self-tested in CI) |
 | [`docs/ENGINEERING_SELECTION.md`](docs/ENGINEERING_SELECTION.md) | Workload and baseline screening, plus an executable small-network sampler with a conditional finite-step bias guarantee in [`experiments/curveball/`](experiments/curveball/README.md) |
 
@@ -84,6 +84,8 @@ of the 7/8 paper, so it would survive a flaw there.
 | `scalar_henon_nonexistence` | scalar Hardy–Hénon Liouville theorem in the range `n − 2 < 2(n + A)/(p + 1)` | 370 |
 | `symmetric_mahler_bourgainMilman` | Bourgain–Milman with the optimal base: `vol(K)vol(K°) ≥ (2/π)ⁿκₙ²` | 087 |
 | `nagata_equal_multiplicity`, `nagata_ten_points` | equal-multiplicity Nagata; `d ≥ 3m + 1` at 10 very general points (a specialization) | 039 |
+| `ramsey_of_cospherical_of_algebraic` | Euclidean-Ramsey ⇔ spherical for point sets with algebraic coordinates (the new direction), so Graham's conjecture holds for them | 172 |
+| `ramsey_log_ratio`, `ramsey_ratio_tendsto_atTop` | `r(s+1,t)/r(s,t) = t/(log t)^{1+o(1)}` for `s ≥ 5` | 170 |
 | `twoPoint_binary_iff_ordinaryElliott`, `ostmann_main_iff_inverseGoldbach` | OpenAI formalized the same theorems twice: two Elliott comparators are equivalent, and two Ostmann comparators are identical | 007, 013 |
 
 ## Corrections to earlier claims
@@ -96,8 +98,9 @@ in the docs.
 
 ## Coverage and limits
 
-- All 372 families mined. Entries from the final pass (theoretical computer
-  science, combinatorics, logic) are marked "not yet refereed".
+- All 372 families mined, and every entry refereed. Lean also confirms some
+  content the corpus already states: Green–Tao, `χ(ℝ²) ∈ {6,7}`, and a
+  superpolynomial LP-lift bound. These are listed separately and not counted.
 - An external review of commit `77ab999` found four issues: the audit matched counts rather than names, the old "W" tier overstated sketches, the animation's wording omitted conditionality, and the π statement overclaimed. All four are fixed; details are at the end of `docs/COROLLARIES.md`.
 - Lean status is whatever CI says. A corollary counts as checked only when the
   workflow is green on the commit you're reading.
