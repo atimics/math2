@@ -96,6 +96,12 @@ in the docs.
 
 ## Building
 
+The separate [CDC experiment](experiments/cdc/README.md) constructs and checks
+finite cubic-graph covers, compares palette merging with unrestricted search,
+and retains a Petersen K6 palette obstruction plus a checked five-cover.
+Its Python reproduction commands and limitations are documented there.
+
+
 ```sh
 lake exe cache get
 lake build Corollaries Fidelity

@@ -1,0 +1,2 @@
+# Version used for the committed experiment record; Python >= 3.11.
+scipy==1.17.0
