@@ -183,7 +183,7 @@ def scene_proof(d, t):  # 19..27s
     scroll_char(d, 140, 330, 170, 210, "7/8", TEAL, t, mood="smile", look=1)
     scroll_char(d, 830, 330, 190, 220, "Siegel", PLUM, t, mood="o" if t > 5.2 else "meh", look=-1)
     d.rounded_rectangle([250, 90, 710, 470], 24, fill=(36, 54, 52), outline=INK, width=5)  # chalkboard
-    steps = ["a real zero can't sit past 7/8,",
+    steps = ["IF no zero lies past 7/8, then",
              "so  β ≤ 7/8,  so  1 − β ≥ 1/8;",
              "and  q ≥ 3,  so  log q ≥ log 3:",
              "",
@@ -203,20 +203,24 @@ def scene_proof(d, t):  # 19..27s
 
 def scene_lean(d, t):  # 27..33s
     background(d, t + 27)
-    scroll_char(d, 300, 320, 200, 240, "7/8", TEAL, t, mood="proud", look=0.5)
-    scroll_char(d, 660, 320, 200, 240, "Siegel", PLUM, t, mood="smile", look=-0.5)
+    scroll_char(d, 270, 300, 180, 200, "7/8", TEAL, t, mood="proud", look=0.5)
+    scroll_char(d, 690, 300, 180, 200, "Siegel", PLUM, t, mood="smile", look=-0.5)
     # the Lean stamp comes crashing down
     p = ease(t / 0.7)
-    sy = lerp(-200, 150, p)
+    sy = lerp(-200, 175, p)
     wob = math.sin(t * 18) * max(0, 1 - (t - 0.7) * 2) * 6 if t > 0.7 else 0
     d.ellipse([W / 2 - 110 + wob, sy - 110, W / 2 + 110 + wob, sy + 110], outline=TEAL, width=10)
     d.ellipse([W / 2 - 92 + wob, sy - 92, W / 2 + 92 + wob, sy + 92], outline=TEAL, width=3)
     text_c(d, (W / 2 + wob, sy - 62), "✓", SANS_B(64), TEAL)
     text_c(d, (W / 2 + wob, sy + 14), "checked", SANS_B(26), TEAL)
     text_c(d, (W / 2 + wob, sy + 46), "by Lean", SANS_B(22), TEAL)
+    if t > 0.3:
+        text_c(d, (W / 2, 22), "a CONDITIONAL implication:", SANS_B(20), PLUM)
+        text_c(d, (W / 2, 48), "IF OpenAI's 7/8 claim holds, THEN Siegel follows", SANS(19), PLUM)
     if t > 1.2:
-        text_c(d, (W / 2, 450), "axioms used: propext · Quot.sound · Classical.choice", MONO(18), INK)
-        text_c(d, (W / 2, 480), "no sorry · OpenAI's statements, byte for byte", MONO(18), INK)
+        text_c(d, (W / 2, 446), "Lean checks the step, not OpenAI's 7/8 proof (assumed)", MONO(16), INK)
+        text_c(d, (W / 2, 472), "axioms: propext · Quot.sound · Classical.choice", MONO(16), INK)
+        text_c(d, (W / 2, 498), "hypothesis = OpenAI's statement, byte for byte", MONO(16), INK)
     if 0.65 < t < 1.3:
         for i in range(10):  # sparkles
             a = i * 0.63
@@ -229,15 +233,17 @@ def scene_end(d, t):  # 33..38s
     d.rounded_rectangle([140, 110, 820, 430], 30, fill=(255, 252, 242), outline=INK, width=4)
     text_c(d, (W / 2, 140), "the moral:", SANS(24), PLUM)
     text_c(d, (W / 2, 180), "check how your theorems talk to each other", SERIF_B(27), INK)
-    items = [("38", "cross-family corollaries"), ("289", "families mined of 372"), ("15", "Lean-checked theorems")]
+    if t > 1.6:
+        text_c(d, (W / 2, 352), "upstream claims assumed · 289 of 372 families mined", SANS(16), PLUM)
+    items = [("7", "Lean-checked implications"), ("4", "written derivations"), ("27", "research leads")]
     for i, (n, lab) in enumerate(items):
         k = ease((t - 0.6 - i * 0.35) / 0.5)
-        x = 250 + i * 230
+        x = 260 + i * 220
         text_c(d, (x, 255 - 20 * (1 - k)), n if k > 0 else "", SERIF_B(54), [TEAL, CORAL, GOLD][i])
         if k > 0:
-            text_c(d, (x, 325), lab, SANS(17))
+            text_c(d, (x, 325), lab, SANS(15))
     if t > 2.0:
-        text_c(d, (W / 2, 380), "github.com/atimics/math2", MONO(22), INK)
+        text_c(d, (W / 2, 386), "github.com/atimics/math2", MONO(22), INK)
     zero_creature(d, 90 + 30 * math.sin(t * 2), 470, t)
     d.text((115 + 30 * math.sin(t * 2), 452), "bye!", font=SANS_B(16), fill=ZERO)
 
