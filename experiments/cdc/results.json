@@ -1,0 +1,6261 @@
+{
+  "environment": {
+    "python": "3.12.14",
+    "scipy": "1.17.0"
+  },
+  "limits": {
+    "node_limit": 100000,
+    "time_limit_per_milp_seconds": 5.0
+  },
+  "records": [
+    {
+      "compression_to_five": {
+        "metadata": {
+          "exhaustive_restricted_search": false,
+          "k": 5,
+          "label_map": [
+            0,
+            0,
+            1,
+            2,
+            0,
+            0,
+            0,
+            0
+          ],
+          "method": "interaction_graph_coloring",
+          "node_limit": 100000,
+          "nodes": 9,
+          "unrestricted_impossibility_claim": false
+        },
+        "status": "compressed",
+        "verification": {
+          "edges": 6,
+          "label_edge_counts": {
+            "0": 4,
+            "1": 4,
+            "2": 4
+          },
+          "labels": 5,
+          "used_labels": 3,
+          "vertices": 4
+        },
+        "witness": {
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "labels": 5,
+          "pairs": [
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "vertex_count": 4
+        }
+      },
+      "construction": {
+        "flows_tested": 1,
+        "node_limit": 100000,
+        "states": 7,
+        "status": "found",
+        "verification": {
+          "edges": 6,
+          "label_edge_counts": {
+            "1": 4,
+            "2": 4,
+            "3": 4
+          },
+          "labels": 8,
+          "used_labels": 3,
+          "vertices": 4
+        },
+        "witness": {
+          "edge_flips": [
+            1,
+            1,
+            1,
+            1,
+            1,
+            1
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "flow": [
+            1,
+            2,
+            3,
+            3,
+            2,
+            1
+          ],
+          "labels": 8,
+          "pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "translations": [
+            0,
+            0,
+            0,
+            0
+          ],
+          "vertex_count": 4
+        }
+      },
+      "graph": {
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            2,
+            3
+          ]
+        ],
+        "name": "k4",
+        "vertex_count": 4
+      },
+      "unrestricted": {
+        "4": {
+          "metadata": {
+            "integer_witness_checked": true,
+            "k": 4,
+            "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+            "method": "scipy.optimize.milp",
+            "proof_certified_unsat": false,
+            "solver_status": 0,
+            "time_limit": 5.0
+          },
+          "status": "found",
+          "verification": {
+            "edges": 6,
+            "label_edge_counts": {
+              "0": 3,
+              "1": 3,
+              "2": 3,
+              "3": 3
+            },
+            "labels": 4,
+            "used_labels": 4,
+            "vertices": 4
+          },
+          "witness": {
+            "edges": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            "labels": 4,
+            "pairs": [
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "vertex_count": 4
+          }
+        },
+        "5": {
+          "metadata": {
+            "integer_witness_checked": true,
+            "k": 5,
+            "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+            "method": "scipy.optimize.milp",
+            "proof_certified_unsat": false,
+            "solver_status": 0,
+            "time_limit": 5.0
+          },
+          "status": "found",
+          "verification": {
+            "edges": 6,
+            "label_edge_counts": {
+              "0": 4,
+              "1": 4,
+              "2": 4
+            },
+            "labels": 5,
+            "used_labels": 3,
+            "vertices": 4
+          },
+          "witness": {
+            "edges": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            "labels": 5,
+            "pairs": [
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "vertex_count": 4
+          }
+        }
+      }
+    },
+    {
+      "compression_to_five": {
+        "metadata": {
+          "exhaustive_restricted_search": false,
+          "k": 5,
+          "label_map": [
+            0,
+            0,
+            1,
+            2,
+            0,
+            0,
+            0,
+            0
+          ],
+          "method": "interaction_graph_coloring",
+          "node_limit": 100000,
+          "nodes": 9,
+          "unrestricted_impossibility_claim": false
+        },
+        "status": "compressed",
+        "verification": {
+          "edges": 9,
+          "label_edge_counts": {
+            "0": 6,
+            "1": 6,
+            "2": 6
+          },
+          "labels": 5,
+          "used_labels": 3,
+          "vertices": 6
+        },
+        "witness": {
+          "edges": [
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ]
+          ],
+          "labels": 5,
+          "pairs": [
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              2
+            ]
+          ],
+          "vertex_count": 6
+        }
+      },
+      "construction": {
+        "flows_tested": 1,
+        "node_limit": 100000,
+        "states": 9,
+        "status": "found",
+        "verification": {
+          "edges": 9,
+          "label_edge_counts": {
+            "1": 6,
+            "2": 6,
+            "3": 6
+          },
+          "labels": 8,
+          "used_labels": 3,
+          "vertices": 6
+        },
+        "witness": {
+          "edge_flips": [
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0
+          ],
+          "edges": [
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              2,
+              5
+            ]
+          ],
+          "flow": [
+            1,
+            2,
+            3,
+            2,
+            3,
+            1,
+            3,
+            1,
+            2
+          ],
+          "labels": 8,
+          "pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              3
+            ]
+          ],
+          "translations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "vertex_count": 6
+        }
+      },
+      "graph": {
+        "edges": [
+          [
+            0,
+            3
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            4
+          ],
+          [
+            2,
+            5
+          ]
+        ],
+        "name": "k3-3",
+        "vertex_count": 6
+      },
+      "unrestricted": {
+        "4": {
+          "metadata": {
+            "integer_witness_checked": true,
+            "k": 4,
+            "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+            "method": "scipy.optimize.milp",
+            "proof_certified_unsat": false,
+            "solver_status": 0,
+            "time_limit": 5.0
+          },
+          "status": "found",
+          "verification": {
+            "edges": 9,
+            "label_edge_counts": {
+              "0": 4,
+              "1": 6,
+              "2": 4,
+              "3": 4
+            },
+            "labels": 4,
+            "used_labels": 4,
+            "vertices": 6
+          },
+          "witness": {
+            "edges": [
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                2,
+                5
+              ]
+            ],
+            "labels": 4,
+            "pairs": [
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "vertex_count": 6
+          }
+        },
+        "5": {
+          "metadata": {
+            "integer_witness_checked": true,
+            "k": 5,
+            "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+            "method": "scipy.optimize.milp",
+            "proof_certified_unsat": false,
+            "solver_status": 0,
+            "time_limit": 5.0
+          },
+          "status": "found",
+          "verification": {
+            "edges": 9,
+            "label_edge_counts": {
+              "0": 4,
+              "1": 6,
+              "2": 4,
+              "4": 4
+            },
+            "labels": 5,
+            "used_labels": 4,
+            "vertices": 6
+          },
+          "witness": {
+            "edges": [
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                2,
+                5
+              ]
+            ],
+            "labels": 5,
+            "pairs": [
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "vertex_count": 6
+          }
+        }
+      }
+    },
+    {
+      "compression_to_five": {
+        "metadata": {
+          "exhaustive_restricted_search": false,
+          "k": 5,
+          "label_map": [
+            0,
+            0,
+            1,
+            2,
+            0,
+            0,
+            0,
+            0
+          ],
+          "method": "interaction_graph_coloring",
+          "node_limit": 100000,
+          "nodes": 9,
+          "unrestricted_impossibility_claim": false
+        },
+        "status": "compressed",
+        "verification": {
+          "edges": 12,
+          "label_edge_counts": {
+            "0": 8,
+            "1": 8,
+            "2": 8
+          },
+          "labels": 5,
+          "used_labels": 3,
+          "vertices": 8
+        },
+        "witness": {
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "labels": 5,
+          "pairs": [
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "vertex_count": 8
+        }
+      },
+      "construction": {
+        "flows_tested": 1,
+        "node_limit": 100000,
+        "states": 8,
+        "status": "found",
+        "verification": {
+          "edges": 12,
+          "label_edge_counts": {
+            "1": 8,
+            "2": 8,
+            "3": 8
+          },
+          "labels": 8,
+          "used_labels": 3,
+          "vertices": 8
+        },
+        "witness": {
+          "edge_flips": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              6
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ]
+          ],
+          "flow": [
+            1,
+            2,
+            3,
+            2,
+            3,
+            1,
+            3,
+            3,
+            1,
+            2,
+            2,
+            1
+          ],
+          "labels": 8,
+          "pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ]
+          ],
+          "translations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "vertex_count": 8
+        }
+      },
+      "graph": {
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            1,
+            3
+          ],
+          [
+            1,
+            5
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            6
+          ],
+          [
+            3,
+            7
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            4,
+            6
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            6,
+            7
+          ]
+        ],
+        "name": "cube",
+        "vertex_count": 8
+      },
+      "unrestricted": {
+        "4": {
+          "metadata": {
+            "integer_witness_checked": true,
+            "k": 4,
+            "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+            "method": "scipy.optimize.milp",
+            "proof_certified_unsat": false,
+            "solver_status": 0,
+            "time_limit": 5.0
+          },
+          "status": "found",
+          "verification": {
+            "edges": 12,
+            "label_edge_counts": {
+              "0": 8,
+              "2": 8,
+              "3": 8
+            },
+            "labels": 4,
+            "used_labels": 3,
+            "vertices": 8
+          },
+          "witness": {
+            "edges": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                6
+              ],
+              [
+                3,
+                7
+              ],
+              [
+                4,
+                5
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                5,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "labels": 4,
+            "pairs": [
+              [
+                0,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            "vertex_count": 8
+          }
+        },
+        "5": {
+          "metadata": {
+            "integer_witness_checked": true,
+            "k": 5,
+            "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+            "method": "scipy.optimize.milp",
+            "proof_certified_unsat": false,
+            "solver_status": 0,
+            "time_limit": 5.0
+          },
+          "status": "found",
+          "verification": {
+            "edges": 12,
+            "label_edge_counts": {
+              "0": 6,
+              "1": 4,
+              "2": 6,
+              "4": 8
+            },
+            "labels": 5,
+            "used_labels": 4,
+            "vertices": 8
+          },
+          "witness": {
+            "edges": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                5
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                6
+              ],
+              [
+                3,
+                7
+              ],
+              [
+                4,
+                5
+              ],
+              [
+                4,
+                6
+              ],
+              [
+                5,
+                7
+              ],
+              [
+                6,
+                7
+              ]
+            ],
+            "labels": 5,
+            "pairs": [
+              [
+                2,
+                4
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "vertex_count": 8
+          }
+        }
+      }
+    },
+    {
+      "compression_to_five": {
+        "metadata": {
+          "exhaustive_restricted_search": false,
+          "k": 5,
+          "label_map": [
+            0,
+            1,
+            2,
+            3,
+            0,
+            0,
+            4,
+            0
+          ],
+          "method": "interaction_graph_coloring",
+          "node_limit": 100000,
+          "nodes": 9,
+          "unrestricted_impossibility_claim": false
+        },
+        "status": "compressed",
+        "verification": {
+          "edges": 15,
+          "label_edge_counts": {
+            "0": 6,
+            "1": 8,
+            "2": 5,
+            "3": 6,
+            "4": 5
+          },
+          "labels": 5,
+          "used_labels": 5,
+          "vertices": 10
+        },
+        "witness": {
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              7,
+              9
+            ]
+          ],
+          "labels": 5,
+          "pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              4
+            ]
+          ],
+          "vertex_count": 10
+        }
+      },
+      "construction": {
+        "flows_tested": 1,
+        "node_limit": 100000,
+        "states": 14,
+        "status": "found",
+        "verification": {
+          "edges": 15,
+          "label_edge_counts": {
+            "0": 6,
+            "1": 8,
+            "2": 5,
+            "3": 6,
+            "6": 5
+          },
+          "labels": 8,
+          "used_labels": 5,
+          "vertices": 10
+        },
+        "witness": {
+          "edge_flips": [
+            1,
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              7,
+              9
+            ]
+          ],
+          "flow": [
+            1,
+            2,
+            3,
+            2,
+            3,
+            1,
+            3,
+            3,
+            2,
+            1,
+            4,
+            7,
+            5,
+            6,
+            7
+          ],
+          "labels": 8,
+          "pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              1,
+              6
+            ]
+          ],
+          "translations": [
+            0,
+            1,
+            3,
+            2,
+            2,
+            5,
+            5,
+            5,
+            4,
+            7
+          ],
+          "vertex_count": 10
+        }
+      },
+      "graph": {
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            5,
+            8
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            6,
+            9
+          ],
+          [
+            7,
+            9
+          ]
+        ],
+        "name": "petersen",
+        "vertex_count": 10
+      },
+      "unrestricted": {
+        "4": {
+          "metadata": {
+            "k": 4,
+            "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "method": "scipy.optimize.milp",
+            "proof_certified_unsat": false,
+            "solver_status": 2,
+            "time_limit": 5.0
+          },
+          "status": "infeasible",
+          "witness": null
+        },
+        "5": {
+          "metadata": {
+            "integer_witness_checked": true,
+            "k": 5,
+            "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+            "method": "scipy.optimize.milp",
+            "proof_certified_unsat": false,
+            "solver_status": 0,
+            "time_limit": 5.0
+          },
+          "status": "found",
+          "verification": {
+            "edges": 15,
+            "label_edge_counts": {
+              "0": 5,
+              "1": 5,
+              "2": 6,
+              "3": 8,
+              "4": 6
+            },
+            "labels": 5,
+            "used_labels": 5,
+            "vertices": 10
+          },
+          "witness": {
+            "edges": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                6
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                7
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                3,
+                8
+              ],
+              [
+                4,
+                9
+              ],
+              [
+                5,
+                7
+              ],
+              [
+                5,
+                8
+              ],
+              [
+                6,
+                8
+              ],
+              [
+                6,
+                9
+              ],
+              [
+                7,
+                9
+              ]
+            ],
+            "labels": 5,
+            "pairs": [
+              [
+                3,
+                4
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "vertex_count": 10
+          }
+        }
+      }
+    },
+    {
+      "compression_to_five": {
+        "metadata": {
+          "exhaustive_restricted_search": false,
+          "k": 5,
+          "label_map": [
+            0,
+            0,
+            1,
+            2,
+            0,
+            0,
+            0,
+            0
+          ],
+          "method": "interaction_graph_coloring",
+          "node_limit": 100000,
+          "nodes": 9,
+          "unrestricted_impossibility_claim": false
+        },
+        "status": "compressed",
+        "verification": {
+          "edges": 9,
+          "label_edge_counts": {
+            "0": 6,
+            "1": 6,
+            "2": 6
+          },
+          "labels": 5,
+          "used_labels": 3,
+          "vertices": 6
+        },
+        "witness": {
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "labels": 5,
+          "pairs": [
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              1
+            ]
+          ],
+          "vertex_count": 6
+        }
+      },
+      "construction": {
+        "flows_tested": 1,
+        "node_limit": 100000,
+        "states": 8,
+        "status": "found",
+        "verification": {
+          "edges": 9,
+          "label_edge_counts": {
+            "1": 6,
+            "2": 6,
+            "3": 6
+          },
+          "labels": 8,
+          "used_labels": 3,
+          "vertices": 6
+        },
+        "witness": {
+          "edge_flips": [
+            1,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            1,
+            1
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              5
+            ],
+            [
+              4,
+              5
+            ]
+          ],
+          "flow": [
+            1,
+            2,
+            3,
+            3,
+            2,
+            1,
+            1,
+            2,
+            3
+          ],
+          "labels": 8,
+          "pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "translations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "vertex_count": 6
+        }
+      },
+      "graph": {
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            3
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            4
+          ],
+          [
+            2,
+            5
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            5
+          ],
+          [
+            4,
+            5
+          ]
+        ],
+        "name": "triangular-prism",
+        "vertex_count": 6
+      },
+      "unrestricted": {
+        "4": {
+          "metadata": {
+            "integer_witness_checked": true,
+            "k": 4,
+            "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+            "method": "scipy.optimize.milp",
+            "proof_certified_unsat": false,
+            "solver_status": 0,
+            "time_limit": 5.0
+          },
+          "status": "found",
+          "verification": {
+            "edges": 9,
+            "label_edge_counts": {
+              "0": 6,
+              "2": 6,
+              "3": 6
+            },
+            "labels": 4,
+            "used_labels": 3,
+            "vertices": 6
+          },
+          "witness": {
+            "edges": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                2,
+                5
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                3,
+                5
+              ],
+              [
+                4,
+                5
+              ]
+            ],
+            "labels": 4,
+            "pairs": [
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                2,
+                3
+              ]
+            ],
+            "vertex_count": 6
+          }
+        },
+        "5": {
+          "metadata": {
+            "integer_witness_checked": true,
+            "k": 5,
+            "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+            "method": "scipy.optimize.milp",
+            "proof_certified_unsat": false,
+            "solver_status": 0,
+            "time_limit": 5.0
+          },
+          "status": "found",
+          "verification": {
+            "edges": 9,
+            "label_edge_counts": {
+              "0": 5,
+              "2": 5,
+              "3": 5,
+              "4": 3
+            },
+            "labels": 5,
+            "used_labels": 4,
+            "vertices": 6
+          },
+          "witness": {
+            "edges": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                2,
+                5
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                3,
+                5
+              ],
+              [
+                4,
+                5
+              ]
+            ],
+            "labels": 5,
+            "pairs": [
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                0,
+                4
+              ]
+            ],
+            "vertex_count": 6
+          }
+        }
+      }
+    },
+    {
+      "compression_to_five": {
+        "metadata": {
+          "exhaustive_restricted_search": false,
+          "k": 5,
+          "label_map": [
+            0,
+            1,
+            2,
+            3,
+            0,
+            0,
+            0,
+            4
+          ],
+          "method": "interaction_graph_coloring",
+          "node_limit": 100000,
+          "nodes": 9,
+          "unrestricted_impossibility_claim": false
+        },
+        "status": "compressed",
+        "verification": {
+          "edges": 21,
+          "label_edge_counts": {
+            "0": 6,
+            "1": 12,
+            "2": 11,
+            "3": 7,
+            "4": 6
+          },
+          "labels": 5,
+          "used_labels": 5,
+          "vertices": 14
+        },
+        "witness": {
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              9
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              10
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              11
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              12
+            ],
+            [
+              6,
+              13
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              7,
+              12
+            ],
+            [
+              8,
+              10
+            ],
+            [
+              8,
+              13
+            ],
+            [
+              9,
+              11
+            ],
+            [
+              10,
+              12
+            ],
+            [
+              11,
+              13
+            ]
+          ],
+          "labels": 5,
+          "pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "vertex_count": 14
+        }
+      },
+      "construction": {
+        "flows_tested": 1,
+        "node_limit": 100000,
+        "states": 15,
+        "status": "found",
+        "verification": {
+          "edges": 21,
+          "label_edge_counts": {
+            "0": 6,
+            "1": 12,
+            "2": 11,
+            "3": 7,
+            "7": 6
+          },
+          "labels": 8,
+          "used_labels": 5,
+          "vertices": 14
+        },
+        "witness": {
+          "edge_flips": [
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              0,
+              7
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              8
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              9
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              10
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              11
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              12
+            ],
+            [
+              6,
+              13
+            ],
+            [
+              7,
+              9
+            ],
+            [
+              7,
+              12
+            ],
+            [
+              8,
+              10
+            ],
+            [
+              8,
+              13
+            ],
+            [
+              9,
+              11
+            ],
+            [
+              10,
+              12
+            ],
+            [
+              11,
+              13
+            ]
+          ],
+          "flow": [
+            1,
+            2,
+            3,
+            2,
+            3,
+            1,
+            3,
+            2,
+            3,
+            3,
+            1,
+            4,
+            7,
+            6,
+            1,
+            2,
+            6,
+            5,
+            2,
+            5,
+            3
+          ],
+          "labels": 8,
+          "pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              0,
+              7
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              7
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "translations": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            4,
+            5,
+            3,
+            4,
+            3,
+            4,
+            3,
+            5,
+            4
+          ],
+          "vertex_count": 14
+        }
+      },
+      "graph": {
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            6
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            8
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            9
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            10
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            4,
+            11
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            5,
+            12
+          ],
+          [
+            6,
+            13
+          ],
+          [
+            7,
+            9
+          ],
+          [
+            7,
+            12
+          ],
+          [
+            8,
+            10
+          ],
+          [
+            8,
+            13
+          ],
+          [
+            9,
+            11
+          ],
+          [
+            10,
+            12
+          ],
+          [
+            11,
+            13
+          ]
+        ],
+        "name": "generalized-petersen-7-2",
+        "vertex_count": 14
+      },
+      "unrestricted": {
+        "4": {
+          "metadata": {
+            "integer_witness_checked": true,
+            "k": 4,
+            "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+            "method": "scipy.optimize.milp",
+            "proof_certified_unsat": false,
+            "solver_status": 0,
+            "time_limit": 5.0
+          },
+          "status": "found",
+          "verification": {
+            "edges": 21,
+            "label_edge_counts": {
+              "0": 7,
+              "1": 13,
+              "2": 9,
+              "3": 13
+            },
+            "labels": 4,
+            "used_labels": 4,
+            "vertices": 14
+          },
+          "witness": {
+            "edges": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                6
+              ],
+              [
+                0,
+                7
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                9
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                3,
+                10
+              ],
+              [
+                4,
+                5
+              ],
+              [
+                4,
+                11
+              ],
+              [
+                5,
+                6
+              ],
+              [
+                5,
+                12
+              ],
+              [
+                6,
+                13
+              ],
+              [
+                7,
+                9
+              ],
+              [
+                7,
+                12
+              ],
+              [
+                8,
+                10
+              ],
+              [
+                8,
+                13
+              ],
+              [
+                9,
+                11
+              ],
+              [
+                10,
+                12
+              ],
+              [
+                11,
+                13
+              ]
+            ],
+            "labels": 4,
+            "pairs": [
+              [
+                2,
+                3
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "vertex_count": 14
+          }
+        },
+        "5": {
+          "metadata": {
+            "integer_witness_checked": true,
+            "k": 5,
+            "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+            "method": "scipy.optimize.milp",
+            "proof_certified_unsat": false,
+            "solver_status": 0,
+            "time_limit": 5.0
+          },
+          "status": "found",
+          "verification": {
+            "edges": 21,
+            "label_edge_counts": {
+              "0": 7,
+              "1": 9,
+              "2": 8,
+              "3": 8,
+              "4": 10
+            },
+            "labels": 5,
+            "used_labels": 5,
+            "vertices": 14
+          },
+          "witness": {
+            "edges": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                6
+              ],
+              [
+                0,
+                7
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                8
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                9
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                3,
+                10
+              ],
+              [
+                4,
+                5
+              ],
+              [
+                4,
+                11
+              ],
+              [
+                5,
+                6
+              ],
+              [
+                5,
+                12
+              ],
+              [
+                6,
+                13
+              ],
+              [
+                7,
+                9
+              ],
+              [
+                7,
+                12
+              ],
+              [
+                8,
+                10
+              ],
+              [
+                8,
+                13
+              ],
+              [
+                9,
+                11
+              ],
+              [
+                10,
+                12
+              ],
+              [
+                11,
+                13
+              ]
+            ],
+            "labels": 5,
+            "pairs": [
+              [
+                1,
+                3
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "vertex_count": 14
+          }
+        }
+      }
+    },
+    {
+      "compression_to_five": {
+        "metadata": {
+          "exhaustive_restricted_search": false,
+          "k": 5,
+          "label_map": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            0,
+            0,
+            0
+          ],
+          "method": "interaction_graph_coloring",
+          "node_limit": 100000,
+          "nodes": 9,
+          "unrestricted_impossibility_claim": false
+        },
+        "status": "compressed",
+        "verification": {
+          "edges": 24,
+          "label_edge_counts": {
+            "0": 6,
+            "1": 14,
+            "2": 10,
+            "3": 12,
+            "4": 6
+          },
+          "labels": 5,
+          "used_labels": 5,
+          "vertices": 16
+        },
+        "witness": {
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              7
+            ],
+            [
+              0,
+              8
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              9
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              10
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              11
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              12
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              13
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              14
+            ],
+            [
+              7,
+              15
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              8,
+              13
+            ],
+            [
+              9,
+              12
+            ],
+            [
+              9,
+              14
+            ],
+            [
+              10,
+              13
+            ],
+            [
+              10,
+              15
+            ],
+            [
+              11,
+              14
+            ],
+            [
+              12,
+              15
+            ]
+          ],
+          "labels": 5,
+          "pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "vertex_count": 16
+        }
+      },
+      "construction": {
+        "flows_tested": 1,
+        "node_limit": 100000,
+        "states": 16,
+        "status": "found",
+        "verification": {
+          "edges": 24,
+          "label_edge_counts": {
+            "0": 6,
+            "1": 14,
+            "2": 10,
+            "3": 12,
+            "4": 6
+          },
+          "labels": 8,
+          "used_labels": 5,
+          "vertices": 16
+        },
+        "witness": {
+          "edge_flips": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            0,
+            1,
+            0,
+            1,
+            1,
+            1,
+            1,
+            1,
+            1,
+            0
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              7
+            ],
+            [
+              0,
+              8
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              9
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              10
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              11
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              12
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              13
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              14
+            ],
+            [
+              7,
+              15
+            ],
+            [
+              8,
+              11
+            ],
+            [
+              8,
+              13
+            ],
+            [
+              9,
+              12
+            ],
+            [
+              9,
+              14
+            ],
+            [
+              10,
+              13
+            ],
+            [
+              10,
+              15
+            ],
+            [
+              11,
+              14
+            ],
+            [
+              12,
+              15
+            ]
+          ],
+          "flow": [
+            1,
+            2,
+            3,
+            2,
+            3,
+            1,
+            3,
+            2,
+            3,
+            3,
+            1,
+            4,
+            7,
+            7,
+            3,
+            5,
+            1,
+            2,
+            2,
+            1,
+            5,
+            6,
+            2,
+            3
+          ],
+          "labels": 8,
+          "pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ]
+          ],
+          "translations": [
+            0,
+            0,
+            0,
+            0,
+            2,
+            7,
+            7,
+            6,
+            0,
+            3,
+            7,
+            0,
+            3,
+            6,
+            2,
+            7
+          ],
+          "vertex_count": 16
+        }
+      },
+      "graph": {
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            7
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            9
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            10
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            11
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            4,
+            12
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            5,
+            13
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            6,
+            14
+          ],
+          [
+            7,
+            15
+          ],
+          [
+            8,
+            11
+          ],
+          [
+            8,
+            13
+          ],
+          [
+            9,
+            12
+          ],
+          [
+            9,
+            14
+          ],
+          [
+            10,
+            13
+          ],
+          [
+            10,
+            15
+          ],
+          [
+            11,
+            14
+          ],
+          [
+            12,
+            15
+          ]
+        ],
+        "name": "generalized-petersen-8-3",
+        "vertex_count": 16
+      },
+      "unrestricted": {
+        "4": {
+          "metadata": {
+            "integer_witness_checked": true,
+            "k": 4,
+            "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+            "method": "scipy.optimize.milp",
+            "proof_certified_unsat": false,
+            "solver_status": 0,
+            "time_limit": 5.0
+          },
+          "status": "found",
+          "verification": {
+            "edges": 24,
+            "label_edge_counts": {
+              "0": 12,
+              "1": 12,
+              "2": 10,
+              "3": 14
+            },
+            "labels": 4,
+            "used_labels": 4,
+            "vertices": 16
+          },
+          "witness": {
+            "edges": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                7
+              ],
+              [
+                0,
+                8
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                9
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                10
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                3,
+                11
+              ],
+              [
+                4,
+                5
+              ],
+              [
+                4,
+                12
+              ],
+              [
+                5,
+                6
+              ],
+              [
+                5,
+                13
+              ],
+              [
+                6,
+                7
+              ],
+              [
+                6,
+                14
+              ],
+              [
+                7,
+                15
+              ],
+              [
+                8,
+                11
+              ],
+              [
+                8,
+                13
+              ],
+              [
+                9,
+                12
+              ],
+              [
+                9,
+                14
+              ],
+              [
+                10,
+                13
+              ],
+              [
+                10,
+                15
+              ],
+              [
+                11,
+                14
+              ],
+              [
+                12,
+                15
+              ]
+            ],
+            "labels": 4,
+            "pairs": [
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                0,
+                3
+              ]
+            ],
+            "vertex_count": 16
+          }
+        },
+        "5": {
+          "metadata": {
+            "integer_witness_checked": true,
+            "k": 5,
+            "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+            "method": "scipy.optimize.milp",
+            "proof_certified_unsat": false,
+            "solver_status": 0,
+            "time_limit": 5.0
+          },
+          "status": "found",
+          "verification": {
+            "edges": 24,
+            "label_edge_counts": {
+              "0": 12,
+              "1": 12,
+              "2": 10,
+              "3": 6,
+              "4": 8
+            },
+            "labels": 5,
+            "used_labels": 5,
+            "vertices": 16
+          },
+          "witness": {
+            "edges": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                7
+              ],
+              [
+                0,
+                8
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                9
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                10
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                3,
+                11
+              ],
+              [
+                4,
+                5
+              ],
+              [
+                4,
+                12
+              ],
+              [
+                5,
+                6
+              ],
+              [
+                5,
+                13
+              ],
+              [
+                6,
+                7
+              ],
+              [
+                6,
+                14
+              ],
+              [
+                7,
+                15
+              ],
+              [
+                8,
+                11
+              ],
+              [
+                8,
+                13
+              ],
+              [
+                9,
+                12
+              ],
+              [
+                9,
+                14
+              ],
+              [
+                10,
+                13
+              ],
+              [
+                10,
+                15
+              ],
+              [
+                11,
+                14
+              ],
+              [
+                12,
+                15
+              ]
+            ],
+            "labels": 5,
+            "pairs": [
+              [
+                0,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                1,
+                2
+              ]
+            ],
+            "vertex_count": 16
+          }
+        }
+      }
+    },
+    {
+      "compression_to_five": {
+        "metadata": {
+          "exhaustive_restricted_search": false,
+          "k": 5,
+          "label_map": [
+            0,
+            1,
+            2,
+            3,
+            0,
+            0,
+            4,
+            0
+          ],
+          "method": "interaction_graph_coloring",
+          "node_limit": 100000,
+          "nodes": 9,
+          "unrestricted_impossibility_claim": false
+        },
+        "status": "compressed",
+        "verification": {
+          "edges": 27,
+          "label_edge_counts": {
+            "0": 8,
+            "1": 13,
+            "2": 14,
+            "3": 14,
+            "4": 5
+          },
+          "labels": 5,
+          "used_labels": 5,
+          "vertices": 18
+        },
+        "witness": {
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              8
+            ],
+            [
+              0,
+              9
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              10
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              11
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              12
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              13
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              14
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              15
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              7,
+              16
+            ],
+            [
+              8,
+              17
+            ],
+            [
+              9,
+              11
+            ],
+            [
+              9,
+              16
+            ],
+            [
+              10,
+              12
+            ],
+            [
+              10,
+              17
+            ],
+            [
+              11,
+              13
+            ],
+            [
+              12,
+              14
+            ],
+            [
+              13,
+              15
+            ],
+            [
+              14,
+              16
+            ],
+            [
+              15,
+              17
+            ]
+          ],
+          "labels": 5,
+          "pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              4
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              4
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              3,
+              4
+            ]
+          ],
+          "vertex_count": 18
+        }
+      },
+      "construction": {
+        "flows_tested": 1,
+        "node_limit": 100000,
+        "states": 17,
+        "status": "found",
+        "verification": {
+          "edges": 27,
+          "label_edge_counts": {
+            "0": 8,
+            "1": 13,
+            "2": 14,
+            "3": 14,
+            "6": 5
+          },
+          "labels": 8,
+          "used_labels": 5,
+          "vertices": 18
+        },
+        "witness": {
+          "edge_flips": [
+            0,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            1,
+            0,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            1,
+            1,
+            0
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              8
+            ],
+            [
+              0,
+              9
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              10
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              11
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              12
+            ],
+            [
+              4,
+              5
+            ],
+            [
+              4,
+              13
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              5,
+              14
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              6,
+              15
+            ],
+            [
+              7,
+              8
+            ],
+            [
+              7,
+              16
+            ],
+            [
+              8,
+              17
+            ],
+            [
+              9,
+              11
+            ],
+            [
+              9,
+              16
+            ],
+            [
+              10,
+              12
+            ],
+            [
+              10,
+              17
+            ],
+            [
+              11,
+              13
+            ],
+            [
+              12,
+              14
+            ],
+            [
+              13,
+              15
+            ],
+            [
+              14,
+              16
+            ],
+            [
+              15,
+              17
+            ]
+          ],
+          "flow": [
+            1,
+            2,
+            3,
+            2,
+            3,
+            1,
+            3,
+            2,
+            3,
+            3,
+            1,
+            2,
+            1,
+            4,
+            6,
+            5,
+            1,
+            7,
+            1,
+            2,
+            1,
+            2,
+            2,
+            2,
+            3,
+            3,
+            5
+          ],
+          "labels": 8,
+          "pairs": [
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              0,
+              6
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              0,
+              3
+            ],
+            [
+              3,
+              6
+            ]
+          ],
+          "translations": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            3,
+            4,
+            7,
+            4,
+            3,
+            0,
+            3,
+            0,
+            1,
+            2,
+            5,
+            1,
+            4
+          ],
+          "vertex_count": 18
+        }
+      },
+      "graph": {
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            8
+          ],
+          [
+            0,
+            9
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            10
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            11
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            12
+          ],
+          [
+            4,
+            5
+          ],
+          [
+            4,
+            13
+          ],
+          [
+            5,
+            6
+          ],
+          [
+            5,
+            14
+          ],
+          [
+            6,
+            7
+          ],
+          [
+            6,
+            15
+          ],
+          [
+            7,
+            8
+          ],
+          [
+            7,
+            16
+          ],
+          [
+            8,
+            17
+          ],
+          [
+            9,
+            11
+          ],
+          [
+            9,
+            16
+          ],
+          [
+            10,
+            12
+          ],
+          [
+            10,
+            17
+          ],
+          [
+            11,
+            13
+          ],
+          [
+            12,
+            14
+          ],
+          [
+            13,
+            15
+          ],
+          [
+            14,
+            16
+          ],
+          [
+            15,
+            17
+          ]
+        ],
+        "name": "generalized-petersen-9-2",
+        "vertex_count": 18
+      },
+      "unrestricted": {
+        "4": {
+          "metadata": {
+            "integer_witness_checked": true,
+            "k": 4,
+            "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+            "method": "scipy.optimize.milp",
+            "proof_certified_unsat": false,
+            "solver_status": 0,
+            "time_limit": 5.0
+          },
+          "status": "found",
+          "verification": {
+            "edges": 27,
+            "label_edge_counts": {
+              "0": 16,
+              "1": 12,
+              "2": 16,
+              "3": 10
+            },
+            "labels": 4,
+            "used_labels": 4,
+            "vertices": 18
+          },
+          "witness": {
+            "edges": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                8
+              ],
+              [
+                0,
+                9
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                10
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                11
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                3,
+                12
+              ],
+              [
+                4,
+                5
+              ],
+              [
+                4,
+                13
+              ],
+              [
+                5,
+                6
+              ],
+              [
+                5,
+                14
+              ],
+              [
+                6,
+                7
+              ],
+              [
+                6,
+                15
+              ],
+              [
+                7,
+                8
+              ],
+              [
+                7,
+                16
+              ],
+              [
+                8,
+                17
+              ],
+              [
+                9,
+                11
+              ],
+              [
+                9,
+                16
+              ],
+              [
+                10,
+                12
+              ],
+              [
+                10,
+                17
+              ],
+              [
+                11,
+                13
+              ],
+              [
+                12,
+                14
+              ],
+              [
+                13,
+                15
+              ],
+              [
+                14,
+                16
+              ],
+              [
+                15,
+                17
+              ]
+            ],
+            "labels": 4,
+            "pairs": [
+              [
+                0,
+                2
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                1
+              ]
+            ],
+            "vertex_count": 18
+          }
+        },
+        "5": {
+          "metadata": {
+            "integer_witness_checked": true,
+            "k": 5,
+            "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+            "method": "scipy.optimize.milp",
+            "proof_certified_unsat": false,
+            "solver_status": 0,
+            "time_limit": 5.0
+          },
+          "status": "found",
+          "verification": {
+            "edges": 27,
+            "label_edge_counts": {
+              "0": 13,
+              "1": 8,
+              "2": 10,
+              "3": 12,
+              "4": 11
+            },
+            "labels": 5,
+            "used_labels": 5,
+            "vertices": 18
+          },
+          "witness": {
+            "edges": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                8
+              ],
+              [
+                0,
+                9
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                10
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                11
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                3,
+                12
+              ],
+              [
+                4,
+                5
+              ],
+              [
+                4,
+                13
+              ],
+              [
+                5,
+                6
+              ],
+              [
+                5,
+                14
+              ],
+              [
+                6,
+                7
+              ],
+              [
+                6,
+                15
+              ],
+              [
+                7,
+                8
+              ],
+              [
+                7,
+                16
+              ],
+              [
+                8,
+                17
+              ],
+              [
+                9,
+                11
+              ],
+              [
+                9,
+                16
+              ],
+              [
+                10,
+                12
+              ],
+              [
+                10,
+                17
+              ],
+              [
+                11,
+                13
+              ],
+              [
+                12,
+                14
+              ],
+              [
+                13,
+                15
+              ],
+              [
+                14,
+                16
+              ],
+              [
+                15,
+                17
+              ]
+            ],
+            "labels": 5,
+            "pairs": [
+              [
+                1,
+                2
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                0,
+                3
+              ]
+            ],
+            "vertex_count": 18
+          }
+        }
+      }
+    },
+    {
+      "compression_to_five": {
+        "metadata": {
+          "clique_certificate": {
+            "checked_pairs": 15,
+            "clique_labels": [
+              1,
+              2,
+              3,
+              5,
+              6,
+              7
+            ],
+            "clique_size": 6,
+            "restriction": "global_palette_coarsening",
+            "target_labels": 5,
+            "unrestricted_impossibility_claim": false
+          },
+          "exhaustive_restricted_search": true,
+          "k": 5,
+          "method": "interaction_graph_coloring",
+          "node_limit": 100000,
+          "nodes": 6,
+          "unrestricted_impossibility_claim": false
+        },
+        "status": "impossible",
+        "witness": null
+      },
+      "construction": {
+        "method": "specified_nonzero_flow",
+        "status": "found",
+        "verification": {
+          "edges": 15,
+          "label_edge_counts": {
+            "1": 5,
+            "2": 5,
+            "3": 5,
+            "5": 5,
+            "6": 5,
+            "7": 5
+          },
+          "labels": 8,
+          "used_labels": 6,
+          "vertices": 10
+        },
+        "witness": {
+          "edge_flips": [
+            1,
+            1,
+            0,
+            1,
+            1,
+            1,
+            0,
+            1,
+            1,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0
+          ],
+          "edges": [
+            [
+              0,
+              1
+            ],
+            [
+              0,
+              4
+            ],
+            [
+              0,
+              5
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              3,
+              4
+            ],
+            [
+              3,
+              8
+            ],
+            [
+              4,
+              9
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              5,
+              8
+            ],
+            [
+              6,
+              8
+            ],
+            [
+              6,
+              9
+            ],
+            [
+              7,
+              9
+            ]
+          ],
+          "flow": [
+            6,
+            5,
+            3,
+            7,
+            1,
+            5,
+            2,
+            1,
+            4,
+            4,
+            4,
+            7,
+            3,
+            2,
+            6
+          ],
+          "labels": 8,
+          "pairs": [
+            [
+              3,
+              5
+            ],
+            [
+              3,
+              6
+            ],
+            [
+              5,
+              6
+            ],
+            [
+              2,
+              5
+            ],
+            [
+              2,
+              3
+            ],
+            [
+              2,
+              7
+            ],
+            [
+              5,
+              7
+            ],
+            [
+              6,
+              7
+            ],
+            [
+              2,
+              6
+            ],
+            [
+              3,
+              7
+            ],
+            [
+              1,
+              5
+            ],
+            [
+              1,
+              6
+            ],
+            [
+              1,
+              2
+            ],
+            [
+              1,
+              3
+            ],
+            [
+              1,
+              7
+            ]
+          ],
+          "translations": [
+            0,
+            4,
+            0,
+            3,
+            2,
+            2,
+            0,
+            3,
+            5,
+            5
+          ],
+          "vertex_count": 10
+        }
+      },
+      "graph": {
+        "edges": [
+          [
+            0,
+            1
+          ],
+          [
+            0,
+            4
+          ],
+          [
+            0,
+            5
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            1,
+            6
+          ],
+          [
+            2,
+            3
+          ],
+          [
+            2,
+            7
+          ],
+          [
+            3,
+            4
+          ],
+          [
+            3,
+            8
+          ],
+          [
+            4,
+            9
+          ],
+          [
+            5,
+            7
+          ],
+          [
+            5,
+            8
+          ],
+          [
+            6,
+            8
+          ],
+          [
+            6,
+            9
+          ],
+          [
+            7,
+            9
+          ]
+        ],
+        "name": "petersen-k6-palette",
+        "vertex_count": 10
+      },
+      "unrestricted": {
+        "4": {
+          "metadata": {
+            "k": 4,
+            "message": "The problem is infeasible. (HiGHS Status 8: model_status is Infeasible; primal_status is None)",
+            "method": "scipy.optimize.milp",
+            "proof_certified_unsat": false,
+            "solver_status": 2,
+            "time_limit": 5.0
+          },
+          "status": "infeasible",
+          "witness": null
+        },
+        "5": {
+          "metadata": {
+            "integer_witness_checked": true,
+            "k": 5,
+            "message": "Optimization terminated successfully. (HiGHS Status 7: Optimal)",
+            "method": "scipy.optimize.milp",
+            "proof_certified_unsat": false,
+            "solver_status": 0,
+            "time_limit": 5.0
+          },
+          "status": "found",
+          "verification": {
+            "edges": 15,
+            "label_edge_counts": {
+              "0": 5,
+              "1": 5,
+              "2": 6,
+              "3": 8,
+              "4": 6
+            },
+            "labels": 5,
+            "used_labels": 5,
+            "vertices": 10
+          },
+          "witness": {
+            "edges": [
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                0,
+                5
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                1,
+                6
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                7
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                3,
+                8
+              ],
+              [
+                4,
+                9
+              ],
+              [
+                5,
+                7
+              ],
+              [
+                5,
+                8
+              ],
+              [
+                6,
+                8
+              ],
+              [
+                6,
+                9
+              ],
+              [
+                7,
+                9
+              ]
+            ],
+            "labels": 5,
+            "pairs": [
+              [
+                3,
+                4
+              ],
+              [
+                1,
+                4
+              ],
+              [
+                1,
+                3
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                0,
+                2
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                2,
+                4
+              ],
+              [
+                0,
+                4
+              ],
+              [
+                1,
+                2
+              ],
+              [
+                0,
+                1
+              ],
+              [
+                0,
+                3
+              ],
+              [
+                3,
+                4
+              ],
+              [
+                2,
+                3
+              ],
+              [
+                1,
+                3
+              ]
+            ],
+            "vertex_count": 10
+          }
+        }
+      }
+    }
+  ],
+  "schema_version": 1,
+  "scope": "Selected simple connected bridgeless cubic graphs; not exhaustive."
+}
