@@ -9,7 +9,13 @@ Convexity of k -> w(k) (107 §2; classical, Lotti–Romani) gives, for
 Zwick (JACM 49, 2002): directed APSP with integer weights in {-M..M}, M = O(1),
 runs in O~(n^{2+mu}) whenever w(mu) <= 1 + 2 mu.
 
-Run: python3 scripts/review/tc4_apsp.py
+The second part is a LEAD, not a result: 107 §12.2 derives, for a parameter t,
+    w(2 g(t)/h(t)) <= 6 log 3 / h(t)                                  (12.12)
+with Z(t) = 8 + 12*2^t + 6*4^t + 19^t, g = (log Z)', h = log Z - t g, but its
+Theorem 1.1 and Corollaries 14.1-14.2 record only t = 2/3. If (12.12) holds for
+every t > 0, the curve meets Zwick's line w(mu) = 1 + 2 mu at mu ~ 0.50339.
+
+Run: python3 scripts/review/tc4_apsp.py   (the lead part needs mpmath, which sympy installs)
 """
 from fractions import Fraction as Fr
 
@@ -39,6 +45,27 @@ def main() -> None:
     print(f"previous best published mu < {float(PREVIOUS_BEST)}: improvement {float(PREVIOUS_BEST - mu_star):.5f}")
     assert mu_star < PREVIOUS_BEST
     print("OK")
+    lead()
+
+
+def lead() -> None:
+    try:
+        from mpmath import mp, mpf, log, diff, findroot
+    except ImportError:
+        print("(lead skipped: mpmath not installed)")
+        return
+    mp.dps = 30
+    Z = lambda t: 8 + 12 * mpf(2) ** t + 6 * mpf(4) ** t + mpf(19) ** t
+    g = lambda t: diff(lambda u: log(Z(u)), t)
+    h = lambda t: log(Z(t)) - t * g(t)
+    k = lambda t: 2 * g(t) / h(t)
+    w = lambda t: 6 * log(3) / h(t)
+    t23 = mpf(2) / 3
+    assert k(t23) > mpf("0.709") and w(t23) < mpf("2.092")   # 107's recorded point
+    t0 = findroot(lambda t: w(t) - 1 - 2 * k(t), 0.2)
+    print(f"LEAD (not a result): (12.12) at t = {float(t0):.6f} gives w({float(k(t0)):.6f}) <= "
+          f"{float(w(t0)):.6f} = 1 + 2*mu, i.e. mu < 0.50346 if (12.12) holds at that t")
+    assert k(t0) < mpf("0.50346")
 
 
 if __name__ == "__main__":

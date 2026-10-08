@@ -17,3 +17,12 @@ lean_lib Fidelity where
 /-- Kernel checks against comparator files that clash with ones in `Fidelity`
 (they redeclare the same OpenAI names), so they are built separately. -/
 lean_lib FidelityAlt where
+
+/-- OpenAI's own Lean proof of family 172: byte-identical copies of the upstream files
+(`openai/math` `lean/OAI/Combinatorics/EuclideanRamsey/`, Apache-2.0; Mathlib only). -/
+lean_lib UpstreamEuclideanRamsey where
+  roots := #[`OAI.Combinatorics.EuclideanRamsey.Main,
+    `OAI.Combinatorics.EuclideanRamsey.Spherical]
+
+/-- CL-1 end to end: our proof composed with OpenAI's proof of family 172, no hypotheses. -/
+lean_lib EndToEnd where
