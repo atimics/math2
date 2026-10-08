@@ -13,3 +13,7 @@ lean_lib Corollaries where
 
 /-- Kernel checks against verbatim copies of OpenAI's comparator statements. -/
 lean_lib Fidelity where
+
+/-- Kernel checks against comparator files that clash with ones in `Fidelity`
+(they redeclare the same OpenAI names), so they are built separately. -/
+lean_lib FidelityAlt where

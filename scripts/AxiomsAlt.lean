@@ -1,0 +1,16 @@
+import FidelityAlt
+import Fidelity.AxiomGuard
+
+/-! Axiom audit for the separately built `FidelityAlt` library (same two layers as scripts/Axioms.lean). -/
+
+#assert_standard_axioms FidelityAlt.hasFactorization_of_hasNonnegFactorization
+#assert_standard_axioms FidelityAlt.psdFactorization_one_of_zero
+#assert_standard_axioms FidelityAlt.psdRank_le_of_hasFactorization
+#assert_standard_axioms FidelityAlt.nonnegRank_lower_bound
+#assert_standard_axioms FidelityAlt.ramseyCosphericalStatement_iff_comparator
+
+#print axioms FidelityAlt.hasFactorization_of_hasNonnegFactorization
+#print axioms FidelityAlt.psdFactorization_one_of_zero
+#print axioms FidelityAlt.psdRank_le_of_hasFactorization
+#print axioms FidelityAlt.nonnegRank_lower_bound
+#print axioms FidelityAlt.ramseyCosphericalStatement_iff_comparator

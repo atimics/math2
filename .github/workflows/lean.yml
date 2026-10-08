@@ -24,7 +24,7 @@ jobs:
         run: |
           git clone --filter=blob:none --no-checkout https://github.com/openai/math upstream
           git -C upstream checkout "$UPSTREAM_SHA" -- lean/ComparatorChallenges
-          for f in Fidelity/Vendor/*.lean; do
+          for f in Fidelity/Vendor/*.lean FidelityAlt/Vendor/*.lean; do
             diff -u "upstream/lean/ComparatorChallenges/$(basename "$f")" "$f"
           done
           rm -rf upstream
@@ -39,7 +39,7 @@ jobs:
       - name: Build
         run: |
           set -o pipefail
-          lake build Corollaries Fidelity 2>&1 | tee build.log || {
+          lake build Corollaries Fidelity FidelityAlt 2>&1 | tee build.log || {
             # Surface every Lean error as an annotation (readable via the checks API).
             python3 scripts/annotate.py build.log
             exit 1
@@ -62,3 +62,21 @@ jobs:
             python3 scripts/annotate.py axioms.txt; exit 1; }
           python3 scripts/check_axioms.py axioms.txt scripts/Axioms.lean 2>&1 | tee audit.txt || {
             echo "::error file=scripts/Axioms.lean::$(tr '\n' ' ' < audit.txt | cut -c1-3000)"; exit 1; }
+
+      - name: Axiom audit, separately built FidelityAlt library
+        run: |
+          set -o pipefail
+          lake env lean scripts/AxiomsAlt.lean 2>&1 | tee axioms_alt.txt || {
+            python3 scripts/annotate.py axioms_alt.txt; exit 1; }
+          python3 scripts/check_axioms.py axioms_alt.txt scripts/AxiomsAlt.lean 2>&1 | tee audit_alt.txt || {
+            echo "::error file=scripts/AxiomsAlt.lean::$(tr '\n' ' ' < audit_alt.txt | cut -c1-3000)"; exit 1; }
+
+      - name: Shared definitions across the two libraries are byte-identical
+        run: python3 scripts/check_same_text.py
+
+      - name: Expert-review reproducers (docs/review)
+        run: |
+          pip install --quiet sympy
+          python3 scripts/review/nt9_density.py
+          python3 scripts/review/tc4_apsp.py
+          python3 scripts/review/cl1_idempotent.py
