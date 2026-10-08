@@ -45,11 +45,11 @@ theorem ramseyFive_ramseyProperty_iff (s t N : ℕ) :
   · intro hP G
     rcases hP G with ⟨A, hA⟩ | ⟨B, hB⟩
     · exact Or.inl ⟨A, hA⟩
-    · exact Or.inr ⟨B, SimpleGraph.isNClique_compl.mpr hB⟩
+    · exact Or.inr ⟨B, by simpa using hB⟩
   · intro hP G
     rcases hP G with ⟨A, hA⟩ | ⟨B, hB⟩
     · exact Or.inl ⟨A, hA⟩
-    · exact Or.inr ⟨B, SimpleGraph.isNClique_compl.mp hB⟩
+    · exact Or.inr ⟨B, by simpa using hB⟩
 
 /-- `OAI.SharpRamseyFive.ramsey` and `OAI.SharpLogRamsey.ramsey` are the same function. -/
 theorem ramseyFive_ramsey_eq (s t : ℕ) :

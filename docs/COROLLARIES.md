@@ -16,7 +16,7 @@ Source corpus: [`openai/math@adc7f12`](https://github.com/openai/math/tree/adc7f
 | **D** | **Complete written derivation.** Premises are quoted from the corpus with their source. Every other step is either elementary and written out, or a cited classical theorem. Not formalized. |
 | **Lead** | **Research lead.** A precise candidate statement with a bridge sketch. Not a result. |
 
-**Refereed** means two independent agents, who had not seen how the entries were produced, re-checked every premise, citation and number against the sources. That pass covered every entry in the first edition of this file (NT, DA, GR, AG, GE). They confirmed all of them, found none wrong, corrected two citations, and recommended the tier changes made here. Entries marked **(not yet refereed)** come from the final mining pass over theoretical computer science, combinatorics and logic.
+**Refereed** means two independent agents, who had not seen how the entries were produced, re-checked every premise, citation and number against the sources. That pass covered every entry in the first edition of this file (NT, DA, GR, AG, GE). They confirmed all of them, found none wrong, corrected two citations, and recommended the tier changes made here. A second referee pass then checked the entries from the final mining pass (theoretical computer science, combinatorics, logic) the same way, so **every entry in this file has now been refereed**.
 
 A summary table with counts is at the end.
 
@@ -417,107 +417,138 @@ Assume OpenAI's `PiExponent.main`.
 
 ---
 
-## Theoretical computer science *(not yet refereed)*
+## Theoretical computer science · refereed
 
-### TC-1 · Khot's 2-to-2 Games Conjecture with perfect completeness · **D**
-- **Premise.** 105, "Perfect completeness for 2-to-1 games", Thm 1.1. For every rational `δ ∈ (0,1)` there is a deterministic polynomial-time reduction from 3-SAT to 2-to-1 games with alphabets `[2q]`, `[q]`. Satisfiable formulas go to value 1 and unsatisfiable ones to value `≤ δ`. "Every table has exactly two preimages for each right answer."
-- **Statement.** For every rational `δ′ ∈ (0,1)` there is a polynomial-time reduction from 3-SAT to 2-to-2 games on alphabet `[2k]` with perfect completeness and soundness `≤ δ′`.
-- **Context.** Khot–Minzer–Safra (ECCC TR18-077) proved this only with completeness `1 − ε`.
+### TC-1 · Khot's 2-to-2 Games Conjecture with perfect completeness · **D** (implication already published)
+- **Premise.** 105, "Perfect completeness for 2-to-1 games", Thm 1.1: "For every fixed rational δ∈(0,1) there are an integer q=q(δ)≥2 and a deterministic polynomial-time reduction from 3-SAT to 2-to-1 games with alphabets [2q] and [q] … Every table has exactly two preimages for each right answer."
+- **Statement.** For every rational `δ′ ∈ (0,1)`, take `q = q(δ′/2)` from 105. Then there is a deterministic polynomial-time reduction from 3-SAT to unweighted bipartite 2-to-2 games with alphabet `[2q]` on both sides:
+  - each constraint is `{(a,a′) : σ(a) = σ′(a′)}` for exactly-2-to-1 maps `σ, σ′ : [2q] → [q]`;
+  - satisfiable formulas give value 1;
+  - unsatisfiable formulas give value `≤ δ′`.
 - **Derivation.**
-  1. For each right vertex `v` and each ordered pair of its edges, constrain two copies of the left side by `π_e(a) = π_{e′}(a′)`, with weight `1/d_v`.
-  2. Each constraint is 2-to-2, since both maps are exactly 2-to-1.
-  3. Completeness is preserved.
-  4. Soundness: the weight satisfied at `v` is `≤ d_v max_b p⁽¹⁾_v(b)`, and decoding to the argmax gives `val(H) ≤ val(G)`.
-  5. Unweighting costs a factor of 2, so run 105 with `δ = δ′/2`.
-- **Unstated.** "2-to-2" appears in 105 only in reference titles.
+  1. For each right vertex `v` and each ordered pair of its edges `e, e′`, put the constraint `π_e(a) = π_{e′}(a′)` between two **copies** of the left side, with weight `1/d_v`.
+     - The two copies are needed: on a single copy the `e = e′` pairs would be trivially satisfied self-loops.
+     - Each constraint matches the fibres of two exactly-2-to-1 maps, so it is 2-to-2 in Khot's sense.
+  2. **Completeness** carries over.
+  3. **Soundness.** The satisfied weight at `v` is `≤ max_b n′_v(b)`. Decoding `v` to that argmax gives `val(H) ≤ val(G)`.
+  4. **Unweighting.** Use multiplicity `⌈D/d_v⌉` with `D = max d_v`. Since `D/d_v ≤ ⌈D/d_v⌉ ≤ 2D/d_v`, this at most doubles the value. Hence `δ = δ′/2`.
+- **Already published as an implication.** This is the `d = 2` case of Dinur–Mossel–Regev (*SICOMP* 39 (2009); arXiv cs/0504062), Thm A.3, applied to 105. With completeness `1 − ε`, the 2-to-2 theorem is due to DKKMS, Barak–Kothari–Steurer (ECCC TR18-077) and Khot–Minzer–Safra (ECCC TR18-006; *Ann. Math.* 2023). The first edition cited TR18-077 as Khot–Minzer–Safra; it is Barak–Kothari–Steurer.
+- **Unstated in the corpus.** "2-to-2" appears only in reference titles.
 
-### TC-2 · 114's polymatroid FPRAS subsumes 115's contingency-table FPRAS · **D** (sampling part **Lead**)
+### TC-2 · 114's polymatroid FPRAS contains 115's contingency-table FPRAS · **D** (statement-level), sampling **Lead**
 - **Derivation.**
-  1. Set `r₁(A) = Σᵢ min(rᵢ, Σ_{j:(i,j)∈A} b_ij)` (concave of modular, so submodular), and `r₂` the same over columns.
-  2. After the trivial feasibility checks, `Ω(r₁, r₂)` is exactly the set of cell-bounded tables.
-  3. So 114's Thm 1.1 gives 115's Thm 1.1.
-- **Lead.** Almost-uniform sampling via Jerrum–Valiant–Vazirani; the self-reduction is not written out.
-- **Not subsumed.** 115's exact sampler.
+  1. Set `r₁(A) = Σᵢ min(rᵢ, Σ_{j:(i,j)∈A} b_ij)`, and define `r₂` the same way over columns. Each is normalized, monotone, submodular and integer-valued.
+  2. If some `rᵢ > Σ_j b_ij` or some `c_j > Σ_i b_ij`, then `Z = 0`. Otherwise `r₁(E) = r₂(E)`.
+  3. `Ω(r₁, r₂)` is exactly the set of cell-bounded tables: singletons give the cell bounds, rows give the row bounds, and `x(E) = R` forces equality.
+  4. So 114's Thm 1.1 contains 115's Thm 1.1.
+- **Containment of statements only.** 114's proof imports the 115 companion's statements, and 114's introduction already presents itself as generalizing capacitated transportation.
+- **Lead.** Almost-uniform sampling via Jerrum–Valiant–Vazirani.
 
-### TC-3 · Deterministic construction of `𝔽_{p^n}`; deterministic factoring over `𝔽_{p^k}` · **D**
-- **Premise.** 142 Thm 1.1: deterministic factorization over `𝔽_p` in `O(((n+1)⌈log₂p⌉)^{10^{12}})` bit operations, with "no randomness… or GRH assumption".
-- **Construction.** A degree-`n` irreducible over `𝔽_p` can be found in deterministic `poly(n log p)`, by Shoup's reduction of construction to factoring (*Math. Comp.* 54 (1990)).
-- **Factoring over `𝔽_q = 𝔽_p[y]/(g)`.**
-  1. Squarefree decomposition.
-  2. Berlekamp subalgebra `B_p = ker(h ↦ h^p − h)`.
-  3. Factor minimal polynomials over `𝔽_p` with 142.
-  4. Separate the factors with gcds.
-- **Context.** Previous unconditional deterministic algorithms were polynomial in `p`.
-
-### TC-4 · All-pairs shortest paths with small integer weights in `O(n^{2.5082})` · **D**
-- **Premise.** 107 Thm 1.1 and Cors 14.1–14.2: over characteristic-0 fields, `α > 0.465` and `ω(1, 0.709, 1) < 2.092`.
+### TC-3 · Deterministic construction of `𝔽_{p^n}`; deterministic factoring over `𝔽_{p^k}` · **D** (known given the input)
+- **Premise.** 142, Thm 1.1: "O(((n+1)⌈log₂p⌉)^{10^{12}}) bit operations … uses no randomness, integer-factorization oracle, primitive-root oracle, or GRH assumption."
+- **Statement.** Two consequences:
+  - A degree-`n` irreducible polynomial over `𝔽_p` can be found deterministically in `poly(n log p)`.
+  - Factoring over `𝔽_q = 𝔽_p[y]/(g)` is deterministic `poly(d, k, log p)`.
 - **Derivation.**
-  1. `k ↦ ω(1,k,1)` is convex (Lotti–Romani, *TCS* 23 (1983)).
-  2. So `ω(1,μ,1) < 1 + 2μ` at `μ ≈ 0.50813`.
-  3. Zwick (*JACM* 49 (2002)) then gives `Õ(n^{2+μ})`.
-- **Comparison.** Not verified: the previous best `μ ≈ 0.528` is from memory.
+  - **Construction.** Shoup, *Math. Comp.* 54 (1990) 435–447: finding irreducible polynomials of a given degree "is deterministic polynomial-time reducible to … factoring polynomials over the prime field". (This is not the Shoup 1990 *Inform. Process. Lett.* paper that 142 cites.)
+  - **Factoring over `𝔽_q`.** Berlekamp, *Math. Comp.* 24 (1970):
+    1. Take the squarefree part.
+    2. Compute `B_p = ker(h ↦ h^p − h) ≅ 𝔽_p^r` by `𝔽_p`-linear algebra.
+    3. Find the roots of the minimal polynomials of a basis with 142.
+    4. Take gcds to split `f`. They separate every pair of factors.
+- **Context.** Previous unconditional deterministic algorithms had `p^{1/2+o(1)}` dependence on the characteristic (Shoup). So both consequences are immediate from 142 by classical reductions.
 
-### TC-5 · 0/1 Knapsack in randomized `O*(2^{0.49n})` · **D**
+### TC-4 · Directed APSP with small integer weights in `O(n^{2.5082})` · **D**
+- **Premise.** 107, Thm 1.1 and Cors 14.1–14.2: over every characteristic-0 field, `α > 0.465` and `ω(1, 0.709, 1) < 2.092`.
+- **Statement.** All-pairs shortest paths in **directed** graphs with integer weights in `{−M,…,M}`, `M = O(1)` and no negative cycles, can be solved in `Õ(n^{2+μ*}) ⊂ O(n^{2.5082})`, where `μ* = 10061/19800 = 0.508131…`.
 - **Derivation.**
-  - 138: Subset Sum in randomized `O(2^{0.49n})`.
-  - Nederlof–van Leeuwen–van der Zwaan (arXiv:1208.4225, Thm 2): Knapsack reduces to Subset Sum with the same `n`, preserving `O*` time and space.
-  - Bit lengths grow by `O(log n)`, and repetition amplifies the success probability.
+  1. `k ↦ ω(1,k,1)` is convex. 107 itself proves this in §2, and the fact is classical (Lotti–Romani).
+  2. Interpolating between `(0.465, 2)` and `(0.709, 2.092)` with slope `23/61` gives `ω(1,μ,1) < 1 + 2μ` for `μ > μ*`.
+  3. Zwick (*JACM* 49 (2002)) gives `Õ(n^{2+μ})` whenever `ω(1,μ,1) ≤ 1 + 2μ`.
+- **Comparison.** The best previously published bound is `μ < 0.5275` (Alman–Duan–Vassilevska Williams–Xu–Xu–Zhou, arXiv:2404.16349). For undirected graphs, Shoshan–Zwick's `Õ(Mn^ω)` is already better.
+- **Lead.** 107's full exponent curve (its eq. (12.12) at `t = 0.213`) would give `μ < 0.50346`, i.e. `O(n^{2.5035})`. That needs 107's characteristic-0 descent repeated for that scheme.
+
+### TC-5 · 0/1 Knapsack in randomized `O(2^{0.49n})` · **D**
+- **Statement.** For 0/1 Knapsack with `n` items and bit length `b ≤ n^c`, a randomized algorithm with error `≤ 1/3` runs in `O_c(2^{0.49n})` word-RAM time.
+- **Derivation.**
+  1. 138 Thm 1.1 gives Subset Sum for positive integers, success probability `≥ 2/3`, time `C_c 2^{0.49n}` for `b ≤ n^c`.
+  2. Nederlof–van Leeuwen–van der Zwaan (arXiv:1208.4225, Thm 2) reduce Knapsack deterministically to Subset Sum with the same `n`, preserving `O*` time and space, using `O(n² lg²(nN))` queries.
+  3. Query bit lengths are about `2b + log₂(n+1) + O(1)`, so still polynomial.
+  4. Drop zero-weight items, since 138 needs positive integers.
+  5. Amplify each query to error `1/(3K)`, where `K` is the number of queries, and take a union bound.
+- **Space variant.** 138's low-space companion gives Knapsack in `O*(2^{n/2})` time and `O*(2^{n/5})` space.
 
 ### TC-6 · Tension sweep: none found
 - **Families checked.** 102, 107, 109, 110, 117, 118, 124, 125, 129, 130, 132, 133, 138 and 141, against ETH, UGC, known lower bounds and barriers. All are consistent.
-- **Shapes forced.** Some combinations force the shape of hard instances, e.g. exponentially long 2NFA witnesses for 129.
+- **Shapes forced.** Some combinations force the shape of hard instances.
+  - For 129's complementation bound, inductive counting means the hard inputs must be exponentially long.
+  - For 129's 1NFA → 2DFA half, superpolynomially long inputs are needed unless NL ⊄ L/poly (Kapoutsis–Pighizzini).
+- **Spot checks by the referee.**
+  - 107 sits below the Christandl–Le Gall–Lysikov–Zuiddam cap on `α`.
+  - 138 is consistent with ETH and with the Abboud–Bringmann–Hermelin–Shabtay bound.
 
 ### Lean target (low novelty)
 - Family 126's comparators imply a superpolynomial form of Rothvoss's LP extension-complexity bound, via diagonal matrices.
 
 ---
 
-## Combinatorics and logic *(not yet refereed)*
+## Combinatorics and logic · refereed
 
-### CL-1 · Points with algebraic coordinates: Euclidean-Ramsey ⇔ spherical · **D** (Lean target)
+### CL-1 · Algebraic coordinates: Euclidean-Ramsey ⇔ spherical · **D** (spherical ⇒ Ramsey direction: Lean target, see below)
 - **Premises.**
-  - 172, `EuclideanRamsey.lean` `classification`: `a` is Ramsey iff some `P ∈ Mat_{d+1}(F ⊗_ℚ F)` has `(p_i ⊗ 1)ᵀP(1 ⊗ p_i) = 0` for all `i` and `m_F(P_αβ) = δ_αβ`, where `F` is the coordinate field.
-  - `EuclideanRamseySpherical.lean`: Ramsey ⇒ spherical.
-- **Statement.** A finite set with real-algebraic coordinates (up to similarity) is Euclidean-Ramsey iff it lies on a sphere. So Graham's spherical conjecture holds for every such set, e.g. lattice points on a sphere, or any number of rational points on a circle.
+  - 172, `EuclideanRamsey.lean` `classification`: assume `2 ≤ s`, `1 ≤ d`, injective `a`, and `affineSpan ℝ (range a) = ⊤`. Then `a` is Ramsey iff some `P ∈ Mat_{Option (Fin d)}(F ⊗_ℚ F)` satisfies `Σ_{α,β} (p_iα ⊗ 1) P_αβ (1 ⊗ p_iβ) = 0` for all `i`, together with `m_F(P_αβ) = δ_αβ` for spatial `α, β`. Here `F` is the coordinate field.
+  - The forward direction, Ramsey ⇒ spherical, is classical (Erdős–Graham–Montgomery–Rothschild–Spencer–Straus 1973, Thm 13); 172 also states it.
+- **Statement.** A finite nonempty Euclidean set similar to a set with real-algebraic coordinates is Ramsey iff it is spherical. So Graham's spherical conjecture holds for all such sets, for example lattice points on a sphere, or any number of rational points on a circle.
 - **Derivation.**
-  1. If the set is spherical, `‖a_i‖² + ℓ·a_i + c = 0`.
-  2. An `F`-linear projection `ℝ → F` moves `ℓ` and `c` into `F`, giving `H` with `p_iᵀHp_i = 0`.
-  3. `F/ℚ` is finite separable, so it has a separability idempotent `e`: `m(e) = 1` and `(1⊗x − x⊗1)e = 0` (DeMeyer–Ingraham, LNM 181, Ch. II).
-  4. `P = e·(H ⊗ 1)` satisfies both conditions.
-- **Consistency.** Every non-Ramsey example in the corpus uses transcendental coordinates.
+  1. **Reduction.** Ramsey and spherical are both similarity-invariant, and singletons are trivial. Otherwise, re-embed the set in its affine span by Gram–Schmidt over the real algebraic numbers, which form a real closed field. This gives full span, `d ≥ 1`, and `F` a number field.
+  2. If the set is spherical, `‖a_i‖² + ℓ·a_i + c = 0`. Because the span is full, `(c, ℓ)` is the unique solution of an `F`-linear system, so `ℓ, c ∈ F` by Cramer's rule. That gives `H` with `p_iᵀ H p_i = 0` and spatial block `I`.
+  3. **Separability idempotent.** Write `F = ℚ(θ)` and `f(X) = (X − θ)Σ b_k X^k`. Then `e = (f′(θ)^{−1} ⊗ 1)·Σ_k (b_k ⊗ θ^k)` satisfies `m(e) = 1` and `(1⊗x − x⊗1)e = 0`.
+  4. `P = e·(H ⊗ 1)` satisfies both conditions. The referee checked this exactly in `ℚ(√2) ⊗ ℚ(√2)` for five points on a circle; without `e`, the first condition fails.
+- **Consistency.** Every known spherical non-Ramsey set is transcendental:
+  - 172's nine-point and twelve-point examples (algebraically independent parameters; Liouville's constant);
+  - Pálvölgyi's heptagon (arXiv:2609.23327).
 
-### CL-2 · Consecutive off-diagonal Ramsey ratios · **D** (Lean target)
-- **Premise.** 170: `SharpLogRamsey.lean` (`MainBounds`, `MainLimit`) for `s ≥ 6`, and `RamseyFive.lean` for `s = 5`.
-- **Statement.**
-  - For `s ≥ 5`: `r(s+1,t)/r(s,t) = t/(log t)^{1+o(1)} → ∞`.
-  - With Shearer, Kim, Ajtai–Komlós–Szemerédi and Mattheus–Verstraëte for `s ≤ 4`: the ratio is `t^{1+o(1)}` for every `s ≥ 2`.
-- **Derivation.** Subtract the two `MainLimit` statements: `(s−1) − (s−2) = 1`.
-- **Not the same as** Erdős problem #1014.
+  This fits the mechanism: the obstructions come from derivations, and a number field has none.
+- **Unstated.** Neither the corpus nor the literature the referee could search states it.
 
-### CL-3 · The enumeration degrees are rigid · **D**
-- **Premise.** 241 (`DegreeRigidity.lean`): every automorphism of the Turing degrees is the identity.
-- **Derivation.**
-  1. The total enumeration degrees are definable (Kalimullin, *J. Math. Logic* 3 (2003); Cai–Ganchev–Lempp–Miller–Soskova, *JAMS* 29 (2016)), so every automorphism `φ` preserves them.
-  2. They form a copy of `D_T` (Rogers §9.7), so by 241 `φ` fixes them pointwise.
-  3. Selman (1971): `A ≤_e B` iff every total degree above `B` is above `A`. So `φ = id`.
+### CL-2 · Consecutive off-diagonal Ramsey ratios: the sharp logarithmic exponent · **D**
+- **Premise.** 170: `SharpLogRamsey.lean` `MainLimit s` for `s ≥ 6`, and `RamseyFive.lean` for `s = 5`. `MainLimit s` is `((s−1) log t − log r(s,t)) / log log t → s − 2`.
+- **Statement.** For `s ≥ 5`, `r(s+1,t)/r(s,t) = t/(log t)^{1+o(1)}`. With `MainBounds`, for every `ε > 0` and all large `t`:
+
+  `t/(C_s (log t)^{1+ε}) ≤ r(s+1,t)/r(s,t) ≤ C_{s+1}·t/(log t)^{1−ε}`.
+- **Derivation.** Subtract `MainLimit s` from `MainLimit (s+1)`. The limits differ by `(s−1) − (s−2) = 1`.
+- **Already known without the corpus.** The weaker facts that the ratio is `t^{1+o(1)}` and tends to infinity, for every `s ≥ 2`, follow from Bradač (arXiv:2605.28793) together with Ajtai–Komlós–Szemerédi. Only the `1 + o(1)` exponent on the logarithm, for `s ≥ 5`, needs 170.
+- **Not the same as** Erdős problem #1014, which is about `R(k, l+1)/R(k, l) → 1`.
+
+### CL-3 · The enumeration degrees are rigid · **D** (already known once 241 is granted)
+- **Premise.** 241, `DegreeRigidity.lean`: every order automorphism of the Turing degrees is the identity.
+- **Derivation.** This is exactly Cai–Ganchev–Lempp–Miller–Soskova (*JAMS* 29 (2016)), Corollary 3.8: "If the structure of the Turing degrees is rigid, then so is the structure of the enumeration degrees."
+  1. The total degrees are definable (CGLMS 2016; Kalimullin 2003 supplied the K-pair tool).
+  2. They form an order-isomorphic copy of `D_T`, via `deg_T(A) ↦ deg_e(A ⊕ Ā)`.
+  3. Selman (1971): `A ≤_e B` iff every total degree above `B` is above `A`.
+- **What is new.** Only that the corpus supplies the premise.
 
 ### CL-4 · Hilbert's tenth over ℤ under a finitely-many-zeros promise · **D**
-- **Premise.** 242 Thm 1.1: single-fold Diophantine representations, with at most one zero in `ℕ^m`. Its §8 makes "no claim … over Z or Q".
-- **Derivation.** Substitute four-square forms for the variables (Lagrange). The result is a computable `G_a` over `ℤ` with finitely many integer zeros, and it has a zero iff `a ∈ S`.
+- **Premise.** 242, Thm 1.1 and Cor 1.2: there are fixed `m, D` such that integer solvability is undecidable for polynomials promised to satisfy `#{w ∈ ℕ^m : F(w) = 0} ≤ 1`. Its §8 makes "no claim about analogous uniqueness promises for solutions over ℤ or ℚ."
+- **Statement.** There are fixed `m′ = 4m` and `D′ = 2D` such that no algorithm decides integer solvability for `G ∈ ℤ[X₁…X_{m′}]` of degree `≤ D′` that is promised to have finitely many integer zeros.
+- **Derivation.** Replace each `w_j` by a sum of four squares (Lagrange). The integer zeros then number `∏_j r₄(w_j)`, which is finite. The count is not uniformly bounded, so this says nothing about "at most one zero" over ℤ.
 
 ### CL-5 · Polyomino achievement games: exactly 12 winners · **Lead**
-- **Claim.** 187 (Maker wins Snaky in 21 moves) plus the classical lists: the planar winners are the 11 classical ones with at most 5 cells, plus Snaky.
-- **To reach D.** Cite Harary and Gardner directly.
+- **Claim.** Consider the weak (Maker–Breaker) achievement game on the infinite square board, with free polyominoes and no handicap. By 187 (Maker wins Snaky in 21 moves), exactly 12 polyominoes are winners:
+  - the 11 classical winners: monomino; domino; I- and V-tromino; I-, L-, T- and Z-tetromino; L-, N- and Y-pentomino;
+  - plus Snaky.
+- **Scope.** Nothing is claimed for the strong game, which 187 explicitly excludes. The conditional "if Snaky wins, there are 12 winners" is classical.
+- **To reach D.** Cite Harary (*Ann. Discrete Math.* 13 (1982)) and Gardner directly. The entry would then be "already known once 187 is granted".
 
 ### CL-6 · Logic and combinatorics tension checks: none found
-- 004 vs Mazur's conjecture: 004 is a Turing reduction, not a Diophantine model.
-- 240 vs the CH obstruction: compatible, via Prop 6.2.
+- 004 vs Mazur's conjecture: 004 is a Turing reduction, not a Diophantine model. Its §1.3 yields degree `0′`, and it discusses the Mazur and Cornelissen–Zahidi obstructions explicitly.
+- 240 vs the CH obstruction: compatible. This rests on 240's Thm 1.1(iii) (categoricity on the tail above `Λ`) and the text after Cor 6.1. The CH paper also notes it contradicts Espíndola's claimed transfer (arXiv:2301.13167v1) under CH. That is a tension with outside literature, not inside the corpus.
 - 244: no family asserts PP ⇒ AC.
 - 159/160 vs Behrend.
 - 170 vs 184.
 - Infinite vs finite matroids.
 - 189, 165 vs known small values.
-- **Dependency note.** 004 appears to cite families 010 and 006 as inputs (matched by title only).
+- **Dependency note.** 004 cites corpus papers by path. Fontaine–Mazur modularity at 2 (family 010) is an essential input ("The modularity input is [Thm 1.1]…"). The family-006 Goldfeld/2-converse paper appears only in a remark, as an optional replacement. So 004 depends on 010 but not on 006.
 
 ### Lean targets whose content the corpus already states
 - Green–Tao from `ErdosReciprocal` and Mathlib's `Σ 1/p = ∞`.
