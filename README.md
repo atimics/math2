@@ -1,8 +1,11 @@
 # math2 — cross-family corollaries of openai/math
 
-[![The Theorem That Was Already There — a 38-second tale](media/math2-tale.gif)](media/math2-tale.mp4)
+[![Chapter 2: The Great Fan-Out](media/math2-chapter2.gif)](media/math2-chapter2.mp4)
 
-*Click for the version with sound. `media/render.py` regenerates the animation.*
+*Chapter 2, "The Great Fan-Out": click for the version with sound. Chapter 1,
+"The Theorem That Was Already There": [video](media/math2-tale.mp4) ·
+[gif](media/math2-tale.gif). `media/render.py` and `media/render_ch2.py`
+regenerate both.*
 
 [![Lean](https://github.com/atimics/math2/actions/workflows/lean.yml/badge.svg)](https://github.com/atimics/math2/actions/workflows/lean.yml)
 
