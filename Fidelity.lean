@@ -6,4 +6,9 @@ import Fidelity.Surjunctivity
 import Fidelity.MahlerBounds
 import Fidelity.Nagata
 import Fidelity.StableFiniteness
+import Fidelity.GreenTao
+import Fidelity.ExtensionComplexity
+import Fidelity.RamseyRatio
+import Fidelity.PlaneColoring
+import Fidelity.AlgebraicRamsey
 import Fidelity.AxiomGuard

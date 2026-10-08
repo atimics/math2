@@ -7,6 +7,11 @@ import Fidelity.Nagata
 import Fidelity.MahlerBounds
 import Fidelity.Surjunctivity
 import Fidelity.Redundancies
+import Fidelity.AlgebraicRamsey
+import Fidelity.PlaneColoring
+import Fidelity.RamseyRatio
+import Fidelity.ExtensionComplexity
+import Fidelity.GreenTao
 import Fidelity.AxiomGuard
 
 /-! Axiom audit, two independent layers:
@@ -93,6 +98,44 @@ import Fidelity.AxiomGuard
 #assert_standard_axioms Corollaries.rat_affine_pi_liouvilleWith_eq_Iic
 #assert_standard_axioms Corollaries.rat_affine_pi_irrationalityExponent
 #assert_standard_axioms Corollaries.mobius_pi_liouvilleWith_eq_Iic
+#assert_standard_axioms Fidelity.erdos3_reciprocalTerm_of_mem
+#assert_standard_axioms Fidelity.erdos3_reciprocalTerm_of_notMem
+#assert_standard_axioms Fidelity.erdos3_reciprocalTerm_primes
+#assert_standard_axioms Fidelity.erdos3_not_summable_primes
+#assert_standard_axioms Fidelity.primes_hasAP
+#assert_standard_axioms Fidelity.green_tao
+#assert_standard_axioms Fidelity.erdos3_not_summable_primes_above
+#assert_standard_axioms Fidelity.green_tao_above
+#assert_standard_axioms Fidelity.green_tao_infinite
+#assert_standard_axioms Fidelity.lpDiagEmbed_apply
+#assert_standard_axioms Fidelity.lpDiagRead_apply
+#assert_standard_axioms Fidelity.lpDiag_comp_apply
+#assert_standard_axioms Fidelity.hasAffineLift_of_hasLPLift
+#assert_standard_axioms Fidelity.lp_lift_lower_bound
+#assert_standard_axioms Fidelity.ramseyFive_ramseyProperty_iff
+#assert_standard_axioms Fidelity.ramseyFive_ramsey_eq
+#assert_standard_axioms Fidelity.ramsey_log_ratio
+#assert_standard_axioms Fidelity.ramsey_log_ratio_five
+#assert_standard_axioms Fidelity.tendsto_div_log_sq_atTop
+#assert_standard_axioms Fidelity.ramsey_ratio_lower_aux
+#assert_standard_axioms Fidelity.ramsey_tendsto_ratio_of_bounds
+#assert_standard_axioms Fidelity.ramsey_ratio_tendsto_atTop
+#assert_standard_axioms Fidelity.ramsey_ratio_five_tendsto_atTop
+#assert_standard_axioms Fidelity.complex_properColoring_iff
+#assert_standard_axioms Fidelity.plane_properColoring_mono
+#assert_standard_axioms Fidelity.plane_not_properColoring_five
+#assert_standard_axioms Fidelity.plane_not_properColoring_le_five
+#assert_standard_axioms Fidelity.complex_properColoring_seven
+#assert_standard_axioms Fidelity.planeChromaticNumber_eq_six_or_seven
+#assert_standard_axioms Fidelity.complexChromaticNumber_eq_planeChromaticNumber
+#assert_standard_axioms Fidelity.complexChromaticNumber_eq_six_or_seven
+#assert_standard_axioms Fidelity.sphereMatrix_row_some
+#assert_standard_axioms Fidelity.sphereMatrix_quadForm
+#assert_standard_axioms Fidelity.coordinateField_finiteDimensional
+#assert_standard_axioms Fidelity.exists_sphere_coeffs
+#assert_standard_axioms Fidelity.fieldCriterion_of_sphere
+#assert_standard_axioms Fidelity.ramsey_of_cospherical_of_algebraic
+#assert_standard_axioms Fidelity.ramsey_iff_cospherical_of_algebraic
 
 #print axioms Corollaries.real_zero_le_seven_eighths
 #print axioms Corollaries.siegel_explicit
@@ -172,3 +215,41 @@ import Fidelity.AxiomGuard
 #print axioms Corollaries.rat_affine_pi_liouvilleWith_eq_Iic
 #print axioms Corollaries.rat_affine_pi_irrationalityExponent
 #print axioms Corollaries.mobius_pi_liouvilleWith_eq_Iic
+#print axioms Fidelity.erdos3_reciprocalTerm_of_mem
+#print axioms Fidelity.erdos3_reciprocalTerm_of_notMem
+#print axioms Fidelity.erdos3_reciprocalTerm_primes
+#print axioms Fidelity.erdos3_not_summable_primes
+#print axioms Fidelity.primes_hasAP
+#print axioms Fidelity.green_tao
+#print axioms Fidelity.erdos3_not_summable_primes_above
+#print axioms Fidelity.green_tao_above
+#print axioms Fidelity.green_tao_infinite
+#print axioms Fidelity.lpDiagEmbed_apply
+#print axioms Fidelity.lpDiagRead_apply
+#print axioms Fidelity.lpDiag_comp_apply
+#print axioms Fidelity.hasAffineLift_of_hasLPLift
+#print axioms Fidelity.lp_lift_lower_bound
+#print axioms Fidelity.ramseyFive_ramseyProperty_iff
+#print axioms Fidelity.ramseyFive_ramsey_eq
+#print axioms Fidelity.ramsey_log_ratio
+#print axioms Fidelity.ramsey_log_ratio_five
+#print axioms Fidelity.tendsto_div_log_sq_atTop
+#print axioms Fidelity.ramsey_ratio_lower_aux
+#print axioms Fidelity.ramsey_tendsto_ratio_of_bounds
+#print axioms Fidelity.ramsey_ratio_tendsto_atTop
+#print axioms Fidelity.ramsey_ratio_five_tendsto_atTop
+#print axioms Fidelity.complex_properColoring_iff
+#print axioms Fidelity.plane_properColoring_mono
+#print axioms Fidelity.plane_not_properColoring_five
+#print axioms Fidelity.plane_not_properColoring_le_five
+#print axioms Fidelity.complex_properColoring_seven
+#print axioms Fidelity.planeChromaticNumber_eq_six_or_seven
+#print axioms Fidelity.complexChromaticNumber_eq_planeChromaticNumber
+#print axioms Fidelity.complexChromaticNumber_eq_six_or_seven
+#print axioms Fidelity.sphereMatrix_row_some
+#print axioms Fidelity.sphereMatrix_quadForm
+#print axioms Fidelity.coordinateField_finiteDimensional
+#print axioms Fidelity.exists_sphere_coeffs
+#print axioms Fidelity.fieldCriterion_of_sphere
+#print axioms Fidelity.ramsey_of_cospherical_of_algebraic
+#print axioms Fidelity.ramsey_iff_cospherical_of_algebraic
