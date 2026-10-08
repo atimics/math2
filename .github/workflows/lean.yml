@@ -45,7 +45,13 @@ jobs:
             exit 1
           }
 
-      - name: Axiom audit (no sorry, no extra axioms)
+      - name: Axiom checker self-test
+        run: python3 scripts/check_axioms.py --self-test
+
+      - name: Axiom audit (exact names, no sorry, no extra axioms)
         run: |
-          lake env lean scripts/Axioms.lean 2>&1 | tee axioms.txt
-          python3 scripts/check_axioms.py axioms.txt "$(grep -c '^#print axioms' scripts/Axioms.lean)"
+          set -o pipefail
+          lake env lean scripts/Axioms.lean 2>&1 | tee axioms.txt || {
+            python3 scripts/annotate.py axioms.txt; exit 1; }
+          python3 scripts/check_axioms.py axioms.txt scripts/Axioms.lean 2>&1 | tee audit.txt || {
+            echo "::error file=scripts/Axioms.lean::$(tr '\n' ' ' < audit.txt | cut -c1-3000)"; exit 1; }

@@ -1,12 +1,16 @@
 import Corollaries.Hypotheses
 
 /-!
-# Consequences of `μ(π) = 2` (family 017)
+# Consequences of OpenAI's `PiExponent.main` (family 017)
 
-OpenAI's `PiExponent.main` says `π` has irrationality exponent `2`. Here we
-connect it to Mathlib's `LiouvilleWith` API and carry it over to every
-rational affine image `rπ + s`. None of these consequences is stated in the
-corpus.
+OpenAI's `PiExponent.main` claims `π` has irrationality exponent `2`. This file
+proves, from that claim, the **upper-bound side** in Mathlib's `LiouvilleWith`
+language: no `rπ + s` (`r, s ∈ ℚ`, `r ≠ 0`) is `LiouvilleWith p` for any
+`p > 2`, i.e. its irrationality exponent is `≤ 2`.
+
+The matching lower bound (exponent `≥ 2`) is Dirichlet's approximation theorem,
+true for every irrational number; it is **not** formalized here, so this file
+does not state the equality `μ(rπ + s) = 2` as a theorem.
 -/
 
 namespace Corollaries
@@ -27,8 +31,8 @@ theorem pi_not_liouvilleWith (h : PiExponentMain) {p : ℝ} (hp : 2 < p) :
   push_cast at key
   linarith
 
-/-- Every `rπ + s` with `r, s ∈ ℚ`, `r ≠ 0`, has irrationality exponent `2` in
-Mathlib's sense: it is not `LiouvilleWith p` for any `p > 2`. -/
+/-- For `r, s ∈ ℚ` with `r ≠ 0`, `rπ + s` is not `LiouvilleWith p` for any `p > 2`
+(its irrationality exponent is at most `2`). -/
 theorem rat_affine_pi_not_liouvilleWith (h : PiExponentMain)
     (r s : ℚ) (hr : r ≠ 0) {p : ℝ} (hp : 2 < p) :
     ¬ LiouvilleWith p (Real.pi * r + s) := fun hL =>
