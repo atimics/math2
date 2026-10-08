@@ -25,8 +25,15 @@ from X to Y. It does not check X: OpenAI's own proofs are not rebuilt here,
 the vendored comparator files contain `sorry`, and the audit confirms no
 corollary depends on them. The catalogue has 14 such checked implications,
 31 complete written derivations and 5 research leads, and labels each one.
-In all there are 116 audited Lean declarations. Independent referee agents
+In all there are 116 audited Lean declarations in the main build, and 11 more in
+two separately built libraries (two of those are OpenAI's own theorems). Independent referee agents
 re-checked every entry against the sources.
+
+One entry goes further. **CL-1 is proved end to end in Lean.** OpenAI's own proof
+of family 172 is rebuilt here from byte-identical upstream files and composed with
+ours. The result, `EndToEnd.algebraic_ramsey_iff_cospherical`, has no unproved
+premise: a point set with algebraic coordinates and full span is Euclidean Ramsey iff
+it is spherical.
 
 > **Everything here is conditional.** OpenAI's results are claims; several
 > have no formalization, and OpenAI warns that some unformalized ones may have
@@ -61,9 +68,12 @@ of the 7/8 paper, so it would survive a flaw there.
 | Path | Contents |
 |---|---|
 | [`docs/COROLLARIES.md`](docs/COROLLARIES.md) | 50 entries mined from all 372 families, plus tension checks, each tagged **L** (Lean-checked conditional implication, 14), **D** (complete written derivation, 31) or **Lead** (research lead, 5); every entry refereed |
+| [`docs/review/`](docs/review/README.md) | **Expert review packets** for the three entries that matter most: NT-9 (full BSD for ≥ 83.75% of curves), TC-4 (directed APSP in `n^2.5082`) and CL-1 (algebraic Euclidean Ramsey ⇔ spherical). Each has the questions for a specialist, verbatim premises, the bridge, failure modes and a reproducer script; CI runs the reproducers |
 | [`docs/RESEARCH_PRIORITIES.md`](docs/RESEARCH_PRIORITIES.md) | Six research-agenda consequences (RP-1 … RP-6) with written derivations, classical references and follow-up targets; RP-4 is the full derivation behind NT-9 |
 | `Corollaries/` | Lean library. Mathlib only, with OpenAI statements as hypotheses (`Hypotheses.lean`) |
 | `Fidelity/` | Kernel checks that those hypotheses equal OpenAI's own comparator types, plus applications to OpenAI's exact statements |
+| `FidelityAlt/` | Kernel checks against comparator files that clash with `Fidelity`'s (same OpenAI names), built separately; CI checks that the shared definitions are byte-identical |
+| `OAI/Combinatorics/EuclideanRamsey/`, `EndToEnd/` | Byte-identical copies of OpenAI's own Lean proof of family 172 (31 files, Mathlib only, no `sorry`; CI diffs them against upstream), and CL-1 composed with it, leaving no unproved premise |
 | `Fidelity/Vendor/` | Byte-identical copies of twenty-two `openai/math` comparator files (Apache-2.0, proofs are `sorry` upstream); CI diffs them against upstream |
 | `Fidelity/AxiomGuard.lean`, `scripts/` | Two independent axiom audits: the Lean command `#assert_standard_axioms` fails elaboration on anything beyond `propext`, `Classical.choice` and `Quot.sound`, and `check_axioms.py` matches `#print axioms` output to the exact requested names (no duplicates, none missing, no Lean errors; self-tested in CI) |
 | [`docs/ENGINEERING_SELECTION.md`](docs/ENGINEERING_SELECTION.md) | Workload and baseline screening, plus an executable small-network sampler with a conditional finite-step bias guarantee in [`experiments/curveball/`](experiments/curveball/README.md) |
@@ -84,7 +94,7 @@ of the 7/8 paper, so it would survive a flaw there.
 | `scalar_henon_nonexistence` | scalar Hardy–Hénon Liouville theorem in the range `n − 2 < 2(n + A)/(p + 1)` | 370 |
 | `symmetric_mahler_bourgainMilman` | Bourgain–Milman with the optimal base: `vol(K)vol(K°) ≥ (2/π)ⁿκₙ²` | 087 |
 | `nagata_equal_multiplicity`, `nagata_ten_points` | equal-multiplicity Nagata; `d ≥ 3m + 1` at 10 very general points (a specialization) | 039 |
-| `ramsey_of_cospherical_of_algebraic` | Euclidean-Ramsey ⇔ spherical for point sets with algebraic coordinates (the new direction), so Graham's conjecture holds for them | 172 |
+| `ramsey_of_cospherical_of_algebraic`; end to end: `EndToEnd.algebraic_ramsey_iff_cospherical`, `EndToEnd.ramsey_of_cospherical_of_rational` | Euclidean-Ramsey ⇔ spherical for point sets with algebraic coordinates, so Graham's conjecture holds for them (e.g. any finite set of rational points on a circle). The `EndToEnd` versions use OpenAI's rebuilt proof and have no unproved premise | 172 |
 | `ramsey_log_ratio`, `ramsey_ratio_tendsto_atTop` | `r(s+1,t)/r(s,t) = t/(log t)^{1+o(1)}` for `s ≥ 5` | 170 |
 | `twoPoint_binary_iff_ordinaryElliott`, `ostmann_main_iff_inverseGoldbach` | OpenAI formalized the same theorems twice: two Elliott comparators are equivalent, and two Ostmann comparators are identical | 007, 013 |
 
@@ -125,8 +135,8 @@ Its Python reproduction commands and limitations are documented there.
 
 ```sh
 lake exe cache get
-lake build Corollaries Fidelity
-lake env lean scripts/Axioms.lean
+lake build Corollaries Fidelity FidelityAlt UpstreamEuclideanRamsey EndToEnd
+lake env lean scripts/Axioms.lean            # likewise AxiomsAlt.lean, AxiomsEndToEnd.lean
 ```
 
 ## Engineering experiments
@@ -138,5 +148,5 @@ not produce faster solves in this pilot. Dense remains the default.
 
 ## License
 
-Apache-2.0. Files under `Fidelity/Vendor/` are © OpenAI, from
-`openai/math`, and unmodified under Apache-2.0.
+Apache-2.0. Files under `Fidelity/Vendor/`, `FidelityAlt/Vendor/` and
+`OAI/` are © OpenAI, from `openai/math`, and unmodified under Apache-2.0.

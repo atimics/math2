@@ -12,9 +12,10 @@ where H encodes the sphere and e is the separability idempotent of F/Q.
 
 This script takes F = Q(sqrt 2), SIX points on the circle (x - sqrt2)^2 + y^2 = 1,
 represents B = Q[X, Y]/(X^2 - 2, Y^2 - 2) (X = sqrt2 (x) 1, Y = 1 (x) sqrt2), and checks:
-  * family 172's own Prop 7.3 does NOT apply (its row-independence hypothesis fails);
+  * family 172's Prop 7.3 does NOT apply (its row-independence hypothesis fails), nor does
+    Cor 7.4 (at most five points);
   * P = e*(H (x) 1) satisfies (1) and (2) exactly;
-  * without e, P = H (x) 1 violates (1).
+  * the naive choice P = H (x) 1, without e, violates (1).
 
 Run: python3 scripts/review/cl1_idempotent.py   (needs sympy)
 """
@@ -54,7 +55,7 @@ def main() -> None:
     # Prop 7.3 hypothesis: rows (p_ia p_ib)_{a,b} linearly independent over F.
     rows = sp.Matrix([[sp.expand((pi[a] * pi[b]).subs(s, SQ2)) for a in range(3) for b in range(3)] for pi in p])
     rank = rows.rank(simplify=True)
-    print(f"Prop 7.3 row rank = {rank} < 6 points: its hypothesis fails, so 172 does not cover this set")
+    print(f"Prop 7.3 row rank = {rank} < 6 points: neither 172's Prop 7.3 nor its Cor 7.4 (<= 5 points) applies")
     assert rank < 6
 
     # sphere ||a||^2 + l.a + c = 0 with l = (-2 sqrt2, 0), c = 1  ->  H (entries in F)
@@ -83,10 +84,10 @@ def main() -> None:
 
     P_plain = [[left(H[a][b]) for b in range(3)] for a in range(3)]
     c1n, _ = check(P_plain)
-    print(f"P = H(x)1 (no idempotent): condition (1) values = {c1n}")
+    print(f"naive P = H(x)1 (no idempotent): condition (1) values = {c1n}")
     assert any(v != 0 for v in c1n)
-    print("OK: the criterion holds with the idempotent and fails without it;")
-    print("so this 6-point algebraic circle set is Ramsey by 172's Theorem 1.1, outside Prop 7.3's reach.")
+    print("OK: the criterion holds with the idempotent, and the naive choice fails;")
+    print("so this 6-point algebraic circle set is Ramsey by 172's Theorem 1.1 itself.")
 
 
 if __name__ == "__main__":

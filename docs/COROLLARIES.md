@@ -12,13 +12,15 @@ Source corpus: [`openai/math@adc7f12`](https://github.com/openai/math/tree/adc7f
 
 | Tier | Meaning |
 |---|---|
-| **L** | **Lean-checked conditional implication.** Proved in Lean in this repo (`Corollaries/`, `Fidelity/`), taking OpenAI's comparator statement as an explicit hypothesis. The kernel checks that the hypothesis has exactly OpenAI's type. Two independent audits (`#assert_standard_axioms` in Lean; `scripts/check_axioms.py`) accept only `propext`, `Classical.choice` and `Quot.sound`. OpenAI's own proofs are **not** checked here: the vendored comparator files contain `sorry`, and no audited declaration depends on them. |
+| **L** | **Lean-checked conditional implication.** Proved in Lean in this repo (`Corollaries/`, `Fidelity/`), taking OpenAI's comparator statement as an explicit hypothesis. The kernel checks that the hypothesis has exactly OpenAI's type. Two independent audits (`#assert_standard_axioms` in Lean; `scripts/check_axioms.py`) accept only `propext`, `Classical.choice` and `Quot.sound`. OpenAI's own proofs are **not** checked here: the vendored comparator files contain `sorry`, and no audited declaration depends on them. The one exception is CL-1, which is also proved **end to end**: the `EndToEnd` library rebuilds OpenAI's own Lean proof of family 172 from byte-identical upstream files and discharges both hypotheses. |
 | **D** | **Complete written derivation.** Premises are quoted from the corpus with their source. Every other step is either elementary and written out, or a cited classical theorem. Not formalized. |
 | **Lead** | **Research lead.** A precise candidate statement with a bridge sketch. Not a result. |
 
 **Refereed** means two independent agents, who had not seen how the entries were produced, re-checked every premise, citation and number against the sources. That pass covered every entry in the first edition of this file (NT, DA, GR, AG, GE). They confirmed all of them, found none wrong, corrected two citations, and recommended the tier changes made here. A second referee pass then checked the entries from the final mining pass (theoretical computer science, combinatorics, logic) the same way, so **every entry in this file has now been refereed**.
 
 A summary table with counts is at the end.
+
+**Expert review packets.** [`docs/review/`](review/README.md) has self-contained packets for the three entries that would matter most if they hold: NT-9, TC-4 and CL-1. Each packet gives the claim, numbered questions for a specialist, the premises quoted verbatim, the bridge step by step, ranked failure modes, and a reproducer script.
 
 ---
 
@@ -114,6 +116,7 @@ A summary table with counts is at the end.
   4. Where `t ≤ 1`, we have `s₅ ≤ 1`, and 002 at `q = 5` gives the full formula, with no extra local conditions.
 - **Credit.** An external review proposed the 5-Selmer route; the referee checked 002's exact statement at `q = 5`. The full write-up, with research implications, is [RP-4 in the research priorities](RESEARCH_PRIORITIES.md#rp-4-full-bsd-in-analytic-low-rank-and-a-height-density-consequence).
 - **Comparison.** Bhargava–Skinner–Zhang's 66.48% is for the BSD *rank* conjecture with finite Sha, not the leading-term formula.
+- **Expert review packet:** [docs/review/NT-9.md](review/NT-9.md). Its reproducer proves the 7/8 and 19/24 bounds for every Selmer law, using dual certificates, and shows they are tight.
 
 ### Already in the corpus or the literature (not counted as corollaries)
 - The 11/12 paper already states:
@@ -458,6 +461,8 @@ Assume OpenAI's `PiExponent.main`.
     4. Take gcds to split `f`. They separate every pair of factors.
 - **Context.** Previous unconditional deterministic algorithms had `p^{1/2+o(1)}` dependence on the characteristic (Shoup). So both consequences are immediate from 142 by classical reductions.
 
+<a id="tc-4"></a>
+
 ### TC-4 · Directed APSP with small integer weights in `O(n^{2.5082})` · **D**
 - **Premise.** 107, Thm 1.1 and Cors 14.1–14.2: over every characteristic-0 field, `α > 0.465` and `ω(1, 0.709, 1) < 2.092`.
 - **Statement.** All-pairs shortest paths in **directed** graphs with integer weights in `{−M,…,M}`, `M = O(1)` and no negative cycles, can be solved in `Õ(n^{2+μ*}) ⊂ O(n^{2.5082})`, where `μ* = 10061/19800 = 0.508131…`.
@@ -466,7 +471,9 @@ Assume OpenAI's `PiExponent.main`.
   2. Interpolating between `(0.465, 2)` and `(0.709, 2.092)` with slope `23/61` gives `ω(1,μ,1) < 1 + 2μ` for `μ > μ*`.
   3. Zwick (*JACM* 49 (2002)) gives `Õ(n^{2+μ})` whenever `ω(1,μ,1) ≤ 1 + 2μ`.
 - **Comparison.** The best previously published bound is `μ < 0.5275` (Alman–Duan–Vassilevska Williams–Xu–Xu–Zhou, arXiv:2404.16349). For undirected graphs, Shoshan–Zwick's `Õ(Mn^ω)` is already better.
-- **Lead.** 107's full exponent curve (its eq. (12.12) at `t = 0.213`) would give `μ < 0.50346`, i.e. `O(n^{2.5035})`. That needs 107's characteristic-0 descent repeated for that scheme.
+- **Lead.** 107's full exponent curve (its eq. (12.12) at `t ≈ 0.2128`) would give `μ < 0.50346`, i.e. `O(n^{2.5035})`. That needs (12.12) at that `t`, and a transfer from ℂ to ℚ for that scheme.
+- **Premise status.** OpenAI's Lean project proves both premises over ℂ (`complex_alpha_gt_93_div_200`, `complex_rectangular_omega_lt_523_div_250`). We have not rebuilt that proof; it needs dependencies beyond Mathlib.
+- **Expert review packet:** [docs/review/TC-4.md](review/TC-4.md).
 
 ### TC-5 · 0/1 Knapsack in randomized `O(2^{0.49n})` · **D**
 - **Statement.** For 0/1 Knapsack with `n` items and bit length `b ≤ n^c`, a randomized algorithm with error `≤ 1/3` runs in `O_c(2^{0.49n})` word-RAM time.
@@ -489,13 +496,15 @@ Assume OpenAI's `PiExponent.main`.
 
 ### Lean confirmation (low novelty)
 - Family 126's affine-lift comparator implies a superpolynomial lower bound on LP lifts of the perfect-matching polytope: an LP lift is a diagonal PSD lift. This is weaker than Rothvoss's exponential bound. Lean: `Fidelity.hasAffineLift_of_hasLPLift`, `Fidelity.lp_lift_lower_bound`.
-- The nonnegative-rank analogue is drafted but not built: `MatchingPSD.lean` and `MatchingAffineLift.lean` declare the same names, so they cannot be vendored together.
+- The nonnegative-rank analogue is now built as well. `MatchingPSD.lean` and `MatchingAffineLift.lean` declare the same names, so it lives in the separately built `FidelityAlt` library: a nonnegative factorization is a PSD factorization, so 126's PSD bound also lower-bounds nonnegative rank. Lean: `FidelityAlt.hasFactorization_of_hasNonnegFactorization`, `FidelityAlt.nonnegRank_lower_bound`.
 
 ---
 
 ## Combinatorics and logic · refereed
 
-### CL-1 · Algebraic coordinates: Euclidean-Ramsey ⇔ spherical · **L** (new direction) · refereed
+<a id="cl-1"></a>
+
+### CL-1 · Algebraic coordinates: Euclidean-Ramsey ⇔ spherical · **L, end to end** · refereed
 - **Premises.**
   - 172, `EuclideanRamsey.lean` `classification`: assume `2 ≤ s`, `1 ≤ d`, injective `a`, and `affineSpan ℝ (range a) = ⊤`. Then `a` is Ramsey iff some `P ∈ Mat_{Option (Fin d)}(F ⊗_ℚ F)` satisfies `Σ_{α,β} (p_iα ⊗ 1) P_αβ (1 ⊗ p_iβ) = 0` for all `i`, together with `m_F(P_αβ) = δ_αβ` for spatial `α, β`. Here `F` is the coordinate field.
   - The forward direction, Ramsey ⇒ spherical, is classical (Erdős–Graham–Montgomery–Rothschild–Spencer–Straus 1973, Thm 13); 172 also states it.
@@ -504,7 +513,7 @@ Assume OpenAI's `PiExponent.main`.
   1. **Reduction.** Ramsey and spherical are both similarity-invariant, and singletons are trivial. Otherwise, re-embed the set in its affine span by Gram–Schmidt over the real algebraic numbers, which form a real closed field. This gives full span, `d ≥ 1`, and `F` a number field.
   2. If the set is spherical, `‖a_i‖² + ℓ·a_i + c = 0`. Because the span is full, `(c, ℓ)` is the unique solution of an `F`-linear system, so `ℓ, c ∈ F` by Cramer's rule. That gives `H` with `p_iᵀ H p_i = 0` and spatial block `I`.
   3. **Separability idempotent.** Write `F = ℚ(θ)` and `f(X) = (X − θ)Σ b_k X^k`. Then `e = (f′(θ)^{−1} ⊗ 1)·Σ_k (b_k ⊗ θ^k)` satisfies `m(e) = 1` and `(1⊗x − x⊗1)e = 0`.
-  4. `P = e·(H ⊗ 1)` satisfies both conditions. The referee checked this exactly in `ℚ(√2) ⊗ ℚ(√2)` for five points on a circle; without `e`, the first condition fails.
+  4. `P = e·(H ⊗ 1)` satisfies both conditions. The referee checked this exactly in `ℚ(√2) ⊗ ℚ(√2)` for five points on a circle. The review packet's script checks six points, which is outside 172's Prop 7.3 because the rows have rank 5. Without `e`, the first condition fails.
 - **Consistency.** Every known spherical non-Ramsey set is transcendental:
   - 172's nine-point and twelve-point examples (algebraically independent parameters; Liouville's constant);
   - Pálvölgyi's heptagon (arXiv:2609.23327).
@@ -512,7 +521,9 @@ Assume OpenAI's `PiExponent.main`.
   This fits the mechanism: the obstructions come from derivations, and a number field has none.
 - **Lean.**
   - `Fidelity.ramsey_of_cospherical_of_algebraic` proves spherical ⇒ Ramsey for algebraic coordinates, from OpenAI's `classification` alone (kernel-checked hypothesis). Helpers: `exists_sphere_coeffs`, `fieldCriterion_of_sphere`.
-  - `ramsey_iff_cospherical_of_algebraic` is the ⇔ form. Its forward direction is taken as a hypothesis restated from `EuclideanRamseySpherical.lean`. That file cannot be vendored next to `EuclideanRamsey.lean` (both declare `OAI.EuclideanRamsey.Ramsey`), so this one hypothesis is not kernel-checked against OpenAI's file.
+  - `ramsey_iff_cospherical_of_algebraic` is the ⇔ form. Its forward hypothesis restates `EuclideanRamseySpherical.lean`, which cannot be vendored next to `EuclideanRamsey.lean` because both declare `OAI.EuclideanRamsey.Ramsey`. The separately built `FidelityAlt` library proves the restatement equivalent to OpenAI's comparator in the kernel (`FidelityAlt.ramseyCosphericalStatement_iff_comparator`). CI checks that the definitions involved are byte-identical in the two libraries.
+  - **End to end, no unproved premise.** OpenAI's Lean project proves both `classification` and `ramsey_cospherical` (31 files, Mathlib only, no `sorry`). The `EndToEnd` library rebuilds those files byte-identically and composes them with a verbatim copy of our proof. This gives `EndToEnd.algebraic_ramsey_iff_cospherical` and `EndToEnd.ramsey_of_cospherical_of_rational` (rational points on a sphere ⇒ Ramsey, for any number of points). Both use only standard axioms. Part of step 1 is still only written: scaling invariance, sphericity of the re-embedded copy, and algebraic coordinates for it. OpenAI's Lean already covers singletons, congruence invariance and full-span re-embedding.
+  - **Expert review packet:** [docs/review/CL-1.md](review/CL-1.md).
 - **Unstated.** Neither the corpus nor the literature the referee could search states it.
 
 ### CL-2 · Consecutive off-diagonal Ramsey ratios: the sharp logarithmic exponent · **L** · refereed
@@ -597,6 +608,10 @@ Some entries are not new to the literature even though they are correct:
 Each of these entries says so.
 
 ## Review history
+- **Expert review packets** ([docs/review/](review/README.md)) for NT-9, TC-4 and CL-1, with reproducer scripts run in CI. Building them found three things:
+  - OpenAI formalized family 172 in Lean, so CL-1 is now proved end to end.
+  - OpenAI formalized TC-4's two premises over ℂ.
+  - The NT-9 bounds hold for every Selmer law, with a dual certificate, and they are tight.
 - **External review of commit `77ab999`.** Four findings, all fixed:
   - the axiom checker matched counts, not names, and could miss Lean errors;
   - the old `W` tier overstated sketches;

@@ -7,11 +7,12 @@ F of density > 55.01% has equidistributed root numbers (their Thm 6). By p-parit
 root number outside the density-zero set of curves with a rational 5-torsion point,
 so on F, d is even for half the curves and odd for the other half.
 
-This script proves, for EVERY distribution of d (no truncation), the two bounds
+This script proves, for EVERY distribution of d, the two bounds
     on F:            P(d <= 1) >= 7/8     given E[5^d] <= 6 and P(d odd) = 1/2,
     on F's complement: P(d <= 1) >= 19/24  given E[5^d] <= 6,
-via a pointwise dual certificate, shows both are tight for these inputs, and then
-combines them. It also states the bridge to family 002 at q = 5:
+via a pointwise dual certificate (checked for d <= 60; for d >= 3 the left side is
+>= 125 and the right side is constant), shows both are tight for these inputs, and then
+combines them. The same inputs reproduce Bhargava–Shankar's rank-0 figure, 20.62%. It also states the bridge to family 002 at q = 5:
     corank_{Z_5} Sel_{5^oo}(E) <= dim Sel_5(E) - dim E(Q)[5] <= dim Sel_5(E).
 
 Run: python3 scripts/review/nt9_density.py
@@ -65,6 +66,17 @@ def main() -> None:
     # A larger share for F only helps, since 7/8 > 19/24.
     assert good_F > good_C
     print("OK: lower density > 0.8375 with 5-Selmer dimension <= 1.")
+
+    # --- Corroboration: the same inputs give Bhargava–Shankar's rank-0 figure (Thm 5, 20.62%).
+    # On F, odd d costs >= 5, so even mass 1/2 = P(d=0) + P(d even >= 2) satisfies
+    # P(d=0) + 25 (1/2 - P(d=0)) <= AVG - 5/2, i.e. P_F(d=0) >= 3/8 (attained by the law above);
+    # on the complement d = 1 costs only 5 <= AVG, so nothing is forced there.
+    zero_F = (25 * Fr(1, 2) - (AVG - 5 * Fr(1, 2))) / 24
+    assert zero_F == Fr(3, 8) == tight_F[0]
+    rank0 = SHARE_F * zero_F
+    print(f"corroboration: P(dim Sel5 = 0) >= 0.5501*{zero_F} = {float(rank0):.5f}, "
+          "Bhargava-Shankar's 20.62% (Thm 5)")
+    assert Fr(2062, 10000) < rank0 < Fr(2063, 10000)
     print("Bridge: corank Sel_{5^oo} <= dim Sel_5 - dim E(Q)[5] <= dim Sel_5, so these curves")
     print("satisfy s_5(E) in {0,1}, the hypothesis of family 002's Theorem 1.1 at q = 5.")
 

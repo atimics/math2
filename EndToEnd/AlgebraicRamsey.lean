@@ -3,7 +3,7 @@ import OAI.Combinatorics.EuclideanRamsey.Main
 import OAI.Combinatorics.EuclideanRamsey.Spherical
 
 /-!
-# CL-1 end to end: no hypotheses left
+# CL-1 end to end: no unproved premise left
 
 This file composes our CL-1 proof with **OpenAI's own Lean proof** of family 172.
 
@@ -24,9 +24,11 @@ This file composes our CL-1 proof with **OpenAI's own Lean proof** of family 172
 
 So, given Lean and Mathlib, CL-1 is a theorem rather than a conditional. For a
 configuration with algebraic coordinates, at least two points and full affine span,
-being Euclidean Ramsey is equivalent to being spherical. One step is still not
-formalized: reducing an arbitrary algebraic configuration to a full-span algebraic
-representative (catalogue entry CL-1, step 1).
+being Euclidean Ramsey is equivalent to being spherical. Part of the reduction from an
+arbitrary algebraic configuration (catalogue entry CL-1, step 1) is still not
+formalized: scaling invariance, and a full-span representative with *algebraic*
+coordinates. Upstream's `full_affine_representative` re-embeds with
+`stdOrthonormalBasis`, which need not be algebraic.
 -/
 
 namespace EndToEnd

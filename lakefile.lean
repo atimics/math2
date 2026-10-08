@@ -23,6 +23,7 @@ lean_lib FidelityAlt where
 lean_lib UpstreamEuclideanRamsey where
   roots := #[`OAI.Combinatorics.EuclideanRamsey.Main,
     `OAI.Combinatorics.EuclideanRamsey.Spherical]
+  globs := #[.submodules `OAI.Combinatorics.EuclideanRamsey]
 
-/-- CL-1 end to end: our proof composed with OpenAI's proof of family 172, no hypotheses. -/
+/-- CL-1 end to end: our proof composed with OpenAI's proof of family 172, no unproved premises. -/
 lean_lib EndToEnd where
