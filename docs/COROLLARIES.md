@@ -6,6 +6,8 @@ Source corpus: [`openai/math@adc7f12`](https://github.com/openai/math/tree/adc7f
 
 "Unstated" means we grepped `CONTENTS.md`, `overview.tex`, the cited papers' text and `.tex` sources, and the Lean docs, and found nothing. It does **not** mean the result is new to the wider literature. Entries that are already known once the corpus input is granted say so.
 
+<a id="evidence-tiers"></a>
+
 ## Evidence tiers and review status
 
 | Tier | Meaning |
@@ -96,10 +98,12 @@ A summary table with counts is at the end.
   4. 002 at `p = 3` gives rank 1.
   5. The 3-isogeny `(x, y) ↦ ((x³+4k)/x², y(x³−8k)/x³)` and a rescaling carry this to `E_{−432,n}`.
 
+<a id="nt-9"></a>
+
 ### NT-9 · Full BSD formula for at least 83.75% of elliptic curves ordered by height · **D** · refereed
 - **Premises.**
   - 002 Exact-BSD Thm 1.1: "Let E/Q be an elliptic curve and let q be any prime. If s_q(E) ∈ {0,1}, then # Sha(E/Q) < ∞, r(E) = a(E) = s_q(E), and [the full leading-term formula] … There are no additional hypotheses on reduction, rational torsion, isogenies, complex multiplication, or residual Galois representations."
-  - Bhargava–Shankar (arXiv:1312.7859): at least 83.75% of curves have rank 0 or 1. Their method bounds "not just the rank but the 5-Selmer rank".
+  - Bhargava–Shankar (arXiv:1312.7859): at least 83.75% of curves have rank 0 or 1. Their method bounds "not just the rank but the 5-Selmer rank". Concretely, Propositions 38(b) and 40(b), with the proof of Theorems 3–5 (printed pp. 27–29), give lower density at least `0.5501 × 7/8 + 0.4499 × 19/24 > 0.8375` with 5-Selmer dimension at most one.
 - **Derivation.**
   1. Let `t = dim Sel₅ − dim E(ℚ)[5]`. Then `s₅ ≤ t`, `t ≡ s₅ (mod 2)` by Cassels–Tate, and `(−1)^{s₅} = w(E)` by Dokchitser–Dokchitser.
   2. Three inputs:
@@ -108,7 +112,7 @@ A summary table with counts is at the end.
      - `5^t ≥ 1 + 24·[t ≥ 2] + 4·[t odd]`.
   3. Together these give `P(t ≤ 1) ≥ 0.83750`, the 83.75% figure.
   4. Where `t ≤ 1`, we have `s₅ ≤ 1`, and 002 at `q = 5` gives the full formula, with no extra local conditions.
-- **Credit.** An external review proposed the 5-Selmer route; the referee checked 002's exact statement at `q = 5`.
+- **Credit.** An external review proposed the 5-Selmer route; the referee checked 002's exact statement at `q = 5`. The full write-up, with research implications, is [RP-4 in the research priorities](RESEARCH_PRIORITIES.md#rp-4-full-bsd-in-analytic-low-rank-and-a-height-density-consequence).
 - **Comparison.** Bhargava–Skinner–Zhang's 66.48% is for the BSD *rank* conjecture with finite Sha, not the leading-term formula.
 
 ### Already in the corpus or the literature (not counted as corollaries)

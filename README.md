@@ -58,6 +58,7 @@ of the 7/8 paper, so it would survive a flaw there.
 | Path | Contents |
 |---|---|
 | [`docs/COROLLARIES.md`](docs/COROLLARIES.md) | 48 entries mined from all 372 families, plus tension checks, each tagged **L** (Lean-checked conditional implication, 12), **D** (complete written derivation, 31) or **Lead** (research lead, 5), with referee status |
+| [`docs/RESEARCH_PRIORITIES.md`](docs/RESEARCH_PRIORITIES.md) | Six research-agenda consequences (RP-1 … RP-6) with written derivations, classical references and follow-up targets; RP-4 is the full derivation behind NT-9 |
 | `Corollaries/` | Lean library. Mathlib only, with OpenAI statements as hypotheses (`Hypotheses.lean`) |
 | `Fidelity/` | Kernel checks that those hypotheses equal OpenAI's own comparator types, plus applications to OpenAI's exact statements |
 | `Fidelity/Vendor/` | Byte-identical copies of fifteen `openai/math` comparator files (Apache-2.0, proofs are `sorry` upstream); CI diffs them against upstream |
