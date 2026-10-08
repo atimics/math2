@@ -28,7 +28,7 @@ failure. -/
 theorem directFiniteness_transfer (h : KaplanskyMainClaim) :
     ∃ (K : Type) (_ : Field K) (_ : Fintype K) (_ : CharP K 2),
       ∃ (G : Type) (_ : Group G) (_ : Group.FG G),
-        ∀ (L : Type) [Field L] (φ : K →+* L),
+        ∀ (L : Type) [Field L] (_ : K →+* L),
           ∃ a b : MonoidAlgebra L G, a * b = 1 ∧ b * a ≠ 1 := by
   obtain ⟨K, iK, fK, cK, G, iG, gG, a, b, hab, hba⟩ := h
   refine ⟨K, iK, fK, cK, G, iG, gG, fun L _ φ => ?_⟩

@@ -30,8 +30,8 @@ satisfies `β ≤ 7/8`. No primitivity or reality assumption is needed. -/
 theorem real_zero_le_seven_eighths (h : DirichletSevenEighths)
     {q : ℕ} [NeZero q] (χ : DirichletCharacter ℂ q) (hχ : χ ≠ 1)
     {β : ℝ} (hzero : χ.LFunction (β : ℂ) = 0) : β ≤ 7 / 8 := by
-  by_contra hlt
-  push_neg at hlt
+  by_contra hle
+  have hlt : (7 / 8 : ℝ) < β := not_le.mp hle
   exact h χ (s := (β : ℂ)) (by simpa using hlt) (fun hc => hχ hc.1) hzero
 
 /-- **The Landau–Siegel comparator statement, with an explicit constant.**

@@ -84,7 +84,7 @@ theorem kaplansky_transfer :
     OAI.KaplanskyCounterexample.MainClaim →
     ∃ (K : Type) (_ : Field K) (_ : Fintype K) (_ : CharP K 2),
       ∃ (G : Type) (_ : Group G) (_ : Group.FG G),
-        ∀ (L : Type) [Field L] (φ : K →+* L),
+        ∀ (L : Type) [Field L] (_ : K →+* L),
           ∃ a b : MonoidAlgebra L G, a * b = 1 ∧ b * a ≠ 1 :=
   Corollaries.directFiniteness_transfer
 
