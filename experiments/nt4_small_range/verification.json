@@ -1,0 +1,34 @@
+{
+  "original_proof_file_sha256": "5af6338cebae8668391467ac91fccb23e68402005930dd29c60a02897188445d",
+  "unchanged_sections_1_through_4_sha256": "925e117359371727f62f9e901981f2ff3ebc1c8eb6e547c5de91c7cf1c418e36",
+  "upstream_base_commit": "2c0f00528a8bb375d02bd48a513062254a53c285",
+  "verified_on": "2026-10-13",
+  "tests": {
+    "command": "python -m pytest -q experiments/nt4_small_range/test_checks.py",
+    "result": "13 passed in 3.08s"
+  },
+  "replay": {
+    "command": "python -m experiments.nt4_small_range.checks",
+    "matches": "checks.json",
+    "indicator_cases": 32896,
+    "binomial_cases": 256,
+    "negative_controls_rejected": 3
+  },
+  "mathematical_review": "review.md; separate AI review of the unchanged proof sections, not human peer review or formal verification",
+  "runtime": {
+    "python": "3.10.20",
+    "pytest": "9.1.1",
+    "checker_dependencies": "standard library"
+  },
+  "lean_rebuilt": false,
+  "source_zero_free_theorem_verified": false,
+  "file_sha256": {
+    "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "README.md": "00014be4cfcdb0acb440554261214d5fcba0d691d931454beb76bbfc5ade0272",
+    "checks.json": "94b47e69efdc02bd1775d0e51cfabd6df26d69289efa20ec3d97e5f6d851b502",
+    "checks.py": "428afe1c5e398114e7d2c2d8078c6de96103d02703a5e6df7e206414a0586d54",
+    "provenance.json": "0c823b9f596c2d110fbd294e947566a96fd2920f586c4adddb4ca20b508fd90e",
+    "review.md": "ed89fc72b553bb3cdcd22b819ea57e10b1d03d535c37146d02172c9d85b2e895",
+    "test_checks.py": "0ee468c0255a02c2b17345370387383e0ea71d467ba5225e3989ef9fa13e3501"
+  }
+}

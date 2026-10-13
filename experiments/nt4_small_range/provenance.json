@@ -1,0 +1,95 @@
+{
+  "status": "conditional proof-repair supplement proposed for upstream review",
+  "contributor": {
+    "name": "Alexander Richard Towell",
+    "github": "queelius",
+    "email": "lex@metafunctor.com"
+  },
+  "ai_assistance": {
+    "derivation_and_implementation": "OpenAI Codex",
+    "review": "separately tasked OpenAI Codex agent; not independent human peer review"
+  },
+  "local_base_commit": "f91481da76d2333eda3c3cc0709910c0a07bd66c",
+  "sources": [
+    {
+      "id": "math2_nt4",
+      "url": "https://raw.githubusercontent.com/atimics/math2/2c0f00528a8bb375d02bd48a513062254a53c285/docs/COROLLARIES.md",
+      "sha256": "9460ae40161cfafec9d6f81d84dff2a40a90de11f78581a821ac3d16fb6da959",
+      "bytes": 56554,
+      "retrieved_at_utc": "2026-10-13",
+      "repository": "atimics/math2",
+      "commit": "2c0f00528a8bb375d02bd48a513062254a53c285",
+      "path": "docs/COROLLARIES.md",
+      "scope": "NT-4 claim, documented x<q gap, and predecessor attribution",
+      "license": "Apache-2.0"
+    },
+    {
+      "id": "family003_theorem",
+      "url": "https://raw.githubusercontent.com/openai/math/fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb/preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex",
+      "sha256": "42a5ee0febca59fd1def55cfd6c6808c322ef4237d7726303ea52f711deac6a3",
+      "bytes": 766316,
+      "retrieved_at_utc": "2026-10-13",
+      "repository": "openai/math",
+      "commit": "fd4aeeb2ee4fc729c18d98444fed42fd0529eeeb",
+      "path": "preprints/The-Quasi-Riemann-Hypothesis-September-30-2026/build/paper.tex",
+      "git_blob_sha": "268c4e3206d460c617d3d2129742a72b831b3def",
+      "theorem_label": "thm:main",
+      "theorem_number": "1.1",
+      "scope": "statement inspected only; asserted zero-free region is an unverified hypothesis"
+    },
+    {
+      "id": "petrow_notes",
+      "url": "https://www.homepages.ucl.ac.uk/~ucahpet/IANTnotes2018.pdf",
+      "sha256": "92167c67f2d984adddb5e30173ad5b86cf3fbc585a1e2d264149137de798fbe0",
+      "bytes": 537072,
+      "retrieved_at_utc": "2026-10-13",
+      "author": "Ian Petrow",
+      "scope": "classical analytic inputs inspected: Theorem 6.14 p.52, Proposition 8.2 p.61, Proposition 8.6 p.64, Corollary 8.7 pp.64-65",
+      "normalization_difference": "Our completed function differs by the s-independent factor (q/pi)^(a/2).",
+      "redistributed": false
+    }
+  ],
+  "prior_art": [
+    {
+      "authors": [
+        "Youness Lamzouri",
+        "Xiannan Li",
+        "Kannan Soundararajan"
+      ],
+      "title": "Conditional bounds for the least quadratic non-residue and related problems",
+      "url": "https://arxiv.org/abs/1309.3595",
+      "scope": "modern GRH comparison and Ankeny-style precedent; no novelty claim",
+      "version": "arXiv:1309.3595v3",
+      "inspected_url": "https://arxiv.org/html/1309.3595v3"
+    }
+  ],
+  "unverified_inputs": [
+    "OpenAI family 003 zero-free theorem",
+    "OpenAI family 279 quantum factoring interface"
+  ],
+  "overlap_check": {
+    "checked_on": "2026-10-13",
+    "repository": "atimics/math2",
+    "source_commit": "2c0f00528a8bb375d02bd48a513062254a53c285",
+    "open_pull_requests": 0,
+    "closed_pull_requests": [
+      1,
+      2,
+      4,
+      5,
+      6
+    ],
+    "open_issue": 3,
+    "open_issue_scope": "unrelated cycle-double-cover research",
+    "relevant_overlap_found": false,
+    "refreshed_before_handoff_utc": "2026-10-13 18:33 UTC",
+    "unchanged_after_refresh": true
+  },
+  "verification_scope": "Written conditional proof plus separate AI review. Finite controls do not prove the analytic theorem.",
+  "random_seed": null,
+  "search_type": "deterministic proof attempt; fixed finite arithmetic controls",
+  "external_submission": null,
+  "upstream_base_commit": "2c0f00528a8bb375d02bd48a513062254a53c285",
+  "original_local_commit": "831cc723b75cdf64861875d0be20732f44ab4016",
+  "upstream_path": "experiments/nt4_small_range"
+}

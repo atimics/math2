@@ -1,0 +1,36 @@
+{
+  "analytic_theorem_verified_by_computation": false,
+  "arithmetic": "exact integers and fractions; no floating point",
+  "binomial_cases": 256,
+  "binomial_domain": {
+    "m_max": 256,
+    "m_min": 1
+  },
+  "binomial_relations_per_case": 4,
+  "indicator_cases": 32896,
+  "indicator_domain": {
+    "exponents": "every 0 <= k < order",
+    "order_max": 256,
+    "order_min": 1
+  },
+  "negative_controls": [
+    {
+      "counterexample": "indicator: order=2, exponent=1, observed=2, expected=1",
+      "name": "missing_indicator_normalization",
+      "rejected": true
+    },
+    {
+      "counterexample": "indicator: order=2, exponent=0, observed=1, expected=0",
+      "name": "unsigned_mobius_coefficients",
+      "rejected": true
+    },
+    {
+      "counterexample": "W(2)=0 < 2/512",
+      "name": "lower_bound_extended_to_x_2",
+      "rejected": true
+    }
+  ],
+  "random_seed": null,
+  "status": "passed",
+  "stopping_rule": "complete the stated finite domains"
+}

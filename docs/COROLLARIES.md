@@ -146,6 +146,9 @@ A summary table with counts is at the end.
 - 023 uses a prime-ideal Siegel–Walfisz whose cubic version is already effective; 026 uses Bombieri–Vinogradov.
 - Under 003 these inputs become effective. The papers say only that their constants "need not be effective". We have not checked whether any headline constant becomes effective.
 
+**Supplement for review.** The [small-range explicit-formula note](../experiments/nt4_small_range/README.md) supplies a conductor-uniform shifted-kernel argument for `x < q`, with the conditional nonresidue and least-primitive-root deductions, a separate AI mathematical review, and exact finite arithmetic controls. It does not verify family 003 or family 279, and does not change this entry's catalogue tier.
+
+
 ---
 
 ## Diophantine approximation
