@@ -1,0 +1,50 @@
+{
+  "status": "verified",
+  "source_certificate_sha256": "fb8503f1cc92725d9981dd3320e2556fa1dcf74a0ade94f77cca04c88cf5b98f",
+  "method": "Hamiltonian 2-factors and seven binary projection barriers",
+  "even_supports": 256,
+  "simple_cycles": 213,
+  "simple_cycle_length_counts": {
+    "6": 28,
+    "8": 21,
+    "10": 84,
+    "12": 56,
+    "14": 24
+  },
+  "perfect_matchings": 24,
+  "hamiltonian_matching_complements": 24,
+  "legal_first_moves": 199,
+  "distinct_first_flows": 199,
+  "original_nonempty_projections": 7,
+  "original_simple_projection_barriers": 1,
+  "first_flow_nonempty_projections": 1393,
+  "simple_projection_barriers": 739,
+  "disconnected_projections": 654,
+  "simple_projection_barriers_by_functional": {
+    "1": 92,
+    "2": 95,
+    "3": 95,
+    "4": 178,
+    "5": 95,
+    "6": 92,
+    "7": 92
+  },
+  "simple_projection_lengths": {
+    "6": 12,
+    "8": 12,
+    "10": 156,
+    "12": 343,
+    "14": 216
+  },
+  "disconnected_projection_component_lengths": [
+    {
+      "component_lengths": [
+        6,
+        6
+      ],
+      "count": 654
+    }
+  ],
+  "conclusion": "No flow obtainable by at most two legal simple-cycle XOR changes has a three-colorable affine palette.",
+  "discovery_palette_histogram_verified": false
+}

@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "source_certificate_sha256": "fb8503f1cc92725d9981dd3320e2556fa1dcf74a0ade94f77cca04c88cf5b98f",
+  "graph": {
+    "vertex_count": 14,
+    "edges": [
+      [
+        0,
+        8
+      ],
+      [
+        0,
+        10
+      ],
+      [
+        0,
+        12
+      ],
+      [
+        1,
+        7
+      ],
+      [
+        1,
+        10
+      ],
+      [
+        1,
+        11
+      ],
+      [
+        2,
+        9
+      ],
+      [
+        2,
+        10
+      ],
+      [
+        2,
+        13
+      ],
+      [
+        3,
+        7
+      ],
+      [
+        3,
+        8
+      ],
+      [
+        3,
+        9
+      ],
+      [
+        4,
+        8
+      ],
+      [
+        4,
+        11
+      ],
+      [
+        4,
+        13
+      ],
+      [
+        5,
+        7
+      ],
+      [
+        5,
+        12
+      ],
+      [
+        5,
+        13
+      ],
+      [
+        6,
+        9
+      ],
+      [
+        6,
+        11
+      ],
+      [
+        6,
+        12
+      ]
+    ]
+  },
+  "original_flow": [
+    1,
+    2,
+    3,
+    4,
+    6,
+    2,
+    1,
+    4,
+    5,
+    3,
+    7,
+    4,
+    6,
+    1,
+    7,
+    7,
+    5,
+    2,
+    5,
+    3,
+    6
+  ],
+  "status": "no_witness_in_complete_two_step_domain",
+  "ordering": "first cycle length/edges/vector, then second cycle length/edges/vector",
+  "random_seed": null,
+  "seconds_budget": 600,
+  "unique_flow_limit": null,
+  "simple_cycles": 213,
+  "legal_first_steps": 199,
+  "ordered_candidate_ceiling": 296709,
+  "stopping_reason": "domain_exhausted",
+  "ordered_candidates_visited": 296709,
+  "legal_two_step_sequences": 46837,
+  "unique_final_flows": 22637,
+  "duplicate_final_flows": 24200,
+  "minimum_palette_histogram": {
+    "4": 6550,
+    "5": 15118,
+    "6": 352,
+    "7": 617
+  },
+  "elapsed_seconds": 60.028673249995336
+}

@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "author": "Alexander Richard Towell",
+  "ai_assistance": "Substantial OpenAI Codex assistance; separate AI review, not human peer review.",
+  "date": "2026-10-15",
+  "scope": "All nowhere-zero F2^3 flows on the fixed labelled Petersen graph; no general CDC theorem assumed.",
+  "source_pins": {
+    "upstream_main": "2c0f00528a8bb375d02bd48a513062254a53c285",
+    "predecessor_PR8_head": "b729fce7015913751e8634b567b15ff5dc884cba",
+    "root_campaign_base": "07387305938fa9fa603bfc337bba3fb5b051ccae",
+    "source_record": "experiments/cdc/results.json: petersen-k6-palette"
+  },
+  "domain": {
+    "randomized": false,
+    "seed": null,
+    "chord_assignments_completed": 262144,
+    "nonzero_flows": 28560,
+    "linear_orbits": 170,
+    "linear_maps": 168,
+    "tree_choices_per_orbit": 512,
+    "edge_subsets_in_coverage_count": 32768,
+    "stopping_rule": "Complete the finite domain; no cutoff or sampled tail."
+  },
+  "checks": [
+    {
+      "command": "python -m experiments.cdc.all_flows",
+      "python": "3.12.3",
+      "exit_code": 0,
+      "elapsed_seconds": 0.977924
+    },
+    {
+      "command": "python -m unittest discover -s experiments/cdc -p test_*.py -v",
+      "python": "3.12.3",
+      "tests_passed": 39,
+      "elapsed_seconds": 10.479,
+      "exit_code": 0,
+      "legacy_MILP_integration": "passed with SciPy 1.18.0; new checker uses only stdlib"
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "cwd": "research workspace",
+      "python": "3.10.20",
+      "tests_passed": 162,
+      "subtests_passed": 5,
+      "elapsed_seconds": 11.19,
+      "exit_code": 0
+    },
+    {
+      "command": "python -O -m research.petersen_all_flows.flows",
+      "python": "3.10.20",
+      "exit_code": 0,
+      "elapsed_seconds": 1.076126
+    },
+    {
+      "command": "python research/petersen_all_flows/review_check.py",
+      "python": "3.12.3",
+      "exit_code": 0,
+      "method": "Direct edge conservation propagation, translation CSP, independent-set subset DP; no primary implementation import."
+    },
+    {
+      "command": "python -O research/petersen_all_flows/review_check.py",
+      "expected_exit_code": 1,
+      "exit_code": 1,
+      "reason": "Refuses disabled assertions."
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    }
+  ],
+  "controls": [
+    "omit a flow orbit",
+    "duplicate an orbit",
+    "omit one lift",
+    "nonconservative nonzero flow mutation",
+    "wrong translation",
+    "invalid coloring",
+    "invalid clique",
+    "changed source graph",
+    "CLI corrupted certificate fails with and without -O",
+    "theta multigraph direct enumeration:42 flows",
+    "all168 linear maps checked for bijection and every XOR identity"
+  ],
+  "coverage": {
+    "local_flows_py_combined_statement_branch_percent": 87,
+    "note": "Missing paths mainly CLI subprocess instrumentation and invalid-input path; public unittest separately exercised both CLI outcomes and invalid normalization values."
+  },
+  "independent_review": {
+    "status": "no remaining correctness findings",
+    "reviewer_type": "separately tasked AI agent",
+    "methods": [
+      "edge propagation for all flows",
+      "direct GL orbit partition",
+      "translation-domain constraint propagation",
+      "subset DP coloring"
+    ],
+    "source_fidelity_correction": "Issue3 proposes the broader direction, not explicitly this universal Petersen proposition; wording corrected."
+  },
+  "overlap_refresh": {
+    "upstream_unchanged": true,
+    "existing_PR8_head_unchanged": true,
+    "PR8_comments": 0,
+    "PR8_reviews": 0,
+    "other_open_PRs": [
+      7
+    ]
+  },
+  "limitations": [
+    "finite computation and written proof, not Lean",
+    "no theorem for other graphs",
+    "no claim of historical novelty",
+    "no new connected-cycle assertion",
+    "Lean not rebuilt locally; no Lean files changed"
+  ],
+  "certificate_canonical_sha256": "2b7d4aea03f3accca946667233fc28a477798b7481b50805378bfe2403f6ab9e",
+  "artifact_sha256": {
+    "all_flows.py": "5048673f155103a9ca1053b3f43d8022d18731d0e2fda125eb65e04952a2a379",
+    "all_flows.json": "11cf16b460bdd52e59872622b7ddd2124c2706fc69486df27ebe8e1007284622",
+    "all_flows_review.py": "b4f9ed75c5ad7a42887d395aa9a694240b3182695cf0b837b0d4b2df0ef6be62",
+    "test_all_flows.py": "42cf3f4f1021f01757b6dfaec589b731f3c0a305003ebcdc8954a8e11d8dea5f",
+    "ALL_FLOWS.md": "175006caa8cd6761c6743ced8220e23dd2d4691b2fadfd1512b49ab6b1b28e7c"
+  },
+  "original_results_sha256": "4b490dd0cebb45b1d0ea74dcc8ecff411636d2f429b639b0b11c78518aa569f8"
+}

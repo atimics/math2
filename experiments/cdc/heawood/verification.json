@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "author": "Alexander Richard Towell",
+  "ai_assistance": "Substantial OpenAI Codex assistance; separate AI review, not human peer review",
+  "source_pins": {
+    "upstream_main": "2c0f00528a8bb375d02bd48a513062254a53c285",
+    "predecessor_PR8_head": "efeba2be255592d39f690e3358d85c81601e4b01",
+    "root_visit_start": "b59e88401857680fdbe4af1a95322642bbde117b"
+  },
+  "status": "verified",
+  "mathematical_scope": "Specified Heawood nonzero flow: all lifts need seven colors; different flow has explicit three-label Eulerian cover. No general CDC theorem.",
+  "discovery": {
+    "seed": 5036646479930497797,
+    "seed_origin": "OS randomness",
+    "domain": "8^8 chord assignments for the fixed14-vertex graph, sampled with replacement then normalized under GL(3,2)",
+    "declared_limits": {
+      "distinct_flows": 512,
+      "chord_draws": 100000,
+      "initial_benchmark": 32
+    },
+    "completed_chord_draws": 12,
+    "completed_distinct_flows": 1,
+    "stopping_rule": "first independently verified all-lifts obstruction",
+    "full_flow_domain_exhausted": false,
+    "all_lifts_of_reported_flow_exhausted": true
+  },
+  "checks": [
+    {
+      "command": "python -m experiments.cdc.heawood.checker",
+      "exit_code": 0,
+      "methods": "Two complete8192-choice tree enumerations, explicit K7 cliques/colorings and different-flow comparator"
+    },
+    {
+      "command": "python experiments/cdc/heawood/review_check.py",
+      "exit_code": 0,
+      "methods": "Independent finite-domain arc propagation;2root-fixed and16unfixed solutions; imports no research code"
+    },
+    {
+      "command": "python -O -m experiments.cdc.heawood.checker",
+      "exit_code": 0
+    },
+    {
+      "command": "python -O experiments/cdc/heawood/review_check.py",
+      "expected_exit": "nonzero",
+      "actual_rejection": "Explicit guard refuses disabled assertions"
+    },
+    {
+      "command": "python -m unittest discover -s experiments/cdc -p 'test_*.py' -v",
+      "exit_code": 0,
+      "tests_passed": 46,
+      "elapsed_seconds": 12.227,
+      "note": "Complete CDC suite including existing SciPy MILP integration; before final additional input-consistency test"
+    },
+    {
+      "command": "python -m unittest experiments.cdc.heawood.test_checker -v",
+      "exit_code": 0,
+      "tests_passed": 8,
+      "note": "Final affected tests, including additional input-consistency check"
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q",
+      "exit_code": 0,
+      "tests_passed": 217,
+      "subtests_passed": 71,
+      "elapsed_seconds": 28.09,
+      "note": "Full workspace before final additional input-consistency test"
+    },
+    {
+      "command": ".venv/bin/python -m pytest -q research/heawood_fixed_flow",
+      "exit_code": 0,
+      "tests_passed": 14,
+      "subtests_passed": 9,
+      "note": "Final local packet; also verifies binary rank/nullspace certificate and search stopping conditions"
+    }
+  ],
+  "coverage": {
+    "checker_statement_percent": 83,
+    "search_statement_percent": 87,
+    "uncovered": "CLI entry points measured in separate subprocesses and executed successfully; all core function statements covered"
+  },
+  "controls": [
+    "wrong graph",
+    "nonconservative flow",
+    "omitted/duplicate lift",
+    "corrupt translation/pair",
+    "wrong clique/coloring/chromatic number",
+    "corrupt comparator",
+    "missing binary nullspace vector",
+    "CLI rejection under normal and optimized Python",
+    "independent checker refuses -O"
+  ],
+  "independent_review": {
+    "status": "no blocking findings after final public packaging review",
+    "kind": "separate AI, not human or kernel verification"
+  },
+  "overlap_refresh": {
+    "time": "2026-10-15T09:01:45Z",
+    "upstream_main_unchanged": true,
+    "PR8_head_unchanged": true,
+    "PR8_comments": 0,
+    "PR8_reviews": 0,
+    "issue3_coordination_comments": 0,
+    "other_open_PRs": [
+      7
+    ]
+  },
+  "certificate_canonical_sha256": "c373e04c9d5e4b78128b405d8101530e03602caedf9db3ff029bd66b5cfc234e",
+  "limitations": [
+    "Finite computation and written completeness proof, not Lean",
+    "One specified flow, not all Heawood flows",
+    "No graph minimality or historical novelty claim",
+    "No obstruction to unrestricted cover existence",
+    "No claim of connected label subgraphs",
+    "No Lean files changed; Lean not rebuilt"
+  ],
+  "command_failure_record": [
+    {
+      "command": "python3 -m experiments.cdc.heawood.checker",
+      "cwd": "math-research rather than destination clone",
+      "exit_code": 1,
+      "reason": "Wrong working directory; documented destination-root invocation then passed"
+    }
+  ],
+  "public_artifact_sha256": {
+    "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "NOTICE": "d92d80b38e2a0f547d42987928408ddc1eb789c5749cfe09195fa1af670e7bba",
+    "README.md": "a472bc7a83904e240582a862eea367890b920d0a401d8e34aafd1b066c5c3e82",
+    "__init__.py": "73c725472c81733728fcb8174b1dba9af09260924c2873230b92c0b0ebcec99c",
+    "benchmark.json": "02470528a0e9e1c99cddd593b577f58bd63c48503c2d5a0e0a23ba93f37a788d",
+    "certificate.json": "fb8503f1cc92725d9981dd3320e2556fa1dcf74a0ade94f77cca04c88cf5b98f",
+    "checker.py": "febd2834759ee0fc28efffdeb66a97a2297a427a33bc166398d8126091bac400",
+    "comparator.json": "1420531565a96de53b20051dd6ba63b324a9339bdf96e0897bb8ab817b1a1405",
+    "review.md": "62ff94dc69292201bf1b895ae6f96c9d2a1206137c078ae1f9408c0ab34ada3a",
+    "review_check.py": "96abf1aa229417cedb8fd4a2bb327522439afbe77784fd196aecc7626b7b8892",
+    "test_checker.py": "7fb9bb84a5722e241f7d8bfc9e64c0772d6922dcaef890bb09ebe37070373097",
+    "tree-result.json": "2203994f9044828cde57530ef5e49cfaca7134d11c313b369d29870938e76ff8"
+  }
+}

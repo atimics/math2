@@ -1,0 +1,15 @@
+Heawood fixed-flow affine-lift obstruction
+Copyright 2026 Alexander Richard Towell
+
+Developed with substantial OpenAI Codex assistance, including separate AI
+mathematical/software review. No human peer review or Lean verification claimed.
+
+The original Petersen K6 obstruction, affine-construction experiment and research
+direction are from atimics/math2, commit 2c0f00528a8bb375d02bd48a513062254a53c285,
+Apache-2.0. The existing fixed-flow checker is Towell's PR #8, commit
+b729fce7015913751e8634b567b15ff5dc884cba, reused and attributed. The Heawood
+graph here is defined directly as the classical Fano-plane incidence graph.
+
+The mathematical setting follows Sang-il Oum's CDC exposition, version 3,
+and the classical cycle-double-cover literature. This finite computation
+does not assume any general CDC existence theorem.

@@ -1,0 +1,179 @@
+{
+  "scope": "Explicit six-edge repair with a four-colorable affine palette",
+  "record": {
+    "cycle_edges": [
+      0,
+      1,
+      4,
+      5,
+      12,
+      13
+    ],
+    "delta": 4,
+    "flow": [
+      5,
+      6,
+      3,
+      4,
+      2,
+      6,
+      1,
+      4,
+      5,
+      3,
+      7,
+      4,
+      2,
+      5,
+      7,
+      7,
+      5,
+      2,
+      5,
+      3,
+      6
+    ],
+    "root_fixed_translations": [
+      [
+        0,
+        1,
+        2,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        0,
+        0,
+        1
+      ]
+    ],
+    "palette_chromatic_numbers": [
+      4
+    ],
+    "minimum_palette_chromatic_number": 4,
+    "best_lift": {
+      "translations": [
+        0,
+        1,
+        2,
+        0,
+        1,
+        1,
+        0,
+        0,
+        1,
+        2,
+        1,
+        0,
+        0,
+        1
+      ],
+      "pairs": [
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          5,
+          7
+        ],
+        [
+          3,
+          5
+        ],
+        [
+          6,
+          7
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          7
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          7
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          4
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          4,
+          6
+        ],
+        [
+          3,
+          6
+        ],
+        [
+          5,
+          6
+        ],
+        [
+          3,
+          5
+        ]
+      ],
+      "chromatic_number": 4,
+      "clique": [
+        3,
+        4,
+        6,
+        7
+      ],
+      "coloring": {
+        "3": 0,
+        "4": 1,
+        "5": 1,
+        "6": 2,
+        "7": 3
+      }
+    }
+  },
+  "girth": 6,
+  "minimum_changed_edges_among_distinct_conservative_flows": 6
+}

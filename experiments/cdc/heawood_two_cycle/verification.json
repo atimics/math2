@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "status": "verified",
+  "at": "2026-10-16T06:47:32.159556+00:00",
+  "contributor": "Alexander Richard Towell",
+  "ai_assistance": "Substantial OpenAI Codex assistance; one separately tasked AI reviewer, not human review",
+  "scope": "Minimum three legal simple-cycle XOR operations from the pinned Heawood obstruction to an affine palette with at most three colors",
+  "pins": {
+    "workspace_base": "24b5963eb91b148b038f1e1bd3d28088d8db09ea",
+    "math2_base": "2c0f00528a8bb375d02bd48a513062254a53c285",
+    "prior_pr8_head": "9ccdc1ab6bb02145fcef05d5cfbed13fd8cb5dfc",
+    "source_certificate_sha256": "fb8503f1cc92725d9981dd3320e2556fa1dcf74a0ade94f77cca04c88cf5b98f"
+  },
+  "environment": {
+    "local_python": "3.10.20",
+    "public_integration_python": "3.12.3",
+    "public_integration_scipy": "1.18.0",
+    "proof_checker_dependencies": "standard library only"
+  },
+  "checks": [
+    {
+      "command": "/usr/bin/python3 -m unittest discover -s experiments/cdc -p test_*.py -v",
+      "cwd": "math2",
+      "exit_code": 0,
+      "tests": 64,
+      "elapsed_seconds": 14.383,
+      "includes": "SciPy MILP integration and all predecessor CDC tests"
+    },
+    {
+      "command": "/usr/bin/python3 -m experiments.cdc.heawood_two_cycle.review_check",
+      "cwd": "math2",
+      "exit_code": 0,
+      "receipt_matches_local": true
+    },
+    {
+      "command": "/usr/bin/python3 -m experiments.cdc.heawood_two_cycle.witness",
+      "cwd": "math2",
+      "exit_code": 0,
+      "receipt_matches_local": true
+    }
+  ],
+  "core_unit_coverage": {
+    "covered_statements": 252,
+    "statements": 275,
+    "branches": 72,
+    "coverage_including_branches_percent_rounded": 93,
+    "details": "Local research packet unit-coverage.json; public adaptations differ only in source-directory paths",
+    "limits": "CLI success paths also tested separately; coverage measurement before discovery-only integration test added"
+  },
+  "independent_review": {
+    "report": "review.md",
+    "blocking_findings": 0,
+    "integration_finding": "Missing package initializer was added; ordinary pytest collection now passes"
+  },
+  "limitations": [
+    "Written proof plus exact finite computation, not kernel proof or human review",
+    "No arbitrary-flow or other-graph repair theorem",
+    "No minimum changed-edge-support result",
+    "Detailed discovery chromatic histogram is not checked by structural verifier",
+    "No full three-step search or historical novelty claim",
+    "Lean/vendored-source/workflow files unchanged; Lean not rebuilt"
+  ],
+  "overlap": {
+    "checked_at": "2026-10-16T06:44:15Z",
+    "pr8_comments": 0,
+    "pr8_reviews": 0,
+    "issue3_comments": 0,
+    "main_unchanged": true,
+    "existing_pr_head_unchanged": true,
+    "required_coordination_claim": false
+  },
+  "public_sha256": {
+    "README.md": "f4af797399c1c86d35b7985ae8687ff60ec25a8405bd20b8b59e3e9860cc1c76",
+    "search-result.json": "c984312b3a32e840780ec83202192c09fda0a01a8643b56dcf0eae58af398565",
+    "review_check.py": "735c3cb4333394ecc3056027a86e4b022270e82a22f59bfb8aba707c0bfdb6a9",
+    "LICENSE": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4",
+    "__init__.py": "e201e513d8e794ac71f25db36bbcc7f04bb75a715b7d3d479df62b27de941bcc",
+    "review.md": "bafb11b7bf8d725b34f0afbeda8897e7c32cd890e9969330e94db9bf9e1840c8",
+    "PROOF.md": "538f8b8087ed336c179fa514c788b5a37740fdfabb09175da850b109374b41ca",
+    "three-step-experiment.json": "625707ab3afe22fa64b0359fccd6ca4b8b717fe864162d5b7038e1a9f3d9a72b",
+    "test_witness.py": "853d21ce570c1dd31a31ac721912a485bbef1bab3db2f45db487769c100ebca7",
+    "NOTICE": "d4f42277d561c33a24d4717707c3edddc284f54adcb71a1f238193ef33511129",
+    "test_structural.py": "2ed2f0c1b8bb9dcb31014ab01afc55349685a454b3d198c90c77b1857a8719f4",
+    "structural-result.json": "fa929b8cd3a75a909e8f15c7bb777012de30b2ca129a55e9be63adc99ac3f863",
+    "witness-result.json": "c0dca12993e2e58c8470cf211ae48432b785a7695cffdad1c420b39df3a890ef",
+    "witness.py": "0cb927f645d9f06325d0d52b4c90d7040e546db9dc04e0ea966eabc7c5d469e7"
+  }
+}

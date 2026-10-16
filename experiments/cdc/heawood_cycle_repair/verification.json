@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "author": "Alexander Richard Towell",
+  "ai_assistance": "Substantial OpenAI Codex assistance; separately tasked AI reviewer, not human peer review",
+  "status": "verified",
+  "verification_started_at": "2026-10-15T10:01:20Z",
+  "source_pins": {
+    "root_base": "816134e957b57d7d5dafc67471b076dc7b0f8626",
+    "math2_main": "2c0f00528a8bb375d02bd48a513062254a53c285",
+    "previous_PR8_head": "8de7295f1eba30a82ec7c6e05585f1e71df88c4d",
+    "source_certificate_sha256": "fb8503f1cc92725d9981dd3320e2556fa1dcf74a0ade94f77cca04c88cf5b98f"
+  },
+  "scope": "All single-simple-cycle XOR changes of one specified Heawoodflow; minimum support six for repair to<=4, and no six-edge repair to3. No generalCDC or universalrepair theorem.",
+  "coverage": {
+    "binary_cycle_assignments": 256,
+    "simple_cycles": 213,
+    "admissible_changes": 199,
+    "completed_changes": 199,
+    "root_fixed_lifts": 374,
+    "minimum_palette_histogram": {
+      "4": 72,
+      "5": 96,
+      "7": 31
+    },
+    "complete": true,
+    "random_seed": null,
+    "stopping_rule": "Complete finite domain after first16benchmark predicted under5minute cost; no pivot needed"
+  },
+  "checks": [
+    {
+      "command": "python3 -m research.heawood_cycle_repair.search --output /tmp/heawood-cycle-reproduced.json",
+      "exit_code": 0,
+      "complete": true
+    },
+    {
+      "command": "python3 research/heawood_cycle_repair/checker.py --certificate /tmp/heawood-cycle-reproduced.json",
+      "exit_code": 0
+    },
+    {
+      "command": "python3 -O research/heawood_cycle_repair/checker.py",
+      "exit_code": 0,
+      "output_identical_to_normal": true
+    },
+    {
+      "command": ".venv/bin/python -m pytest research/heawood_cycle_repair --cov=research.heawood_cycle_repair --cov-report=term-missing -q",
+      "exit_code": 0,
+      "tests_passed": 8,
+      "subtests_passed": 20,
+      "note": "Before additional minimum-repair artifact consistency test"
+    },
+    {
+      "command": "/usr/bin/python3 -m unittest discover -s experiments/cdc -p test_*.py -v",
+      "cwd": "math2",
+      "exit_code": 0,
+      "tests_passed": 52,
+      "elapsed_seconds": 17.916,
+      "note": "Includes SciPy integration; before final extra artifact consistency test"
+    },
+    {
+      "command": "python3 -m unittest experiments.cdc.heawood_cycle_repair.test_checker -v",
+      "cwd": "math2",
+      "exit_code": 0,
+      "tests_passed": 6,
+      "subtests_passed": 20,
+      "elapsed_seconds": 5.82,
+      "note": "Final affected suite including explicit minimum-repair artifact consistency"
+    }
+  ],
+  "implementation_coverage": {
+    "independent_checker_statement_percent": 93,
+    "discovery_statement_percent": 85,
+    "uncovered": "CLI lines executed separately; source-pin and cost guards; cubic graph excludes degree>2 even supports"
+  },
+  "controls": [
+    "Missing or repeated cycle/change/lift",
+    "Nonconservative/zero/incorrect modified flow",
+    "Boolean delta and invalid translations",
+    "Wrong palette number, aggregate, shortest repair",
+    "Corrupt best pairs, clique and coloring",
+    "Changed source bytes and duplicateJSONkeys",
+    "Incomplete optimizedCLI certificate rejection",
+    "Odd-cycle coloring control separates chromatic and clique numbers"
+  ],
+  "independent_review": {
+    "status": "No blockers, including minimum-support and six-edge no3 corollaries",
+    "mechanisms": "Binary cycle-space enumeration, translation-domain propagation, independent-set DP",
+    "report": "review.md"
+  },
+  "failed_commands": [
+    {
+      "command": "python3 -m experiments.cdc.heawood_cycle_repair.checker",
+      "cwd": "math-research root",
+      "result": "ModuleNotFoundError; rerun in documented math2 root passed",
+      "classification": "Invocation directory error, no mathematical failure"
+    },
+    {
+      "command": "python3 -m unittest experiments.cdc.heawood_cycle_repair.test_checker -v",
+      "cwd": "math-research root",
+      "result": "Wrong invocation directory; documented math2-root rerun passed all6tests",
+      "classification": "Invocation error, no mathematical failure"
+    }
+  ],
+  "limits": [
+    "No complete Heawood flow classification",
+    "No two-cycle search",
+    "No optimal three-color repair distance for larger supports",
+    "No formal or human verification"
+  ],
+  "public_checker_sha256": "f53287501fc03162da4a03027fa777460da42cf75c0afa78a2b7ad48950510b4",
+  "local_artifact_sha256": {
+    "certificate.json": "3a157035a28f7118aba0ecd65c4a5b41ed11529278eec878e364b74900d9d174",
+    "minimum-repair.json": "111957daaba7c0447a44ca25a9ab80256d27c8a27542fa972bd4e792c8f0eb26",
+    "checker.py": "923d5e6150edc65934ab2c5404378a714932a30c5496d687f72fe527c879492e",
+    "search.py": "28adde29cd39139c4e337d905f9571a6424a4c28b815b08f3ffd5d84f594cb32"
+  },
+  "overlap_refresh": {
+    "time": "2026-10-15T10:14:45Z",
+    "main_unchanged": true,
+    "PR8_head_unchanged": true,
+    "PR8_comments": 0,
+    "PR8_reviews": 0,
+    "issue3_claims": 0,
+    "required_coordination_claim": false
+  },
+  "public_artifact_sha256": {
+    "checker.py": "f53287501fc03162da4a03027fa777460da42cf75c0afa78a2b7ad48950510b4",
+    "certificate.json": "3a157035a28f7118aba0ecd65c4a5b41ed11529278eec878e364b74900d9d174",
+    "test_checker.py": "e87b319a64a4324a6bb1f41e5b9199019397e6f4bee5450c0999ae24bb99ae62",
+    "minimum-repair.json": "111957daaba7c0447a44ca25a9ab80256d27c8a27542fa972bd4e792c8f0eb26"
+  }
+}

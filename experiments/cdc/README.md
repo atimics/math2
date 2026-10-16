@@ -111,6 +111,19 @@ The Python verifier is an executable check, not Lean kernel verification.
 
 ## Next lemma to pursue
 
+The [fixed-flow follow-up](AFFINE_LIFTS.md) exhausts every affine lift of the
+specified alternative Petersen flow. Besides the recorded `K6` witness it
+finds a `K5` witness giving five individual cycles, without changing the flow.
+It includes a standalone checker, exact output, and failure controls.
+
+The [complete Petersen follow-up](ALL_FLOWS.md) now covers all 28,560 nonzero
+F2^3 flows on that labelled graph, partitioned into 170 linear-relabelling
+orbits. Every flow has a literal five-label affine lift. Its exact certificate
+records all representative lifts; independent inclusion-exclusion checks flow
+coverage, and explicit clique/coloring witnesses certify each palette.
+Replay with `python -m experiments.cdc.all_flows`. This remains a finite
+Petersen result, not a general five-cover theorem.
+
 The K6 witness rules out an algorithm that only merges one supplied palette.
 A useful next investigation is whether changing the flow or affine lift can
 always find a five-colorable palette in a specified graph class, or whether
@@ -119,3 +132,9 @@ and a successful five-cover when testing a proposed transformation.
 
 No universal five-cover statement, new complexity bound, or change to math2's
 cross-family Lean catalogue follows from these finite experiments.
+
+The [Heawood fixed-flow obstruction](heawood/README.md) gives a boundary to the Petersen result: one explicit nonzero flow has exactly two root-fixed lifts, both with K7 palettes, while a different flow on the same graph yields a checked three-label Eulerian double cover.
+
+The [single-cycle Heawood repair classification](heawood_cycle_repair/README.md) checks all 199 admissible cycle changes of that obstructing flow. Of these, 168 admit at most five palette colors, with a minimum-support six-edge repair. No single-cycle change, and therefore no six-edge conservative change, admits three colors; unrestricted larger changes remain outside this classification.
+
+The [exact three-operation Heawood repair](heawood_two_cycle/README.md) now resolves the next local-repair question: no two legal simple-cycle XOR changes can reach a three-colorable affine palette, while an explicit three-step sequence does. A structural reduction to rank-two flows and 1,393 binary projections independently checks the lower bound.

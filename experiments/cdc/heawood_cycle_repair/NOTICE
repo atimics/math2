@@ -1,0 +1,17 @@
+Heawood one-cycle flow repair certificate
+Copyright 2026 Alexander Richard Towell
+
+Developed with substantial OpenAI Codex assistance, including a separately
+tasked read-only mathematical reviewer who supplied an independent checker.
+AI review is not human peer review or formal kernel verification.
+
+This packet follows atimics/math2 issue3 and the existing CDC experiments at
+commit2c0f00528a8bb375d02bd48a513062254a53c285. The primary generator reuses
+Alexander Richard Towell's exact binary affine solver and palette verifier,
+originally recorded in the Petersen and Heawood research packets. Their
+attribution and Apache-2.0 license are retained.
+
+The affine construction follows Sang-il Oum's CDC exposition, sections5-7,
+https://arxiv.org/html/2607.16356v3, as cited by math2's experiment.
+This finite local-change classification is not a claim of a new CDC theorem
+or historical priority for the cycle-perturbation mechanism.

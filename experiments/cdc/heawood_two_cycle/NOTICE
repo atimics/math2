@@ -1,0 +1,12 @@
+Exact cycle-operation distance for the specified Heawood flow
+Copyright 2026 Alexander Richard Towell
+
+Developed with substantial OpenAI Codex assistance, including separately tasked
+AI mathematical/software review. No human peer review or Lean verification claimed.
+
+The underlying affine construction and research direction come from atimics/math2
+at 2c0f00528a8bb375d02bd48a513062254a53c285, Apache-2.0, and Sang-il Oum's CDC
+exposition (version 3). The fixed Heawood obstruction and rank-two comparator
+are from Towell's earlier PR8 packets. The immediate predecessor contribution
+is 9ccdc1ab6bb02145fcef05d5cfbed13fd8cb5dfc. Existing attribution is retained.
+The graph is defined as the classical Fano-plane incidence graph.
